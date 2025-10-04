@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gitnang Panahon</title>
+
+        <!-- REMIXICONS -->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="try.css">
+    </head>
+
+    <body>
+        <!-- HEADER START-->
+         <button class="trigger-btn" onclick="openPopup()">Open Popup</button>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay" onclick="closePopupOnOverlay(event)">
+        <div class="popup-container">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            
+            <div class="popup-photo">
+                <img src="images/mascots/boy/b1.webp" alt="Popup Image">
+            </div>
+            
+            <div class="popup-description">
+                <h2>TUTORIAL</h2>
+                <p>Nais mo bang ipaliwanag ko sayo kung paano gamitin ang websayt na ito?</p>
+                
+                <!-- Action buttons -->
+                <div class="popup-buttons">
+                    <button class="popup-btn proceed-btn" onclick="window.location.href='pambungad.html'">Hindi</button>
+                    <button class="popup-btn proceed-btn" onclick="window.location.href='walkthrough-lg.html'">Oo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+         
+
+    <!-- JS FILES -->
+    <script src="try.js"></script>
+
+    </body>
+</html>
