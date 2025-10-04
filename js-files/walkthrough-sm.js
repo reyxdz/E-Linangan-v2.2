@@ -19,10 +19,16 @@ function playSound() {
 }
 
 function createIndicators() {
-    for (let i = 0; i < totalSlides; i++) {
+    indicatorContainer.innerHTML = '';
+    const maxVisible = 5;
+    const startIndex = Math.max(0, Math.min(currentSlide - 2, totalSlides - maxVisible));
+    const endIndex = Math.min(startIndex + maxVisible, totalSlides);
+    
+    for (let i = startIndex; i < endIndex; i++) {
         const indicator = document.createElement('div');
         indicator.className = 'indicator';
-        if (i === 0) indicator.classList.add('active');
+        indicator.dataset.index = i;
+        if (i === currentSlide) indicator.classList.add('active');
         indicator.addEventListener('click', () => {
             playSound();
             currentSlide = i;
@@ -39,9 +45,8 @@ function updateCarousel() {
         slide.classList.toggle('active', i === currentSlide);
     });
 
-    indicators.forEach((indicator, i) => {
-        indicator.classList.toggle('active', i === currentSlide);
-    });
+    // Recreate indicators to show current range
+    createIndicators();
 
     prevBtn.disabled = currentSlide === 0;
 }

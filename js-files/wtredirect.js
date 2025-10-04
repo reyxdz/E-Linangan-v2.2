@@ -3,7 +3,7 @@ function redirectBasedOnScreenSize() {
     const screenWidth = window.innerWidth;
     const currentPage = window.location.pathname;
     
-    if (screenWidth <= 768) {
+    if (screenWidth <= 1000) {
         // Mobile screen
         if (!currentPage.includes('walkthrough-sm.html')) {
             window.location.href = 'walkthrough-sm.html';
