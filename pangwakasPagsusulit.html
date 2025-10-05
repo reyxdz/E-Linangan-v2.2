@@ -5,57 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pangwakas na Pagsusulit</title>
     <link rel="stylesheet" href="css-files/pangwakasPagsusulit.css">
+    <link rel="stylesheet" href="css-files/preloader.css">
 </head>
 <body>
-    <div class="container">
-        <div class="game-header">
-            <h1 class="game-title">Pangwakas na Pagsusulit</h1>
-            <p class="game-subtitle">Sukatin natin ang iyong kaalaman!</p>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
         </div>
-        
-        <div class="quiz-container" id="quizContainer">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div id="loadercontent">
+        <div class="container">
+            <div class="game-header">
+                <h1 class="game-title">Pangwakas na Pagsusulit</h1>
+                <p class="game-subtitle">Sukatin natin ang iyong kaalaman!</p>
             </div>
             
-            <div class="question-container" id="questionContainer">
-                <div class="question-number" id="questionNumber">Tanong 1 sa 1</div>
-                <div class="question-text" id="questionText">
-                    In medieval times, what was the primary weapon used by knights in mounted combat?
+            <div class="quiz-container" id="quizContainer">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
                 </div>
                 
-                <div class="answers-grid" id="answersGrid">
-                    <div class="answer-option" data-answer="0">
-                        <div class="answer-text">Sword</div>
+                <div class="question-container" id="questionContainer">
+                    <div class="question-number" id="questionNumber">Tanong 1 sa 1</div>
+                    <div class="question-text" id="questionText">
+                        In medieval times, what was the primary weapon used by knights in mounted combat?
                     </div>
-                    <div class="answer-option" data-answer="1">
-                        <div class="answer-text">Lance</div>
+                    
+                    <div class="answers-grid" id="answersGrid">
+                        <div class="answer-option" data-answer="0">
+                            <div class="answer-text">Sword</div>
+                        </div>
+                        <div class="answer-option" data-answer="1">
+                            <div class="answer-text">Lance</div>
+                        </div>
+                        <div class="answer-option" data-answer="2">
+                            <div class="answer-text">Crossbow</div>
+                        </div>
+                        <div class="answer-option" data-answer="3">
+                            <div class="answer-text">Mace</div>
+                        </div>
                     </div>
-                    <div class="answer-option" data-answer="2">
-                        <div class="answer-text">Crossbow</div>
-                    </div>
-                    <div class="answer-option" data-answer="3">
-                        <div class="answer-text">Mace</div>
-                    </div>
+                </div>
+                
+                <div class="controls">
+                    <div class="score-display" id="scoreDisplay">Iskor: 0</div>
+                    <button class="btn" id="submitBtn" disabled>Ipasa</button>
+                    <button class="btn" id="nextBtn" style="display: none;">Sumunod</button>
                 </div>
             </div>
             
-            <div class="controls">
-                <div class="score-display" id="scoreDisplay">Iskor: 0</div>
-                <button class="btn" id="submitBtn" disabled>Ipasa</button>
-                <button class="btn" id="nextBtn" style="display: none;">Sumunod</button>
+            <div class="game-over" id="gameOver" style="display: none;">
+                <div class="final-score" id="finalScore">Ang Iyong Huling Iskor: 0/1</div>
+                <div class="game-over-message" id="gameOverMessage">
+                    Magiting na mandirigma, mahusay ang iyong pakikipaglaban! Patuloy ang iyong paglalakbay tungo sa karunungan...
+                </div>
+                <a href="pambungad3.html"><button class="btn" id="restartBtn">Pumasyal</button></a>
             </div>
-        </div>
-        
-        <div class="game-over" id="gameOver" style="display: none;">
-            <div class="final-score" id="finalScore">Ang Iyong Huling Iskor: 0/1</div>
-            <div class="game-over-message" id="gameOverMessage">
-                Magiting na mandirigma, mahusay ang iyong pakikipaglaban! Patuloy ang iyong paglalakbay tungo sa karunungan...
+
+            <div id="explanationPopup" class="explanation-popup">
+                <div class="explanation-content">
+                    <h3>Paliwanag</h3>
+                    <p id="explanationText"></p>
+                    <button class="btn" id="continueBtn">Magpatuloy</button>
+                </div>
             </div>
-            <a href="pambungad3.html"><button class="btn" id="restartBtn">Pumasyal</button></a>
         </div>
     </div>
 
     <script src="js-files/pangwakasPagsusulit.js"></script>
+    <script src="js-files/preloader.js"></script>
 </body>
 </html>

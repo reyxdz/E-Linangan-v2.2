@@ -10,206 +10,219 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css-files/style.css">
     <link rel="stylesheet" href="css-files/aralin.css">
+    <link rel="stylesheet" href="css-files/preloader.css">
 </head>
 <body>
-     <!-- HEADER START-->
-     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="pambungad.html" class="nav_logo">E-LINANGAN</a>
-
-            <div class="nav_menu" id="nav-menu">
-                <ul class="nav_list">
-                    <li class="nav_item">
-                        <a href="pambungad.html" class="nav_link">
-                            <i class="ri-arrow-right-up-line"></i>
-                            <span>Pambungad</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_item dropdown">
-                        <a href="#" class="nav_link dropdown-toggle" id="nilalaman-toggle">
-                            <i class="ri-arrow-right-up-line"></i>
-                            <span>Nilalaman</span>
-                            <i class="ri-arrow-down-s-line dropdown-arrow"></i>
-                        </a>
-
-                        <ul class="dropdown-menu" id="nilalaman-dropdown">
-                            <li><a href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
-                            <li><a href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
-                            <li><a href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
-                            <li><a href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
-                            <li><a href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            <!-- CLOSE BUTTON START -->
-            <div class="nav_close" id="nav-close">
-                <i class="ri-close-large-line"></i>
-             </div>
-            <!-- CLOSE BUTTON END -->
-            </div>
-
-            <!-- TOOGLE BUTTON START -->
-            <div class="nav_toggle" id="nav-toggle">
-                <i class="ri-menu-2-line"></i>
-             </div>
-            <!-- TOOGLE BUTTON END -->
-        </nav>
-     </header>
-    <!-- HEADER END -->
-
-    <div class="lesson-container">
-        <div class="decorative-elements">
-            🏛️⚔️🛡️
-        </div>
-
-        <header class="lesson-header">
-            <h1 class="lesson-title">Aralin 2: Manoryalismo</h1>
-        </header>
-
-        <section class="content">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/D1NMm5dI9Lc" title="Roman Empire Fall" allowfullscreen></iframe>
-            </div>
-            
-            <p>Ang <b>manoryalismo</b> ang umiiral na sistemang pang-ekonomiya noong Gitnang Panahon. Halos lahat ng mga kalakal at serbisyo na kailangan ng tao ay ginawa sa mga lupain o <b><i>manor</i></b> ng mga maharlika o makapangyarihang panginoon. Nabuo ang sistemang manoryal sa panahong ang mga bayan sa Europa ay kakaunti at maliliit pa. Dahil nahinto ang kalakalan sa iba’t ibang bahagi ng Imperyong Roman, ang malaking bahagi ng populasyon ng Kanlurang Europa ay umaasa sa mga manor ng maharlika.</p>
-        
-            <div class="photo-container">
-                <img src="images/aralin2fig1.jpg">
-            </div>
-
-            <p>Ang isang manor ay karaniwang binubuo ng isang <b><i>manor house</i></b>> o kastilyo, kabukiran at pastulan, at mga gusali ng pamayanan- simbahan, mga pagawaan, tirahan ng mga serf, gilingan ng trigo, at lutuan ng mga tinapay.</p>
-            <p>Karaniwang may kakayahang makapagsarili ang mga manor lalo’t pagdating sa pakikipagkalakalan. Ang pagsasaka sa manor ang ikinabubuhay ng mga naninirahan dito. Sila ay nagtatanim at nag-aalaga ng mga hayop upang maging pagkain, nangangala ng balahibo ng tupa (wool) upang gawing damit, nagkukulti ng mga balat upang maging sapatos, at nangunguha ng troso upang gawing kasangkapan sa bahay at sa mga gusali.</p>
-            <p>Subalit ilan sa mga mahahalagang sangkap tulad ng asin na siyang ginagamit upang mapreserba ang mga pagkain at pampalasa, at ang bakal na siyang kailangan para sa paggawa ng mga kasangkapan at sandata ay kinukuha pa sa ibang lugar. Nakasalalay sa manor kung ano ang mga gagawin at ang mga serf naman ang magsasagawa nito.</p>
-        </section>
-
-        <div class="scroll-indicator" onclick="scrollToTop()">
-            <i class="fas fa-arrow-up"></i>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
         </div>
     </div>
 
-    <!-- Popup Modals -->
-    <div id="popup-overlay" class="popup-overlay" onclick="closePopup()">
-        <div class="popup-content" onclick="event.stopPropagation()">
-            <button class="close-popup" onclick="closePopup()">&times;</button>
-            <h3 id="popup-title" class="popup-header"></h3>
+    <div id="loadercontent">
+        <!-- HEADER START-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="pambungad.html" class="nav_logo">E-LINANGAN</a>
+
+                <div class="nav_menu" id="nav-menu">
+                    <ul class="nav_list">
+                        <li class="nav_item">
+                            <a href="pambungad.html" class="nav_link">
+                                <i class="ri-arrow-right-up-line"></i>
+                                <span>Pambungad</span>
+                            </a>
+                        </li>
+
+                        <li class="nav_item dropdown">
+                            <a href="#" class="nav_link dropdown-toggle" id="nilalaman-toggle">
+                                <i class="ri-arrow-right-up-line"></i>
+                                <span>Nilalaman</span>
+                                <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+                            </a>
+
+                            <ul class="dropdown-menu" id="nilalaman-dropdown">
+                                <li><a href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
+                                <li><a href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
+                                <li><a href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
+                                <li><a href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
+                                <li><a href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                <!-- CLOSE BUTTON START -->
+                <div class="nav_close" id="nav-close">
+                    <i class="ri-close-large-line"></i>
+                </div>
+                <!-- CLOSE BUTTON END -->
+                </div>
+
+                <!-- TOOGLE BUTTON START -->
+                <div class="nav_toggle" id="nav-toggle">
+                    <i class="ri-menu-2-line"></i>
+                </div>
+                <!-- TOOGLE BUTTON END -->
+            </nav>
+        </header>
+        <!-- HEADER END -->
+
+        <div class="lesson-container">
+            <div class="decorative-elements">
+                🏛️⚔️🛡️
+            </div>
+
+            <header class="lesson-header">
+                <h1 class="lesson-title">Aralin 2: Manoryalismo</h1>
+            </header>
+
+            <section class="content">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/D1NMm5dI9Lc" title="Roman Empire Fall" allowfullscreen></iframe>
+                </div>
+                
+                <p>Ang <b>manoryalismo</b> ang umiiral na sistemang pang-ekonomiya noong Gitnang Panahon. Halos lahat ng mga kalakal at serbisyo na kailangan ng tao ay ginawa sa mga lupain o <b><i>manor</i></b> ng mga maharlika o makapangyarihang panginoon. Nabuo ang sistemang manoryal sa panahong ang mga bayan sa Europa ay kakaunti at maliliit pa. Dahil nahinto ang kalakalan sa iba’t ibang bahagi ng Imperyong Roman, ang malaking bahagi ng populasyon ng Kanlurang Europa ay umaasa sa mga manor ng maharlika.</p>
             
-            <!-- Enhanced Image Container -->
-            <div id="popup-image-container" class="popup-image-container">
-                <img id="popup-image" class="popup-image" src="" alt="Historical Image" style="display: none;">
-                <div id="image-placeholder" class="image-placeholder">
-                    <i class="fas fa-image"></i>
-                    <div class="image-placeholder-text">Walang available na larawan</div>
+                <div class="photo-container">
+                    <img src="images/aralin2fig1.jpg">
+                </div>
+
+                <p>Ang isang manor ay karaniwang binubuo ng isang <b><i>manor house</i></b>> o kastilyo, kabukiran at pastulan, at mga gusali ng pamayanan- simbahan, mga pagawaan, tirahan ng mga serf, gilingan ng trigo, at lutuan ng mga tinapay.</p>
+                <p>Karaniwang may kakayahang makapagsarili ang mga manor lalo’t pagdating sa pakikipagkalakalan. Ang pagsasaka sa manor ang ikinabubuhay ng mga naninirahan dito. Sila ay nagtatanim at nag-aalaga ng mga hayop upang maging pagkain, nangangala ng balahibo ng tupa (wool) upang gawing damit, nagkukulti ng mga balat upang maging sapatos, at nangunguha ng troso upang gawing kasangkapan sa bahay at sa mga gusali.</p>
+                <p>Subalit ilan sa mga mahahalagang sangkap tulad ng asin na siyang ginagamit upang mapreserba ang mga pagkain at pampalasa, at ang bakal na siyang kailangan para sa paggawa ng mga kasangkapan at sandata ay kinukuha pa sa ibang lugar. Nakasalalay sa manor kung ano ang mga gagawin at ang mga serf naman ang magsasagawa nito.</p>
+            </section>
+
+            <div class="scroll-indicator" onclick="scrollToTop()">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+        </div>
+
+        <!-- Popup Modals -->
+        <div id="popup-overlay" class="popup-overlay" onclick="closePopup()">
+            <div class="popup-content" onclick="event.stopPropagation()">
+                <button class="close-popup" onclick="closePopup()">&times;</button>
+                <h3 id="popup-title" class="popup-header"></h3>
+                
+                <!-- Enhanced Image Container -->
+                <div id="popup-image-container" class="popup-image-container">
+                    <img id="popup-image" class="popup-image" src="" alt="Historical Image" style="display: none;">
+                    <div id="image-placeholder" class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <div class="image-placeholder-text">Walang available na larawan</div>
+                    </div>
+                </div>
+                
+                <div id="popup-body" class="popup-body"></div>
+            </div>
+        </div>
+
+        <!----- GAME HEADER STARTS -->
+        <div class="gameHeader-container">
+            <h1 id="gameHeader-logo">PALARO</h1>
+        </div>
+        <!----- GAME HEADER ENDS  -->
+
+        <!-- GAME CONTAINER START -->
+        <div class="games-container">
+            <div class="games-scroll-container">
+                <button class="scroll-button scroll-left" onclick="scrollGames('left')">‹</button>
+                <button class="scroll-button scroll-right" onclick="scrollGames('right')">›</button>
+                
+                <div class="games-wrapper" id="gamesWrapper">
+                    <a href="https://wordwall.net/tl/embed/4e3d896301e94f5087c6dca21476b913?themeId=52&templateId=5&fontStackId=0" class="game-card" target="blank">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a2_multiplechoice.webp" alt="Maramihang Pagpipilian" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Pagsusulit</div>
+                            <div class="game-genre">Quiz</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/0ed5fce794dc4165832e412d225c4e66?themeId=52&templateId=30&fontStackId=0" class="game-card" target="blank">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a2_openthebox.webp" alt="Open the Box" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Buksan ang Kahon</div>
+                            <div class="game-genre">Open the Box</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/c9824d360f5c402c8b78743fc56402c8?themeId=52&templateId=8&fontStackId=0" class="game-card" target="blank">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a2_spinthewheel.webp" alt="Spin The Wheel" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Paikutin ang Roleta</div>
+                            <div class="game-genre">Spin the Wheel</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/db36d1796a0a495ca060287af5e7297e?themeId=52&templateId=46&fontStackId=0" class="game-card">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a2_findthematch.webp" alt="Find the Match" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Hanapin ang Tugma</div>
+                            <div class="game-genre">Find the Match</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/40ead7123668453aa105a1d47c83eaf3?themeId=52&templateId=25&fontStackId=0" class="game-card">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a2_matchingpairs.webp" alt="Anagram" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Magkatugmang Pares</div>
+                            <div class="game-genre">Matching Pairs</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/fcfb4e917b724721860342dbbbbd2cc6?themeId=52&templateId=3&fontStackId=0" class="game-card">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a2_matchup.webp" alt="Flash Cards" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Pag-uugnay</div>
+                            <div class="game-genre">Match Up</div>
+                        </div>
+                    </a>
                 </div>
             </div>
-            
-            <div id="popup-body" class="popup-body"></div>
         </div>
-    </div>
+        <!-- GAME CONTAINER END -->
 
-    <!----- GAME HEADER STARTS -->
-    <div class="gameHeader-container">
-        <h1 id="gameHeader-logo">PALARO</h1>
-    </div>
-    <!----- GAME HEADER ENDS  -->
+        <div class="button-container">
+            <!-- From Uiverse.io by zymantas-katinas --> 
+            <a href="aralin1.html">
+                <button class="button">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <div class="front">
+                    <span>↩ Bumalik</span>
+                </div>
+                </button>
+            </a>
 
-    <!-- GAME CONTAINER START -->
-    <div class="games-container">
-        <div class="games-scroll-container">
-            <button class="scroll-button scroll-left" onclick="scrollGames('left')">‹</button>
-            <button class="scroll-button scroll-right" onclick="scrollGames('right')">›</button>
-            
-            <div class="games-wrapper" id="gamesWrapper">
-                <a href="https://wordwall.net/tl/embed/4e3d896301e94f5087c6dca21476b913?themeId=52&templateId=5&fontStackId=0" class="game-card" target="blank">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a2_multiplechoice.webp" alt="Maramihang Pagpipilian" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Pagsusulit</div>
-                        <div class="game-genre">Quiz</div>
-                    </div>
-                </a>
-
-                <a href="https://wordwall.net/tl/embed/0ed5fce794dc4165832e412d225c4e66?themeId=52&templateId=30&fontStackId=0" class="game-card" target="blank">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a2_openthebox.webp" alt="Open the Box" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Buksan ang Kahon</div>
-                        <div class="game-genre">Open the Box</div>
-                    </div>
-                </a>
-
-                <a href="https://wordwall.net/tl/embed/c9824d360f5c402c8b78743fc56402c8?themeId=52&templateId=8&fontStackId=0" class="game-card" target="blank">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a2_spinthewheel.webp" alt="Spin The Wheel" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Paikutin ang Roleta</div>
-                        <div class="game-genre">Spin the Wheel</div>
-                    </div>
-                </a>
-
-                <a href="https://wordwall.net/tl/embed/db36d1796a0a495ca060287af5e7297e?themeId=52&templateId=46&fontStackId=0" class="game-card">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a2_findthematch.webp" alt="Find the Match" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Hanapin ang Tugma</div>
-                        <div class="game-genre">Find the Match</div>
-                    </div>
-                </a>
-
-                <a href="https://wordwall.net/tl/embed/40ead7123668453aa105a1d47c83eaf3?themeId=52&templateId=25&fontStackId=0" class="game-card">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a2_matchingpairs.webp" alt="Anagram" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Magkatugmang Pares</div>
-                        <div class="game-genre">Matching Pairs</div>
-                    </div>
-                </a>
-
-                <a href="https://wordwall.net/tl/embed/fcfb4e917b724721860342dbbbbd2cc6?themeId=52&templateId=3&fontStackId=0" class="game-card">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a2_matchup.webp" alt="Flash Cards" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Pag-uugnay</div>
-                        <div class="game-genre">Match Up</div>
-                    </div>
-                </a>
-            </div>
+            <a href="aralin3.html">
+                <button class="button">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <div class="front">
+                    <span>Susunod ↪</span>
+                </div>
+                </button>
+            </a>
         </div>
-    </div>
-    <!-- GAME CONTAINER END -->
-
-    <div class="button-container">
-        <!-- From Uiverse.io by zymantas-katinas --> 
-        <a href="aralin1.html">
-            <button class="button">
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <div class="front">
-                <span>↩ Bumalik</span>
-            </div>
-            </button>
-        </a>
-
-        <a href="aralin3.html">
-            <button class="button">
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <div class="front">
-                <span>Susunod ↪</span>
-            </div>
-            </button>
-        </a>
     </div>
 
     <!-- JS FILE -->
     <script src="js-files/index.js"></script>
     <script src="js-files/aralin.js"></script>
+    <script src="js-files/preloader.js"></script>
 </body>
 </html>

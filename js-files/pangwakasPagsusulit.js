@@ -7,155 +7,186 @@ let answered = false;
 // Sample questions array - you can easily duplicate and modify this structure
 const questions = [
     {
-        question: "Ano ang mas malalim na dahilan ng pagbagsak ng Kanlurang Imperyong Romano batay sa kombinasyon ng panloob at panlabas na salik?",
-        answers: ["Labis na pagpapalawak ng teritoryo", "Kakulangan sa pinuno", "Pagbagsak ng ekonomiya at patuloy na pananakop ng mga barbaro", "Pagtaas ng populasyon"],
-        correct: 2
+        question: "Sino ang huling emperador ng Kanlurang Imperyong Romano?",
+        answers: ["Charlemagne", "Romulus Augustulus", "Odoacer", "Cloves I"],
+        correct: 1,
+        explanation: "Si Romulus Augustulus ang huling emperador ng Kanlurang Imperyong Romano na pinatalsik noong Setyembre 4, 476 AD ni Odoacer, na naging hudyat ng pagbagsak ng Kanlurang Imperyong Romano."
     },
     {
-        question: "Ano ang pangunahing epekto ng Edict of Milan ni Constantine sa Kristiyanismo?",
-        answers: ["Ginawang opisyal na relihiyon ng estado ang Kristiyanismo", "Inilunsad ang Unang Krusada", "Ipinatigil ang pag-uusig sa mga Kristiyano", "Inalis ang kapangyarihan ng Papa"],
-        correct: 2
+        question: "Sino ang unang hari na pinagkaisa ang buong tribong Frank at nagpabinyag sa 496 AD?",
+        answers: ["Peppin III", "Charles Martel", "Clovis I", "Otto I"],
+        correct: 2,
+        explanation: "Si Clovis I ang unang hari na pinagkaisa ang buong tribong Frank at siya rin ang unang Frankish king na nagpabinyag sa Kristiyanismo noong 496 AD. "
     },
     {
-        question: "Paano ipinakita ni Theodosius I ang suporta sa Kristiyanismo bilang opisyal na relihiyon ng imperyo?",
-        answers: ["Pinagtibay ang Nicene Creed", "Itinayo ang St. Peter’s Basilica", "Ipinagbawal ang Kristiyanismo", "Ipinatayo ang mga monastery"],
-        correct: 0
+        question: "Anong labanan ang nagtapos sa paglawak ng Islam sa Kanlurang Europa noong 732 C.E.?",
+        answers: ["Labanan sa Lechfeld", "Labanan sa Tours", "Labanan sa Verdun", "Labanan sa Patlang ng Catalan"],
+        correct: 1,
+        explanation: "Ang Labanan sa Tours na naganap noong 732 C.E. ay isang mahalagang labanan kung saan napigilan ng mga Frank, na pinamumunuan ni Charles Martel, ang paglawak ng mga Muslim mula sa Spain patungo sa Kanlurang Europa."
     },
     {
-        question: "Sino ang pinuno ng mga Visigoth na sumalakay sa Roma noong 410 C.E.?",
-        answers: ["Atila", "Alarico", "Clovis", "Otto I"],
-        correct: 1
+        question: "Ano ang tawag sa seremonya kung saan nangangako ang vassal ng katapatan sa kanilang lord?",
+        answers: ["Homage", "Koronasyon", "Investiture", "Chivalry"],
+        correct: 0,
+        explanation: "Ang Homage ay ang seremonya kung saan nangangako ang vassal ng katapatan sa kanilang lord, karaniwang ginagawa sa pamamagitan ng paglalagay ng kamay ng vassal sa pagitan ng mga kamay ng lord bilang tanda ng pangakong katapatan."
     },
     {
-        question: "Ang Donasyon ni Pepin ay nagbigay ng kapangyarihang politikal sa alin sa mga sumusunod?",
-        answers: ["Hari ng England", "Papa at Simbahang Katoliko", "Emperador ng Silangan", "Hari ng Germany"],
-        correct: 1
+        question: "Sino ang kauna-unahang in koronahang Emperador ng Banal na Imperyong Romano noong 962?",
+        answers: ["Charlemagne", "Romulus Augustulus", "Pepin III", "Otto I"],
+        correct: 3,
+        explanation: "Si Otto I ang kauna-unahang in koronahang Emperador ng Banal na Imperyong Romano noong 962. Siya ang itinuturing na tagapagtatag ng Banal na Imperyong Romano bilang isang pampolitikang entidad noong ika-10 siglo."
     },
     {
-        question: "Ano ang pangunahing sistemang pang-ekonomiya sa Gitnang Panahon?",
-        answers: ["Kapitalismo", "Komunismo", "Merkantilismo", "Manoryalismo"],
-        correct: 3
+        question: "Ano ang tawag sa sistemang pang-ekonomiya noong Gitnang Panahon kung saan halos lahat ng kalakal at serbisyo ay ginawa sa mga manor?",
+        answers: ["Kapitalismo", "Manoryalismo", "Piyudalismo", "Komunismo"],
+        correct: 1,
+        explanation: "Ang sistemang pang-ekonomiya noong Gitnang Panahon ay tinatawag na manoryalismo. Sa sistemang ito, ang manor ay sentro ng pangkabuhayan kung saan nagmumula ang mga produkto at serbisyo para sa mga tao sa paligid nito."
     },
     {
-        question: "Ano ang nilalayon ng Petrine Doctrine?",
-        answers: ["Muling pagsanib ng Silangan at Kanlurang simbahan", "Pagkilala sa Obispo ng Rome bilang tagapagmana ni San Pedro", "Pagbabawal sa mga imahen", "Pagpapatayo ng mga bagong simbahan"],
-        correct: 1
+        question: "Sino ang mga may-ari ng manor?",
+        answers: ["Panginoong-maylupa", "Magsasaka", "Hari ng bansa", "Mangangalakal"],
+        correct: 0,
+        explanation: "Ang manor ay isang malaking lupain na pag-aari ng isang panginoong-maylupa. Siya ang nagbibigay ng proteksyon at lupain sa mga magsasaka na naninirahan dito."
     },
     {
-        question: "Ano ang pangunahing pagkakaiba ng Roman Catholic at Eastern Orthodox Church sa pamumuno?",
-        answers: ["Ang wika ng pagsamba", "Ang uri ng banal na kasulatan", "Ang pagkilala sa Papa bilang pinakamataas na pinuno ng simbahan", "Ang pagsunod sa Nicene Creed"],
-        correct: 2
+        question: "Ano ang tawag sa mga taong nagtatrabaho sa manor upang isagawa ang mga gawain?",
+        answers: ["Serf", "Panginoon", "Mangangalakal", "Kabalyero"],
+        correct: 0,
+        explanation: "Ang mga serf ang mga tao na nagtatrabaho sa manor sa ilalim ng pyudal na sistema. Sila ay mga magsasaka na nasa kalagayan ng pagkaalipin at kinakailangang magserbisyo sa panginoon ng manor."
     },
     {
-        question: "Ano ang tawag sa seremonya kung saan binibigyan ng lupain ang vassal bilang pagkilala?",
-        answers: ["Investiture", "Homage", "Chivalry", "Concordat"],
-        correct: 0
+        question: "Ano ang naging opisyal na relihiyon ng Imperyong Romano ayon kay Theodosius I?",
+        answers: ["Hinduismo", "Islam", "Kristiyanismo", "Budismo"],
+        correct: 2,
+        explanation: "Noong 380 CE sa pamamagitan ng Kautusan ng Tesalonica ni Theodosius I, ang kristiyanismo ang naging opisyal na relihiyon ng Imperyong Romano."
     },
     {
-        question: "Ano ang tawag sa sistemang panlipunan at pampolitikal sa Europa matapos bumagsak ang Imperyong Romano?",
-        answers: ["Piyudalismo", "Manoryalismo", "Merkantilismo", "Kapitalismo"],
-        correct: 0
+        question: "Ano ang tawag sa mga doktrinang pangrelihiyon na taliwas sa mga turo ng Simbahang Katoliko?",
+        answers: ["Heresy", "Paggunita", "Papacy", "Monasticism"],
+        correct: 0,
+        explanation: "Ang heresy ang tawag sa mga paniniwala o katuruang taliwas o hindi tinatanggap ng Simbahang Katoliko dahil lumalabag ito sa kanilang doktrina."
     },
     {
-        question: "Saan pangunahing nagmumula ang mga kalakal at serbisyo sa ilalim ng sistemang manoryal?",
-        answers: ["Palengke ng lungsod", "Mga pagawaan ng simbahan", "Lupain ng maharlika o panginoong maylupa", "Sentro ng kalakalan"],
-        correct: 2
+        question: "Ano ang titulo ng pinakamataas na pinuno ng Simbahang Katoliko?",
+        answers: ["Patriarch", "Kardinal", "Papa ", "Pari"],
+        correct: 2,
+        explanation: "Ang Papa o Santo Papa ang itinuturing na pinakamataas na pinuno ng Simbahang Katoliko. Siya ang Obispo ng Roma at may pinakamataas na awtoridad sa lahat ng iba pang mga miyembro ng Simbahan."
     },
     {
-        question: "Bakit mahalaga ang Unang Krusada sa kasaysayan ng Kristiyanismo?",
-        answers: ["Ito ang nagpatibay ng pagkakaiba ng Katoliko at Orthodox", "Nabawi ang Jerusalem mula sa mga Muslim", "Pinatibay nito ang kapangyarihan ng Constantinople", "Nasakop nito ang buong Asya Minor"],
-        correct: 1
+        question: "Saan ang sentro ng Greek Orthodox Church?",
+        answers: ["Rome", "Constantinople", "Athens", "Alexandria"],
+        correct: 1,
+        explanation: "Ang sentro ng Greek Orthodox Church ay ang Constantinople (ngayon ay Istanbul). Tinatawag itong Bagong Roma at dito nagkakaroon ng malaking impluwensiya ang simbahan sa mga usaping panrelihiyon sa Silangang bahagi ng dating Imperyong Romano."
     },
     {
-        question: "Sa anong paraan ipinakita ni Papa Gregory VII ang kanyang reporma sa simbahan?",
-        answers: ["Ipinag-utos ang pagsali sa krusada", "Tinanggal ang karapatan ng hari sa pagtalaga ng obispo", "Inilunsad ang Petrine Doctrine", "Nagtayo ng bagong monastery"],
-        correct: 1
+        question: "Ilang pangunahing krusada ang nailunsad mula 1095 hanggang 1291?",
+        answers: ["Limang krusada", "Labing-dalawang krusada", "Siyam na krusada", "Tatlong krusada"],
+        correct: 2,
+        explanation: "Mula noong 1095 hanggang 1291, mayroong siyam na pangunahing krusada na nailunsad upang muling makuha ang Banal na Lupain mula sa mga Muslim."
     },
     {
-        question: "Sino ang kinoronahan ni Papa Leo III bilang Emperador ng Banal na Imperyong Romano noong 800 C.E.?",
-        answers: ["Otto I", "Pepin III", "Charles Martel", "Charlemagne"],
-        correct: 3
+        question: "Bakit tinawag si Charlemagne na Ama ng Europa?",
+        answers: ["Siya ang nagtatag ng Imperyong Romano", "Pinagkaisa ang malaking bahagi ng Europa at pinalaganap ang edukasyon at Kristiyanismo", "Inalis ang piyudalismo", "Tinapos ang Imperyong Byzantine"],
+        correct: 1,
+        explanation: "Tinawag si Charlemagne na Ama ng Europa dahil sa kanyang tagumpay sa pagpapag-isa ng malaking bahagi ng Kanluran at Gitnang Europa sa ilalim ng kanyang pamumuno. Bukod pa dito, ang kanyang mga reporma sa edukasyon at pagsulong sa kristiyanismo ay naglatag ng pundasyon sa kultura at politika ng Europa sa Gitnang Panahon."
     },
     {
-        question: "Ano ang tawag sa panunumpa ng katapatan ng isang vassal sa kanyang lord?",
-        answers: ["Oath of Fealty", "Treaty of Verdun", "Edict of Milan", "Chivalry"],
-        correct: 0
+        question: "Ano ang epekto ng Kasunduan sa Verdun noong 843?",
+        answers: ["Hinati ang Imperyong Caroloningian sa tatlo na naging pundasyon ng mga modernong bansa", "Nagkaisa muli ang Imperyong Carolingian", "Tinapos ang Banal na Imperyong Romano", "Nagpatatag ng isang Imperyong Byzantine"],
+        correct: 0,
+        explanation: "Ang Kasunduan sa Verdun noong 843 ay nagtapos sa digmaang sibil ng Imperyong Carolingian sa pamamagitan ng paghati ng imperyo sa tatlong bahagi, na pinamumunuan ng tatlong apo ni Charlemagne. Ang paghating ito ang naging pundasyon ng mga modernong bansa tulad ng France at Germany."
     },
     {
-        question: "Ano ang pangunahing ikinabubuhay ng mga naninirahan sa manor?",
-        answers: ["Pangingisda", "Pagtitinda", "Pangangalakal", "Pagsasaka"],
-        correct: 3
+        question: "Paano ipinakita ng koronasyon ni Otto I ang kapangyarihan ng simbahan?",
+        answers: ["Ipinakita na ang emperador ang may ganap na kapangyarihan", "Ipinakita na ang papa ang may kapangyarihang koronahan ang emperador", "Tinapos ang alitan ng simbahan at estado", "Ipinakita nito mas makapangyarihan pa ang espada kaysa sa tungkod"],
+        correct: 1,
+        explanation: "Ipinakita ng koronasyon ni Otto I noong 962 na ang papa ang may awtoridad na koronahan ang emperador, kaya ipinapakita nito ang kapangyarihan ng simbahan sa pagbibigay ng lehitimong kapangyarihan sa pinuno ng estado."
     },
     {
-        question: "Ano ang simbolikong kahulugan ng “crux” sa krusada?",
-        answers: ["Krus", "Tagumpay", "Simbahan", "Pagtataboy"],
-        correct: 0
+        question: "Bakit naging mahalaga ang manor noong Gitnang Panahon?",
+        answers: ["Dahil sentro ito ng kalakalan sa buong mundo", "Dahil dito umaasa ang mga tao sa kanilang mga pang-araw-araw na pangangailangan dahil sa kakaunti at maliliit pa ang mga bayan", "Dahil dito nakatira ang hari", "Dahil ito ang naging palasyo ng mga maharlika"],
+        correct: 1,
+        explanation: "Noong Gitnang Panahon, ang manor ang sentro ng lipunan at ekonomiya kung saan umaasa ang mga tao sa produksiyon ng manor para sa kanilang pang-araw-araw na pangangailangan. Dahil kakaunti pa at maliliit ang mga bayan, halos lahat ng pangangailangan ng tao ay mula sa manor tulad ng pagkain, serbisyong panlipunan, at iba pang mga kagamitan."
+    },
+     {
+        question: "Bakit kinukuha ng manor ang asin at bakal sa ibang lugar?",
+        answers: ["Dahil walang kakayahan ang manor na gumawa nito sa kanilang lugar", "Dahil ayaw ng mga tao sa manor ang paggamit ng asin at bakal", "Dahil sobra-sobra ang produksyon ng manor", "Dahil Hindi kailangan ang mga ito sa manor"],
+        correct: 0,
+        explanation: "Noong Gitnang Panahon, ang mga manor ay walang kakayahang gumawa o magproseso ng mga produkto tulad ng asin at bakal sa kanilang sariling lupain kaya kinukuha nila ito mula sa ibang lugar upang magamit sa paggawa ng mga kasangkapan, sandata, at iba pang pangangailangan."
     },
     {
-        question: "Bakit tinawag na “Krusada ng mga Hari” ang Ikatlong Krusada?",
-        answers: ["Pinangunahan ito ng mga obispo", "Pinamunuan ito ang tatlong hari ng Europa", "Lahat ng sumali ay mula sa maharlika", "Inilunsad ito ng Papa"],
-        correct: 1
+        question: "Bakit mahalaga sa Simbahang Katoliko ang mga monastaryo?",
+        answers: ["Dahil dito ang sentro ng kalakalan noong Gitnang Panahon", "Dahil dito nalilinang ang kakayahan ng mga kabalyero sa pakikidigma", "Dahil ito ang paaralan ng mga maharlika at panginoong-maylupa", "Dahil dito naninirahan ang mga monghe na nag-aalay ng buhay para sa espiritwal na pagsasanay at dasal"],
+        correct: 3,
+        explanation: "Mahalaga ang mga monastaryo sa Simbahang Katoliko dahil ito ang lugar kung saan naninirahan ang mga monghe na buong-pusong naglalaan ng kanilang buhay sa espiritwal na pagsasanay, pagninilay, at panalangin. Sa monastaryo rin nailalago ang pananampalataya at nagiging sentro ng pag-aaral at pag-aalaga sa kultura at relihiyon noong Gitnang Panahon."
     },
     {
-        question: "Ano ang dahilan ng pagkabigo ng Ikalawang Krusada?",
-        answers: ["Kakulangan sa armadong pwersa", "Kakulangan sa tiwala ng simbahan", "Hindi nasakop ang Damascus", "Pagtanggi ng Constantinople sa tulong"],
-        correct: 2
+        question: " Ano ang dahilan kung bakit nahati ang Simbahang Kristiyano noong 1054?",
+        answers: ["Dahil sa digmaan ng mga Kristiyano", "Dahil sa pagkakaiba ng wika, paniniwala, at kapangyarihan ng Papa sa Rome at Patriarch sa Constantinople", "Dahil sa panghihimasok ng Banal na Imperyong Romano", "Dahil sa mga krusadang naganap upang bawiin ang Jerusalem sa kamay ng mga Muslim"],
+        correct: 1,
+        explanation: "Noong 1054 ay naganap ang “Great Schism” na humati sa simbahan sa pagitan ng Simbahang Romano Katoliko sa Kanluran at ng Silangang Orthodox. Napakahalagang dahilan ng paghati ng Simbahang Kristiyano ay ang mga pagkakaiba sa wika, mga paniniwala, at sa kung sino ang may lehitimong kapangyarihang mamuno- Papa sa Roma o Patriarch sa Constantinople."
     },
     {
-        question: "Ano ang naging iskandalo sa Ikaapat na Krusada?",
-        answers: ["Pagkawala ng Santo Papa", "Pananakop sa Zara at Constantinople", "Pagkamatay ng mga Krusador", "Pagkakaisa ng Silangan at Kanlurang Europa"],
-        correct: 1
+        question: "Bakit ipinagawa ni Constantine the Great ang Edict of Milan?",
+        answers: ["Para ipagbawal ang Kristiyanismo sa Imperyong Romano", "Para mapalakas ang kapangyarihang politikal ng emperador", "Para gawing opisyal na relihiyon ang Kristiyanismo sa buong imperyo", "Para wakasan ang pag-uusig sa mga Kristiyano at pahintulutan ang kalayaan sa pananampalataya"],
+        correct: 3,
+        explanation: "Ang Edict of Milan na ipinagawa ni Constantine the Great noong 313 CE ay nagbigay ng legal na pahintulot sa mga Kristiyano na malayang magsagawa ng kanilang relihiyon nang walang takot sa pag-uusig. Layunin nito na wakasan ang matagal nang pag-uusig sa mga Kristiyano at bigyan sila ng kalayaan sa pananampalataya."
     },
     {
-        question: "Ano ang epekto ng Treaty of Verdun noong 843?",
-        answers: ["Pagkahati ng Imperyong Carolingian", "Pagwawakas ng Imperyong Roman", "Pagkabuo ng Simbahang Katoliko", "Pagbagsak ng Feudalism"],
-        correct: 0
+        question: "Paano nakatulong ang sistema ng piyudalismo sa pamamahala sa gitna ng kawalang-tatag sa Europa?",
+        answers: ["Sa pagbibigay ng lokal na kontrol at katapatan sa pagitan ng mga panginoon at vassal", "Sa pagpapalawak ng sentral na autoridad ng hari", "Sa pag-alis ng mga maharlika sa politika", "Sa pagwawalang-bahala sa lokal na pamahalaan"],
+        correct: 0,
+        explanation: "Sa panahon ng kaguluhan at madalas na pagsalakay ng mga barbaro, ang sistema ng piyudalismo ay nagbigay proteksyon at pagpapalakas ng lokal na pamamahala, kung saan ang mga vassal ay nagsisilbing mandirigma at tagapagtanggol ng kanilang lupain kapalit ng lupang ginagamit nil mula sa panginoong-maylupa. Dahil dito, nanatiling matiwasay ang ilang bahagi ng Europa."
     },
     {
-        question: "Ano ang papel ng College of Cardinals sa Simbahang Katoliko?",
-        answers: ["Nangunguna sa mga misa", "Nagtatalaga ng mga emperador", "Naghahalal ng bagong Papa", "Namumuno sa monasteryo"],
-        correct: 2
+        question: "Bakit itinuturing na nagsasarili ang mga manor?",
+        answers: ["Dahil nakagagawa sila ng karamihan ng kalakal at serbisyo na kailangan sa kanilang manor", "Dahil hindi sila nakikipagkalakalan sa ibang lungsod sa labas ng manor", "Dahil ligtas sila sa panganib mula sa digmaan", "Dahil maraming tao ang nagtatrabaho sa manor"],
+        correct: 0,
+        explanation: "Ang manor ay mayroong sariling produksyon ng pagkain, serbisyo, at iba pang kalakal na kailangan ng mga tao kaya hindi sila umaasa sa labas o kalakalan sa ibang lugar. Ito ang dahilan kung bakit ang manor nagsasariling yunit sa ekonomiya noong Gitnang Panahon"
     },
     {
-        question: "Ano ang lohikal na epekto ng Homage at Oath of Fealty sa ugnayan ng lord at vassal?",
-        answers: ["Napilitan ang lord na maging hari", "Naging pantay ang lord at vassal", "Pinalalim nito ang pananagutang politikal at militar", "Naalis ang kapangyarihan ng hari"],
-        correct: 2
+        question: "Bakit naging iskandalo ang Ikaapat na Krusada sa Constantinople?",
+        answers: ["Dahil tumulong ang mga Krusador sa mga Muslim","Dahil sa pagdarambong ng mga krusador sa mga Kristiyanong bayan", "Dahil ito ang dahilan ng pagkakawatak-watak ng simbahan", " Dahil dito mas lumakas ang Orthodox Church"],
+        correct: 1,
+        explanation: "Ang Ikaapat na Krusada ay naging iskandalo dahil sa halip na labanan ang mga Muslim upang mabawi ang Jerusalem, sinakop at dinambong ng mga krusador ang Kristiyanong lungsod ng Constantinople noong 1204. Nagresulta ito sa malawakang pagpatay, pagnanakaw, at paglapastangan sa isang Kristiyanong lugar."
     },
     {
-        question: "Ano ang kahalagahan ng Papal States?",
-        answers: ["Sentro ng kalakalan", "Lugar ng mga pagsasanay militar", "Simbolo ng temporal at espiritwal na kapangyarihan ng papa", "Lungsod ng mga kabalyero"],
-        correct: 2
+        question: "Paano mo magagamit ang konsepto ng Donasyon ni Pepin sa pagsusuri sa ugnayan ng Simbahan at Estado sa modernong panahon?",
+        answers: ["Bilang halimbawa ng impluwensiya ng simbahan sa politika ng estado","Bilang patunay ng paghihiwalay ng simbahan at estado", "Bilang paglaban ng simbahan sa politika ng estado", "Bilang pagtanggi ng simbahan sa kapangyarihang politikal"],
+        correct: 0,
+        explanation: "Ipinapakita ng “Donasyon ni Pepin” kung paanong nakialam at nakaimpluwensiya ang Simbahan sa mga usaping politikal, na nagbibigay ng kapangyarihan sa Simbahan sa larangan ng politika."
     },
     {
-        question: "Ano ang papel ng mga serf sa sistemang manoryal?",
-        answers: ["Namumuno sa manor", "Nag-aangkat ng produkto", "Gumagawa ng batas", "Nagsasagawa ng mga gawain sa manor"],
-        correct: 3
+        question: "Paano mo magagamit ang ideya ng manoryalismo sa pagbuo ng komunidad ngayon?",
+        answers: ["Pagpapatayo ng mga pook-pasyalan para malibang ang mga mamamayan","Pag-asa sa pakikipagkalakalan sa mga malalaking siyudad", "Pag-aangkat ng lahat ng produkto mula ibang lugar", "Pagpapalakas sa pagsasaka magkaroon ng sapat na pagkain ang komunidad"],
+        correct: 3,
+        explanation: "Ang pangunahing ideya ng manoryalismo ay pagiging self-sufficient o nagsasarili ang manor, kaya't mahalaga ang pagpapalakas sa pagsasaka upang magkaroon ng sapat na pagkain ang buong komunidad."
     },
     {
-        question: "Alin sa mga sumusunod ang tunay na dahilan ng paglunsad ng mga krusada?",
-        answers: ["Pagpapalawak ng teritoryo ng Simbahang Katoliko", "Pagtaas ng populasyon", "Pagbagsak ng ekonomiya at patuloy na pananakop ng mga barbaro", "Pagbawi sa Jerusalem mula sa mga Muslim"],
-        correct: 3
+        question: "Paano mo magagamit ang impormasyon tungkol sa pagkakahati ng Simbahang Kristiyano sa pag-aaral ng relihiyon sa Pilipinas?",
+        answers: ["Gamitin bilang dahilan upang ipagtanggol ang Simbahang Katoliko at usigin ang iba pang relihiyon","Gamitin bilang dahilan upang pag-isahin ang bansa sa pamamagitan ng paglaban sa mga Muslim ng Mindanao", "Gamitin bilang dahilan upang malaman ang kasaysayan ng iba't ibang sekta ng Kristiyanismo at ang kanilang mga paniniwala", "Gamiting dahilan upang suwayin ang utos ng pamahalaan dahil mas makapangyarihan ang simbahan kaysa sa estado"],
+        correct: 2,
+        explanation: "Ang impormasyon tungkol sa pagkakahati ng Simbahang Kristiyano ay mahalaga upang maunawaan ang kasaysayan ng iba't ibang sekta ng Kristiyanismo sa Pilipinas at ang kani-kanilang paniniwala. Ito ay nagbibigay ng konteksto sa pag-aaral ng relihiyon nang hindi ginagamit bilang dahilan ng pagkakabahagi o pagkakagulo ngunit bilang isang paraan upang mapalalim ang kaalaman tungkol sa mga ugat at epekto ng relihiyosong pagkakaiba-iba sa lipunan."
     },
     {
-        question: "Paano nakatulong ang Donasyon ni Pepin sa paglakas ng kapangyarihan ng Simbahan?",
-        answers: ["Nagbigay ito ng lupa sa Simbahan bilang sentro ng kapangyarihan", "Ibinigay nito ang kalayaan sa mga maharlika", "Pinayagan nitong bumoto ang mga obispo", "Ipinatupad nito ang mga batas ng Simbahan sa buong Europa"],
-        correct: 0
+        question: "Ano ang magandang modelo na maaaring likhain upang maiwasan ang pagbagsak ng isang imperyo, gamit ang kasaysayan ng Imperyong Romano?",
+        answers: ["Sentralisadong pamahalaan na may mabilis na pagtugon sa mga krisis","Pagbibigay ng ganap na kalayaan at kapangyarihan sa mga lokal na maharlika", "Pagkakaroon ng mataas na antas na agwat sa pagitan ng mga mahihirap at mayayaman upang masupil ang anumang banta sa politika ", "Paghahati-hati ng teritoryo at mataas na buwis upang lumaki ang pondo ng imperyo na magagamit sa digmaan "],
+        correct: 0,
+        explanation: "Isa sa mga dahilan ng pagbagsak ng Imperyong Romano ay ang kakulangan ng epektibong sentralisadong pamahalaan na mabilis na makatutugon sa mga panloob at panlabas na krisis tulad ng mga pagsalakay ng barbaro, krisis sa ekonomiya, at kahirapan sa pampulitikang kaayusan. Ang paghahati-hati at lalong pagpapahina ng sentral na kapangyarihan ay nagdulot ng kahinaan sa imperyo na naging daan sa pagbagsak nito."
     },
     {
-        question: "Bakit maituturing na self-sufficient ang sistemang manoryal?",
-        answers: ["May sariling pamahalaan ang manor", "Gumagawa ng sariling batas ang manor", "Lahat ng pangangailangan ay nililikha sa loob ng manor", "Malaya ang mga serf na umalis"],
-        correct: 2
+        question: "Paano mo gagawan ng paraan ang manor para magkaroon ng sapat na pagkain panahon ng tagtuyot?",
+        answers: ["Palakasin ang pwersa militar upang masakop ang ibang manor at mapalawak ang territoryo","Umasa ng tulong mula sa ibang manor kapalit ng pagbibigay ng buwis", "Magbawas ng mga serf upang mas mapahaba ang paggamit at pagkonsumo ng mga natitirang pagkain", "Magtatayo ng imbakan ng pagkain mula sa masaganang panahong nagtatanim"],
+        correct: 3,
+        explanation: "Sa panahon ng tagtuyot, kulang ang pagkain dahil sa kakulangan ng ani. Kung nagtatayo ng imbakan ng pagkain kapag masagana ang ani, masisiguro na may sapat na pagkain na maiipon at magagamit sa panahon ng tagtuyot."
     },
     {
-        question: "Paano nagkaroon ng kapangyarihang politikal ang Papa sa panahon ng Gitnang Panahon?",
-        answers: ["Dahil siya ay mahal ng mamamayan", "Dahil sa kanyang karunungan", "Dahil sa kanyang yaman", "Dahil sa doktrinang Petrine at suporta ng mga hari"],
-        correct: 3
+        question: "Paano ka gagawa ng dula ukol sa mga Krusada na naglalahad ng mga motibong relihiyoso at politikal?",
+        answers: ["Itatanghal ang mga pangunahing tauhan ng mga krusada upang maipakita ang kanilang katapangan at katapatan sa simbahan","Iiugnay ang relihiyosong paniniwala sa mga politikal na interes at personal na ambisyon ng mga namumuno", "Ipagtatanghal lang ang mga labanan bilang pangunahing batayan sa pagkakaroon ng mga krusada", "Itatago ang mga seryosong isyung dulot ng mga krusada upang mapanatili ang kabanalan ng layunin ng mga ito"],
+        correct: 1,
+        explanation: "Ang mga Krusada ay hindi lamang laban para sa relihiyon kundi may halong mga politikal na motibo at personal na layunin ng mga pinuno. Mahalaga na ipakita sa dula ang ugnayan ng relihiyosong paniniwala at politikal na interes upang maunawaan ang buong konteksto ng mga Krusada."
     },
-    {
-        question: "Ano ang ipinapahiwatig ng Krusada ng mga Bata sa pananampalataya noong panahon ng Krusada?",
-        answers: ["Mataas ang tiwala sa militar", "Malalim ang pananalig ng mga tao kahit sa murang edad", "Hindi na pinaniniwalaan ang simbahan", "Ang simbahan ay hindi kasangkot sa mga krusada"],
-        correct: 1
-    }
+    
 ];
 
 // DOM elements
@@ -171,6 +202,9 @@ const finalScore = document.getElementById('finalScore');
 const gameOverMessage = document.getElementById('gameOverMessage');
 const restartBtn = document.getElementById('restartBtn');
 const quizContainer = document.getElementById('quizContainer');
+const explanationPopup = document.getElementById('explanationPopup');
+const explanationText = document.getElementById('explanationText');
+const continueBtn = document.getElementById('continueBtn');
 
 // Sound effects using Web Audio API
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -306,15 +340,11 @@ function submitAnswer() {
     
     updateDisplay();
     
-    // Show next button or finish game
-    submitBtn.style.display = 'none';
-    if (currentQuestion < questions.length - 1) {
-        setTimeout(() => {
-            nextBtn.style.display = 'block';
-        }, 1000);
-    } else {
-        setTimeout(endGame, 1500);
-    }
+    // Show explanation popup after a short delay
+    setTimeout(() => {
+        explanationText.textContent = question.explanation;
+        explanationPopup.style.display = 'flex';
+    }, 1000);
 }
 
 // Next question
@@ -376,6 +406,15 @@ function createParticles() {
 submitBtn.addEventListener('click', submitAnswer);
 nextBtn.addEventListener('click', nextQuestion);
 restartBtn.addEventListener('click', restartGame);
+continueBtn.addEventListener('click', () => {
+    explanationPopup.style.display = 'none';
+    
+    if (currentQuestion < questions.length - 1) {
+        nextQuestion();
+    } else {
+        endGame();
+    }
+});
 
 // Initialize game on load
 document.addEventListener('DOMContentLoaded', initGame);

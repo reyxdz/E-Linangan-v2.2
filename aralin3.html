@@ -10,350 +10,361 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css-files/style.css">
     <link rel="stylesheet" href="css-files/aralin.css">
+    <link rel="stylesheet" href="css-files/preloader.css">
 </head>
 <body>
-
-     <!-- HEADER START-->
-     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="pambungad.html" class="nav_logo">E-LINANGAN</a>
-
-            <div class="nav_menu" id="nav-menu">
-                <ul class="nav_list">
-                    <li class="nav_item">
-                        <a href="pambungad.html" class="nav_link">
-                            <i class="ri-arrow-right-up-line"></i>
-                            <span>Pambungad</span>
-                        </a>
-                    </li>
-
-                    <li class="nav_item dropdown">
-                        <a href="#" class="nav_link dropdown-toggle" id="nilalaman-toggle">
-                            <i class="ri-arrow-right-up-line"></i>
-                            <span>Nilalaman</span>
-                            <i class="ri-arrow-down-s-line dropdown-arrow"></i>
-                        </a>
-
-                        <ul class="dropdown-menu" id="nilalaman-dropdown">
-                            <li><a href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
-                            <li><a href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
-                            <li><a href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
-                            <li><a href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
-                            <li><a href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            <!-- CLOSE BUTTON START -->
-            <div class="nav_close" id="nav-close">
-                <i class="ri-close-large-line"></i>
-             </div>
-            <!-- CLOSE BUTTON END -->
-            </div>
-
-            <!-- TOOGLE BUTTON START -->
-            <div class="nav_toggle" id="nav-toggle">
-                <i class="ri-menu-2-line"></i>
-             </div>
-            <!-- TOOGLE BUTTON END -->
-        </nav>
-     </header>
-    <!-- HEADER END -->
-
-    <div class="lesson-container">
-        <div class="decorative-elements">
-            🏛️⚔️🛡️
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
         </div>
+    </div>
+    
+    <div id="loadercontent">
+        <!-- HEADER START-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="pambungad.html" class="nav_logo">E-LINANGAN</a>
 
-        <header class="lesson-header">
-            <h1 class="lesson-title">Aralin 3: Pagbabagong Sosyo-Kultural</h1>
+                <div class="nav_menu" id="nav-menu">
+                    <ul class="nav_list">
+                        <li class="nav_item">
+                            <a href="pambungad.html" class="nav_link">
+                                <i class="ri-arrow-right-up-line"></i>
+                                <span>Pambungad</span>
+                            </a>
+                        </li>
+
+                        <li class="nav_item dropdown">
+                            <a href="#" class="nav_link dropdown-toggle" id="nilalaman-toggle">
+                                <i class="ri-arrow-right-up-line"></i>
+                                <span>Nilalaman</span>
+                                <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+                            </a>
+
+                            <ul class="dropdown-menu" id="nilalaman-dropdown">
+                                <li><a href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
+                                <li><a href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
+                                <li><a href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
+                                <li><a href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
+                                <li><a href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                <!-- CLOSE BUTTON START -->
+                <div class="nav_close" id="nav-close">
+                    <i class="ri-close-large-line"></i>
+                </div>
+                <!-- CLOSE BUTTON END -->
+                </div>
+
+                <!-- TOOGLE BUTTON START -->
+                <div class="nav_toggle" id="nav-toggle">
+                    <i class="ri-menu-2-line"></i>
+                </div>
+                <!-- TOOGLE BUTTON END -->
+            </nav>
         </header>
+        <!-- HEADER END -->
 
-        <section class="content">
-            <h2 class="section-title">Paglakas ng Simbahang Katoliko</h2>
-
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/MywlXg7Go6g?start=157" title="Roman Empire Fall" allowfullscreen></iframe>
+        <div class="lesson-container">
+            <div class="decorative-elements">
+                🏛️⚔️🛡️
             </div>
+
+            <header class="lesson-header">
+                <h1 class="lesson-title">Aralin 3: Pagbabagong Sosyo-Kultural</h1>
+            </header>
+
+            <section class="content">
+                <h2 class="section-title">Paglakas ng Simbahang Katoliko</h2>
+
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/MywlXg7Go6g?start=157" title="Roman Empire Fall" allowfullscreen></iframe>
+                </div>
+                
+                <p>Matapos ang hindi mabilang na pag-uusig sa mga sinaunang Kristiyano, dumating din ang panahon na malaya nilang isabuhay ang kanilang pananampalataya. May ilang mahahalang pangyayari ang nagbigay daan sa paglakas ng Simbahang Katoliko</p>
+                <p>Nagsimula kay <span class="clickable-term" onclick="showPopup('constantine')">Constantine the Great</span>  nang ipatupad niya ang <b><i>Edict of Milan</i></b> na nagpapahinto sa pag-uusig sa mga Kristiyano at nagbigay pahintulot sa Kristiyanismo at iba pang relihiyon sa Imperyong Roman noong 313 AD. Ito ay dahil sa pangitaing krus na nakita niya sa kalangitan bago sila nakipaglaban sa Tulay ng Milvian noong 312 AD.</p>
+                <p>Samantala, ipinagbawal ni <span class="clickable-term" onclick="showPopup('theodosiusi')">Theodosius I</span> ang lahat ng mga paganong relihiyon at ginawang opisyal na relihiyon ng imperyo ang <b><i>Kristiyanismo</i></b>. Pinalakas niya ang kapapahan (papacy) sa pamamagitan ng First Council at Constantinople kung saan napili ang Rome bilang pangunahing Diocese at ang Obispo ng Rome ang pinakamataas na pinuno ng Simbahang Romano Katoliko. Pangalawa lamang dito ang Constantinople.</p>
+                <p>Napagtagumpayan din ng simbahan ang ilang mga kontrobersya o <b><i>heresy</i></b> patungkol sa ilang mga turo nito. Ang heresy ay mga doktrinang pangrelihiyon na taliwas sa mga turo ng simbahan. Isa na diyan ang <b><i>Arianism</i></b> na kung saan itinuturo ni Arius na si Kristo, kahit na Anak ng Diyos ay hindi ganap ang kanyang kabanalan katulad ng sa Diyos Ama. Ipinatawag ang First Ecumenical Council at Nicaea noong 325 AD upang ayusin ang sigalot at ginamit ang “Nicene Creed” na nagpapatunay sa kabanalan ni Kristo. Gayundin ang <b><i>Nestorianism</i></b> na sinasabi ni Nestorius, isang Mongheng Syrian at Patriarch ng Constantinople na si Hesus ay may dalawang katangian – tao at banal. Sinabi rin niya na si Maria ay tao kung kaya’t hindi siya maaaring maging Ina ng Diyos. Ipinatigil ng Third Ecumenical Council at Ephesus ang kontrobersyang ito noong 431 AD. Panghuli, ang <b><i>Monophysitism</i></b> na nagsasabi na iisa lamang ang katangian ni Kristo – pagiging banal. Pinagtibay ito sa hindi opisyal na ecumenical council sa Ephesus noong 449 at idineklarang heresy ni Papa Leo I. Ang Fourth Ecumenical Council at Chalcedon noong 451 ang nagdeklara na ito ay hindi katanggap-tanggap.</p>
+                <p>Dahil sa mga pangyayaring ito, lalong lumaganap ang Kristiyanismo hindi lamang sa nasasakupan ng Imperyong Roman kundi pati sa Scandinavia, dulong bahagi ng Asya, at Silangang Africa.</p>
+                <p>Ang Kanlurang Europa ay pinamunuan ng <b>Roman Catholic Church</b> kung saan ang sentro nito ay sa Rome. Ilan sa mga tagumpay nito ang pagbibinyag kay Clovis at sa mga Frank, ang mga Irish (sa pamumuno ni St. Patrick), at ang mga Anglo at Saxon sa England (sa pamumuno ni St. Augustine ng Canterbury).</p>
+                <p>Sa Silangang Europa naman nakilala ang <b>Greek Orthodox Church</b> na ang sentro ay nasa Constantinople. Sila ang nakahikayat sa mga Serb, Bulgar, at Russian na maging Kristiyano.</p>
+
+            </section>
+
+            <section class="content">
+                <h2 class="section-title">Pagkakahati ng Simbahang Kristiyano</h2>
+
+                <div class="video-container">
+                    <iframe   src="https://www.youtube.com/embed/trMsytBdawc?start=168"  title="Roman Empire Fall" allowfullscreen></iframe>
+                </div>
+                
+                <p>Sa unang bahagi ng panahon ng mga Kristiyano, nagkaroon ng tunggalian ang Rome at Constantinople para sa kapangyarihan sa relihiyon. Ang Papa o Obispo ng Rome ay inangkin ang kataas-taasang kapangyarihan sa buong simbahan. Samantala, ang Patriarch o Obispo ng Constantinople ay iginiit nito ang kanyang kapangyarihan sa mga usapin ng simbahan sa Silangan. Maliban dito, mayroon din silang magkaibang wika na ginagamit, paniniwala, at mga ritwal. Dahil sa hindi naayos ang kanilang hindi pagkakaunawaan, nahati ang Simbahang Kristiyano noong 1054. Ang Roman Catholic Church na ang sentro ay sa Rome at ang Greek Orthodox Church na ang sentro ay nasa Constantinople. Bagaman ang dalawa ay parehong tagapagtaguyod ng kristiyanismo, ay mayroon itong mga pagkakaiba.</p>
+
+                <div class="photo-container-aralin3">
+                    <img src="images/aralin3table.jpg">
+                </div>
+            </section>
+
+            <section class="content">
+                <h2 class="section-title">Paglakas ng Kapapahan</h2>
+                
+                <p>Matapos bumagsak ang Rome, ang Obispo ng Rome ay naging makapangyarihang pinuno at pinaniniwalaang sila ang humalili sa mga Caesar ng Rome. Ang kapangyarihang ito ay mas kilala sa katawagang <b><i>Kapapahan (Papacy)</i></b>.</p>
+                <p>Dalawa ang pinagbabatayan ng kapangyarihang ito: una, ang kapangyarihan ng Papa na minana mula kay <b><i>San Pedro Apostol</i></b>, ang unang Obispo ng Rome na ayon sa Doktrinang Petrine; pangalawa, ang lungsod ng Rome, kahit matapos ang pagbagsak ng Kanlurang Imperyong Roman ay nananatiling sentro ng Kristiyanismo.</p>
+                <p>Ang Kapapahan (Papacy) ay ang tanggapan at ang nakasaklaw sa Obispo ng Rome. Ang papa (mula sa salitang Latin na papa na ibig sabihin ay “ama”) ang namumuno sa Simbahang Romano Katoliko. Ang katagang pope ay orihinal na tumutukoy sa lahat ng mga Obispo sa Kanluran at sa patriarch ng Alexandria. Subalit noong 1073, nilimitahan ni Papa Gregory VII ang paggamit nito at ginawa para lamang sa Obispo ng Rome.</p>
+                <p>Nakatulong sa pagpapalakas ng pundasyon ng Simbahang Katoliko Romano at Kapapahan ang maraming mga naging pinuno nito. Ilan lamang sa kanila ay ang sumusunod.</p>
             
-            <p>Matapos ang hindi mabilang na pag-uusig sa mga sinaunang Kristiyano, dumating din ang panahon na malaya nilang isabuhay ang kanilang pananampalataya. May ilang mahahalang pangyayari ang nagbigay daan sa paglakas ng Simbahang Katoliko</p>
-            <p>Nagsimula kay <span class="clickable-term" onclick="showPopup('constantine')">Constantine the Great</span>  nang ipatupad niya ang <b><i>Edict of Milan</i></b> na nagpapahinto sa pag-uusig sa mga Kristiyano at nagbigay pahintulot sa Kristiyanismo at iba pang relihiyon sa Imperyong Roman noong 313 AD. Ito ay dahil sa pangitaing krus na nakita niya sa kalangitan bago sila nakipaglaban sa Tulay ng Milvian noong 312 AD.</p>
-            <p>Samantala, ipinagbawal ni <span class="clickable-term" onclick="showPopup('theodosiusi')">Theodosius I</span> ang lahat ng mga paganong relihiyon at ginawang opisyal na relihiyon ng imperyo ang <b><i>Kristiyanismo</i></b>. Pinalakas niya ang kapapahan (papacy) sa pamamagitan ng First Council at Constantinople kung saan napili ang Rome bilang pangunahing Diocese at ang Obispo ng Rome ang pinakamataas na pinuno ng Simbahang Romano Katoliko. Pangalawa lamang dito ang Constantinople.</p>
-            <p>Napagtagumpayan din ng simbahan ang ilang mga kontrobersya o <b><i>heresy</i></b> patungkol sa ilang mga turo nito. Ang heresy ay mga doktrinang pangrelihiyon na taliwas sa mga turo ng simbahan. Isa na diyan ang <b><i>Arianism</i></b> na kung saan itinuturo ni Arius na si Kristo, kahit na Anak ng Diyos ay hindi ganap ang kanyang kabanalan katulad ng sa Diyos Ama. Ipinatawag ang First Ecumenical Council at Nicaea noong 325 AD upang ayusin ang sigalot at ginamit ang “Nicene Creed” na nagpapatunay sa kabanalan ni Kristo. Gayundin ang <b><i>Nestorianism</i></b> na sinasabi ni Nestorius, isang Mongheng Syrian at Patriarch ng Constantinople na si Hesus ay may dalawang katangian – tao at banal. Sinabi rin niya na si Maria ay tao kung kaya’t hindi siya maaaring maging Ina ng Diyos. Ipinatigil ng Third Ecumenical Council at Ephesus ang kontrobersyang ito noong 431 AD. Panghuli, ang <b><i>Monophysitism</i></b> na nagsasabi na iisa lamang ang katangian ni Kristo – pagiging banal. Pinagtibay ito sa hindi opisyal na ecumenical council sa Ephesus noong 449 at idineklarang heresy ni Papa Leo I. Ang Fourth Ecumenical Council at Chalcedon noong 451 ang nagdeklara na ito ay hindi katanggap-tanggap.</p>
-            <p>Dahil sa mga pangyayaring ito, lalong lumaganap ang Kristiyanismo hindi lamang sa nasasakupan ng Imperyong Roman kundi pati sa Scandinavia, dulong bahagi ng Asya, at Silangang Africa.</p>
-            <p>Ang Kanlurang Europa ay pinamunuan ng <b>Roman Catholic Church</b> kung saan ang sentro nito ay sa Rome. Ilan sa mga tagumpay nito ang pagbibinyag kay Clovis at sa mga Frank, ang mga Irish (sa pamumuno ni St. Patrick), at ang mga Anglo at Saxon sa England (sa pamumuno ni St. Augustine ng Canterbury).</p>
-            <p>Sa Silangang Europa naman nakilala ang <b>Greek Orthodox Church</b> na ang sentro ay nasa Constantinople. Sila ang nakahikayat sa mga Serb, Bulgar, at Russian na maging Kristiyano.</p>
 
-        </section>
-
-        <section class="content">
-            <h2 class="section-title">Pagkakahati ng Simbahang Kristiyano</h2>
-
-            <div class="video-container">
-                <iframe   src="https://www.youtube.com/embed/trMsytBdawc?start=168"  title="Roman Empire Fall" allowfullscreen></iframe>
-            </div>
-            
-            <p>Sa unang bahagi ng panahon ng mga Kristiyano, nagkaroon ng tunggalian ang Rome at Constantinople para sa kapangyarihan sa relihiyon. Ang Papa o Obispo ng Rome ay inangkin ang kataas-taasang kapangyarihan sa buong simbahan. Samantala, ang Patriarch o Obispo ng Constantinople ay iginiit nito ang kanyang kapangyarihan sa mga usapin ng simbahan sa Silangan. Maliban dito, mayroon din silang magkaibang wika na ginagamit, paniniwala, at mga ritwal. Dahil sa hindi naayos ang kanilang hindi pagkakaunawaan, nahati ang Simbahang Kristiyano noong 1054. Ang Roman Catholic Church na ang sentro ay sa Rome at ang Greek Orthodox Church na ang sentro ay nasa Constantinople. Bagaman ang dalawa ay parehong tagapagtaguyod ng kristiyanismo, ay mayroon itong mga pagkakaiba.</p>
-
-            <div class="photo-container-aralin3">
-                <img src="images/aralin3table.jpg">
-            </div>
-        </section>
-
-        <section class="content">
-            <h2 class="section-title">Paglakas ng Kapapahan</h2>
-            
-            <p>Matapos bumagsak ang Rome, ang Obispo ng Rome ay naging makapangyarihang pinuno at pinaniniwalaang sila ang humalili sa mga Caesar ng Rome. Ang kapangyarihang ito ay mas kilala sa katawagang <b><i>Kapapahan (Papacy)</i></b>.</p>
-            <p>Dalawa ang pinagbabatayan ng kapangyarihang ito: una, ang kapangyarihan ng Papa na minana mula kay <b><i>San Pedro Apostol</i></b>, ang unang Obispo ng Rome na ayon sa Doktrinang Petrine; pangalawa, ang lungsod ng Rome, kahit matapos ang pagbagsak ng Kanlurang Imperyong Roman ay nananatiling sentro ng Kristiyanismo.</p>
-            <p>Ang Kapapahan (Papacy) ay ang tanggapan at ang nakasaklaw sa Obispo ng Rome. Ang papa (mula sa salitang Latin na papa na ibig sabihin ay “ama”) ang namumuno sa Simbahang Romano Katoliko. Ang katagang pope ay orihinal na tumutukoy sa lahat ng mga Obispo sa Kanluran at sa patriarch ng Alexandria. Subalit noong 1073, nilimitahan ni Papa Gregory VII ang paggamit nito at ginawa para lamang sa Obispo ng Rome.</p>
-            <p>Nakatulong sa pagpapalakas ng pundasyon ng Simbahang Katoliko Romano at Kapapahan ang maraming mga naging pinuno nito. Ilan lamang sa kanila ay ang sumusunod.</p>
-        
-
-            <div class="papal-container">
-        <div class="papal-grid">
-            <div class="papal-item">
-                <img src="images/papaleo.jpg" alt="Papa Leo The Great" class="papal-portrait">
-                <div class="papal-name"><span class="clickable-term" onclick="showPopup('papaleoi')">Papa Leo</span></div>
-                <div class="papal-title">The Great</div>
-            </div>
-            
-            <div class="papal-item">
-                <img src="images/papagelasius.jpg" alt="Papa Gelasius I" class="papal-portrait">
-                <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagelasiusi')">Papa Gelasius I</span></div>
-            </div>
-            
-            <div class="papal-item">
-                <img src="images/papagregory.jpg" alt="Papa Gregory The Great" class="papal-portrait">
-                <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagregoryi')">Papa Gregory</span></div>
-                <div class="papal-title">The Great</div>
-            </div>
-            
-            <div class="papal-item">
-                <img src="images/papanicholas.jpg" alt="Papa Nicholas II" class="papal-portrait">
-                <div class="papal-name"><span class="clickable-term" onclick="showPopup('papanicholasii')">Papa Nicholas II</span></div>
-            </div>
-            
-            <div class="papal-item">
-                <img src="images/papagregoryvii.jpg" alt="Papa Gregory VII" class="papal-portrait">
-                <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagregoryvii')">Papa Gregory VII</span></div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-        </section>
-
-        <section class="content">
-            <h2 class="section-title">Estruktura ng Simbahang Katoliko</h2>
-            
-            <p>Higit na maging maimpluwensiya ang Roman Catholic Church sa Kanlurang Europa dahil na rin sa kawalan ng makapangyarihang kaharian o imperyo. Samantala, ang Silangang Imperyong Roman kung saan naroon ang Greek Orthodox Church ay nagpapatuloy sa ilalim ng mga emperador ng Byzantine kung kaya’t kontrolado ang kapangyarihan nito.</p>
-            <p>Katulad ng mga hari, ang Simbahang Katoliko ay mayroong <b><i>hierarchy</i></b> o pamunuan ng simbahan.</p>
-       
-             <div class="triangle-container">
-                <div class="triangle-layer layer-1" class="clickable-term" onclick="showPopup('papa')"><p>Papa</p></div>
-                <div class="triangle-layer layer-2" class="clickable-term" onclick="showPopup('kardinal')"><p>Kardinal</p></div>
-                <div class="triangle-layer layer-3" class="clickable-term" onclick="showPopup('arsobispo')"><p>Arsobispo</p></div>
-                <div class="triangle-layer layer-4" class="clickable-term" onclick="showPopup('pari')"><p>Pari</p></div>
-            </div>
-
-            <p style="margin-top: 5rem;">Kasama sa istruktura ng Simbahang Katoliko ang mga lalaki at babaeng mas pinili na humiwalay sa kanilang kinagisnang buhay at pumasok sa mga <b><i>ordeng panrelihiyon</i></b>. Ang bawat order o orden ay namumuhay ayon sa mga natatanging hanay ng mga patakaran na kung tawagin ay regula. Samakatuwid, sila ay kilala rin sa tawag na mga paring regular. Ang mga miyembro nito ay nangangako ng tatlong bagay: <b>kahirapan, kalinisang-puri, at pagkamasunurin</b>. Ang mga kalalakihan ay kalimitang tinatawag na mga <b><i>monghe</i></b> at <b><i>prayle</i></b> habang ang mga babae naman ay tinatawag na <b><i>madre</i></b>. Naninirahan sila sa mga gusaling tinatawag na monasteryo. Ilan sa mga kilalang monastaryo ay ang Monastaryo ng Monte Cassino sa Italy, Iona sa Ireland, at Cluny sa Burgundy. Ang pagkakatatag ng mga monastaryo ay nagdulot sa pagsisimula ng kilusang pangrelihiyon na <b><i>monastisismo</i></b>. Ang monastisismo ay tumutukoy sa buhay ng pagtatanggi sa sarili at pamumuhay mag-isa o nakahiwalay sa nakararami upang ipagdasal ang kaligtasan ng kaluluwa ng tao.</p>
-        </section>
-
-        <section class="content">
-            <h2 class="section-title">Ang Paglunsad ng mga Krusada</h2>
-
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/Z7-oLm1Ysxk" title="Roman Empire Fall" allowfullscreen></iframe>
-            </div>
-            
-            <p>Habang marami ang nagaganap sa Europa, mayroong malaking pangyayari ang naganap sa Asya na ikinagulat ng mga Kristiyano sa Europa, ang pagbagsak ng <b>Banal na Lupain</b> sa kamay ng mga <b>Turkong Muslim</b> partikular na ang sinasabing paglapastangan sa Banal na Libingan ni Hesus at pagpaslang sa mga Kristiyano roon.</p>
-            <p>Inilunsad ang isang ekspedisyong militar na binubuo ng mga Kristiyanong kabalyero upang mabawi ang Banal na Lupain sa kamay ng mga Muslim at nakilala ito sa kasaysayan bilang <b>krusada</b>.</p>
-            <p>Ang salitang krusada ay nagmula sa salitang Latin na <b>“crux”</b> na nangangahulugang <b>“cross”</b>. Ibig sabihin, ang mga Krusador ay nagtataglay ng simbolo ng Krus sa kanilang kasuotan. Sa kabuuan, mayroong siyam (9) na krusada ang nailunsad mula 1095 hanggang 1291.</p>
-        
-            <div class="table_component" role="region" tabindex="0">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>MGA PANGUNAHING KRUSADA</th>
-                            <th>MGA MALILIIT NA KRUSADA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="clickable-term" onclick="showPopup('unangk')">Unang Krusada (1095-1099)</td>
-                            <td class="clickable-term" onclick="showPopup('kngmgabata')">Krusada ng mga Bata(1212)</td>
-                        </tr>
-                        <tr>
-                            <td class="clickable-term" onclick="showPopup('ikalawangk')">Ikalawang Krusada (1147-1149)</td>
-                            <td class="clickable-term" onclick="showPopup('ikalimangk')">Ikalimang Krusada (1217-1221)</td>
-                        </tr>
-                        <tr>
-                            <td class="clickable-term" onclick="showPopup('ikatlongk')">Ikatlong Krusada (1189-1192)</td>
-                            <td class="clickable-term" onclick="showPopup('ikaanimk')">Ikaanim na Krusada(1228-1229)</td>
-                        </tr>
-                        <tr>
-                            <td class="clickable-term" onclick="showPopup('ikaapatk')">Ikaapat na Krusada (1202-1204)</td>
-                            <td class="clickable-term" onclick="showPopup('ikapitongk')">Ikapitong Krusada(1248-1250)</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td class="clickable-term" onclick="showPopup('ikawalongk')">Ikawalong Krusada(1270)</td>
-                        </tr>
-                    </tbody>
-               </table>
-            </div>
-        </section>
-
-        <section class="content">
-            <h2 class="section-title">Resulta ng mga Krusada</h2>
-
-            <p>Nasundan pa ng ibang krusada noong 1217, 1228, 1248, at 1270 ngunit pawang bigo ang mga ito na mabawi ang Banal na Lupain sa kamay ng mga Turkong Muslim maliban sa Unang Krusada. Nahawakan nila ang Jerusalem sa loob ng isang daang taon at pagkatapos muli itong naagaw ng Turkong Muslim.</p>
-            <p>Kung mayroon mang magandang bunga ang Krusada, ito ay sa larangan ng kalakalan na nagsilbing salik sa pag-unlad ng mga lungsod at malalaking daungan. Napalawak din ang kulturang Kristiyano.</p>
-            <p>Samantala, ibinunyag ng krusada ang tunay na mga hangarin ng mga sumali sa gawaing ito. Ang pagkakataong makapaglakbay at mangalakal, at hindi pagmamalasakit sa simbahan ang naging dahilan sa pagsama sa banal na laban.</p>
-
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/IoRegq53quk" title="Roman Empire Fall" allowfullscreen></iframe>
-            </div>
-        </section>
-
-        <div class="scroll-indicator" onclick="scrollToTop()">
-            <i class="fas fa-arrow-up"></i>
-        </div>
-    </div>
-
-    <!-- Popup Modals -->
-    <div id="popup-overlay" class="popup-overlay" onclick="closePopup()">
-        <div class="popup-content" onclick="event.stopPropagation()">
-            <button class="close-popup" onclick="closePopup()">&times;</button>
-            <h3 id="popup-title" class="popup-header"></h3>
-            
-            <!-- Enhanced Image Container -->
-            <div id="popup-image-container" class="popup-image-container">
-                <img id="popup-image" class="popup-image" src="" alt="Historical Image" style="display: none;">
-                <div id="image-placeholder" class="image-placeholder">
-                    <i class="fas fa-image"></i>
-                    <div class="image-placeholder-text">Walang available na larawan</div>
+                <div class="papal-container">
+            <div class="papal-grid">
+                <div class="papal-item">
+                    <img src="images/papaleo.jpg" alt="Papa Leo The Great" class="papal-portrait">
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papaleoi')">Papa Leo</span></div>
+                    <div class="papal-title">The Great</div>
+                </div>
+                
+                <div class="papal-item">
+                    <img src="images/papagelasius.jpg" alt="Papa Gelasius I" class="papal-portrait">
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagelasiusi')">Papa Gelasius I</span></div>
+                </div>
+                
+                <div class="papal-item">
+                    <img src="images/papagregory.jpg" alt="Papa Gregory The Great" class="papal-portrait">
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagregoryi')">Papa Gregory</span></div>
+                    <div class="papal-title">The Great</div>
+                </div>
+                
+                <div class="papal-item">
+                    <img src="images/papanicholas.jpg" alt="Papa Nicholas II" class="papal-portrait">
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papanicholasii')">Papa Nicholas II</span></div>
+                </div>
+                
+                <div class="papal-item">
+                    <img src="images/papagregoryvii.jpg" alt="Papa Gregory VII" class="papal-portrait">
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagregoryvii')">Papa Gregory VII</span></div>
                 </div>
             </div>
-            
-            <div id="popup-body" class="popup-body"></div>
         </div>
-    </div>
 
-    <!----- GAME HEADER STARTS -->
-    <div class="gameHeader-container">
-        <h1 id="gameHeader-logo">PALARO</h1>
-    </div>
-    <!----- GAME HEADER ENDS  -->
 
-    <!-- GAME CONTAINER START -->
-    <div class="games-container">
-        <div class="games-scroll-container">
-            <button class="scroll-button scroll-left" onclick="scrollGames('left')">‹</button>
-            <button class="scroll-button scroll-right" onclick="scrollGames('right')">›</button>
+
+
+            </section>
+
+            <section class="content">
+                <h2 class="section-title">Estruktura ng Simbahang Katoliko</h2>
+                
+                <p>Higit na maging maimpluwensiya ang Roman Catholic Church sa Kanlurang Europa dahil na rin sa kawalan ng makapangyarihang kaharian o imperyo. Samantala, ang Silangang Imperyong Roman kung saan naroon ang Greek Orthodox Church ay nagpapatuloy sa ilalim ng mga emperador ng Byzantine kung kaya’t kontrolado ang kapangyarihan nito.</p>
+                <p>Katulad ng mga hari, ang Simbahang Katoliko ay mayroong <b><i>hierarchy</i></b> o pamunuan ng simbahan.</p>
+        
+                <div class="triangle-container">
+                    <div class="triangle-layer layer-1" class="clickable-term" onclick="showPopup('papa')"><p>Papa</p></div>
+                    <div class="triangle-layer layer-2" class="clickable-term" onclick="showPopup('kardinal')"><p>Kardinal</p></div>
+                    <div class="triangle-layer layer-3" class="clickable-term" onclick="showPopup('arsobispo')"><p>Arsobispo</p></div>
+                    <div class="triangle-layer layer-4" class="clickable-term" onclick="showPopup('pari')"><p>Pari</p></div>
+                </div>
+
+                <p style="margin-top: 5rem;">Kasama sa istruktura ng Simbahang Katoliko ang mga lalaki at babaeng mas pinili na humiwalay sa kanilang kinagisnang buhay at pumasok sa mga <b><i>ordeng panrelihiyon</i></b>. Ang bawat order o orden ay namumuhay ayon sa mga natatanging hanay ng mga patakaran na kung tawagin ay regula. Samakatuwid, sila ay kilala rin sa tawag na mga paring regular. Ang mga miyembro nito ay nangangako ng tatlong bagay: <b>kahirapan, kalinisang-puri, at pagkamasunurin</b>. Ang mga kalalakihan ay kalimitang tinatawag na mga <b><i>monghe</i></b> at <b><i>prayle</i></b> habang ang mga babae naman ay tinatawag na <b><i>madre</i></b>. Naninirahan sila sa mga gusaling tinatawag na monasteryo. Ilan sa mga kilalang monastaryo ay ang Monastaryo ng Monte Cassino sa Italy, Iona sa Ireland, at Cluny sa Burgundy. Ang pagkakatatag ng mga monastaryo ay nagdulot sa pagsisimula ng kilusang pangrelihiyon na <b><i>monastisismo</i></b>. Ang monastisismo ay tumutukoy sa buhay ng pagtatanggi sa sarili at pamumuhay mag-isa o nakahiwalay sa nakararami upang ipagdasal ang kaligtasan ng kaluluwa ng tao.</p>
+            </section>
+
+            <section class="content">
+                <h2 class="section-title">Ang Paglunsad ng mga Krusada</h2>
+
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Z7-oLm1Ysxk" title="Roman Empire Fall" allowfullscreen></iframe>
+                </div>
+                
+                <p>Habang marami ang nagaganap sa Europa, mayroong malaking pangyayari ang naganap sa Asya na ikinagulat ng mga Kristiyano sa Europa, ang pagbagsak ng <b>Banal na Lupain</b> sa kamay ng mga <b>Turkong Muslim</b> partikular na ang sinasabing paglapastangan sa Banal na Libingan ni Hesus at pagpaslang sa mga Kristiyano roon.</p>
+                <p>Inilunsad ang isang ekspedisyong militar na binubuo ng mga Kristiyanong kabalyero upang mabawi ang Banal na Lupain sa kamay ng mga Muslim at nakilala ito sa kasaysayan bilang <b>krusada</b>.</p>
+                <p>Ang salitang krusada ay nagmula sa salitang Latin na <b>“crux”</b> na nangangahulugang <b>“cross”</b>. Ibig sabihin, ang mga Krusador ay nagtataglay ng simbolo ng Krus sa kanilang kasuotan. Sa kabuuan, mayroong siyam (9) na krusada ang nailunsad mula 1095 hanggang 1291.</p>
             
-            <div class="games-wrapper" id="gamesWrapper">
-                <a href="https://wordwall.net/tl/embed/f264982006f148e6a0cd08852c0b8d7e?themeId=60&templateId=5&fontStackId=0" class="game-card" target="blank">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a3_quiz.webp" alt="Maramihang Pagpipilian" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Pagsusulit</div>
-                        <div class="game-genre">Quiz</div>
-                    </div>
-                </a>
+                <div class="table_component" role="region" tabindex="0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>MGA PANGUNAHING KRUSADA</th>
+                                <th>MGA MALILIIT NA KRUSADA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="clickable-term" onclick="showPopup('unangk')">Unang Krusada (1095-1099)</td>
+                                <td class="clickable-term" onclick="showPopup('kngmgabata')">Krusada ng mga Bata(1212)</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable-term" onclick="showPopup('ikalawangk')">Ikalawang Krusada (1147-1149)</td>
+                                <td class="clickable-term" onclick="showPopup('ikalimangk')">Ikalimang Krusada (1217-1221)</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable-term" onclick="showPopup('ikatlongk')">Ikatlong Krusada (1189-1192)</td>
+                                <td class="clickable-term" onclick="showPopup('ikaanimk')">Ikaanim na Krusada(1228-1229)</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable-term" onclick="showPopup('ikaapatk')">Ikaapat na Krusada (1202-1204)</td>
+                                <td class="clickable-term" onclick="showPopup('ikapitongk')">Ikapitong Krusada(1248-1250)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="clickable-term" onclick="showPopup('ikawalongk')">Ikawalong Krusada(1270)</td>
+                            </tr>
+                        </tbody>
+                </table>
+                </div>
+            </section>
 
-                <a href="https://wordwall.net/tl/embed/28283ece8e8048a89db46d5c9bf14b4d?themeId=60&templateId=30&fontStackId=0" class="game-card" target="blank">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a3_openthebox.webp" alt="Open the Box" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Buksan ang Kahon</div>
-                        <div class="game-genre">Open the Box</div>
-                    </div>
-                </a>
+            <section class="content">
+                <h2 class="section-title">Resulta ng mga Krusada</h2>
 
-                <a href="https://wordwall.net/tl/embed/864e2955f51a49ea85b15cf0eb372b9c?themeId=52&templateId=8&fontStackId=0" class="game-card" target="blank">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a3_spinthewheel.webp" alt="Spin The Wheel" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Paikutin ang Roleta</div>
-                        <div class="game-genre">Spin the Wheel</div>
-                    </div>
-                </a>
+                <p>Nasundan pa ng ibang krusada noong 1217, 1228, 1248, at 1270 ngunit pawang bigo ang mga ito na mabawi ang Banal na Lupain sa kamay ng mga Turkong Muslim maliban sa Unang Krusada. Nahawakan nila ang Jerusalem sa loob ng isang daang taon at pagkatapos muli itong naagaw ng Turkong Muslim.</p>
+                <p>Kung mayroon mang magandang bunga ang Krusada, ito ay sa larangan ng kalakalan na nagsilbing salik sa pag-unlad ng mga lungsod at malalaking daungan. Napalawak din ang kulturang Kristiyano.</p>
+                <p>Samantala, ibinunyag ng krusada ang tunay na mga hangarin ng mga sumali sa gawaing ito. Ang pagkakataong makapaglakbay at mangalakal, at hindi pagmamalasakit sa simbahan ang naging dahilan sa pagsama sa banal na laban.</p>
 
-                <a href="https://wordwall.net/tl/embed/87bc903a7a0641db85f816dae8f12640?themeId=60&templateId=46&fontStackId=0" class="game-card">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a3_findthematch.webp" alt="Find the Match" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Hanapin ang Tugma</div>
-                        <div class="game-genre">Find the Match</div>
-                    </div>
-                </a>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/IoRegq53quk" title="Roman Empire Fall" allowfullscreen></iframe>
+                </div>
+            </section>
 
-                <a href="https://wordwall.net/tl/embed/31d0310a52dc4509bdebac44347e07c8?themeId=60&templateId=25&fontStackId=0" class="game-card">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a3_matchingpairs.webp" alt="Anagram" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Magkatugmang Pares</div>
-                        <div class="game-genre">Matching Pairs</div>
-                    </div>
-                </a>
-
-                <a href="https://wordwall.net/tl/embed/370cfe1228f64ea5a7a534658e782782?themeId=60&templateId=25&fontStackId=0" class="game-card">
-                    <div class="game-image">
-                        <img src="images/mga-palaro/a3_matchup.webp" alt="Flash Cards" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="game-info">
-                        <div class="game-title">Pag-uugnay</div>
-                        <div class="game-genre">Match Up</div>
-                    </div>
-                </a>
+            <div class="scroll-indicator" onclick="scrollToTop()">
+                <i class="fas fa-arrow-up"></i>
             </div>
         </div>
-    </div>
-    <!-- GAME CONTAINER END -->
 
-    <!-- From Uiverse.io by MuhammadHasann --> 
-    <div class="button-container">
-        <!-- From Uiverse.io by zymantas-katinas --> 
-        <a href="aralin2.html">
-            <button class="button">
+        <!-- Popup Modals -->
+        <div id="popup-overlay" class="popup-overlay" onclick="closePopup()">
+            <div class="popup-content" onclick="event.stopPropagation()">
+                <button class="close-popup" onclick="closePopup()">&times;</button>
+                <h3 id="popup-title" class="popup-header"></h3>
+                
+                <!-- Enhanced Image Container -->
+                <div id="popup-image-container" class="popup-image-container">
+                    <img id="popup-image" class="popup-image" src="" alt="Historical Image" style="display: none;">
+                    <div id="image-placeholder" class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <div class="image-placeholder-text">Walang available na larawan</div>
+                    </div>
+                </div>
+                
+                <div id="popup-body" class="popup-body"></div>
+            </div>
+        </div>
+
+        <!----- GAME HEADER STARTS -->
+        <div class="gameHeader-container">
+            <h1 id="gameHeader-logo">PALARO</h1>
+        </div>
+        <!----- GAME HEADER ENDS  -->
+
+        <!-- GAME CONTAINER START -->
+        <div class="games-container">
+            <div class="games-scroll-container">
+                <button class="scroll-button scroll-left" onclick="scrollGames('left')">‹</button>
+                <button class="scroll-button scroll-right" onclick="scrollGames('right')">›</button>
+                
+                <div class="games-wrapper" id="gamesWrapper">
+                    <a href="https://wordwall.net/tl/embed/f264982006f148e6a0cd08852c0b8d7e?themeId=60&templateId=5&fontStackId=0" class="game-card" target="blank">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a3_quiz.webp" alt="Maramihang Pagpipilian" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Pagsusulit</div>
+                            <div class="game-genre">Quiz</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/28283ece8e8048a89db46d5c9bf14b4d?themeId=60&templateId=30&fontStackId=0" class="game-card" target="blank">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a3_openthebox.webp" alt="Open the Box" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Buksan ang Kahon</div>
+                            <div class="game-genre">Open the Box</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/864e2955f51a49ea85b15cf0eb372b9c?themeId=52&templateId=8&fontStackId=0" class="game-card" target="blank">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a3_spinthewheel.webp" alt="Spin The Wheel" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Paikutin ang Roleta</div>
+                            <div class="game-genre">Spin the Wheel</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/87bc903a7a0641db85f816dae8f12640?themeId=60&templateId=46&fontStackId=0" class="game-card">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a3_findthematch.webp" alt="Find the Match" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Hanapin ang Tugma</div>
+                            <div class="game-genre">Find the Match</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/31d0310a52dc4509bdebac44347e07c8?themeId=60&templateId=25&fontStackId=0" class="game-card">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a3_matchingpairs.webp" alt="Anagram" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Magkatugmang Pares</div>
+                            <div class="game-genre">Matching Pairs</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wordwall.net/tl/embed/370cfe1228f64ea5a7a534658e782782?themeId=60&templateId=25&fontStackId=0" class="game-card">
+                        <div class="game-image">
+                            <img src="images/mga-palaro/a3_matchup.webp" alt="Flash Cards" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="game-info">
+                            <div class="game-title">Pag-uugnay</div>
+                            <div class="game-genre">Match Up</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- GAME CONTAINER END -->
+
+        <!-- From Uiverse.io by MuhammadHasann --> 
+        <div class="button-container">
+            <!-- From Uiverse.io by zymantas-katinas --> 
+            <a href="aralin2.html">
+                <button class="button">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <div class="front">
+                    <span>↩ Bumalik</span>
+                </div>
+                </button>
+            </a>
+
+            <button class="button" onclick="openPopup()">
             <span class="shadow"></span>
             <span class="edge"></span>
             <div class="front">
-                <span>↩ Bumalik</span>
+                <span>Susunod ↪</span>
             </div>
             </button>
-        </a>
-
-        <button class="button" onclick="openPopup()">
-        <span class="shadow"></span>
-        <span class="edge"></span>
-        <div class="front">
-            <span>Susunod ↪</span>
         </div>
-        </button>
-    </div>
 
-    <!-- Pop-up Modal -->
-     <div class="overlay" id="overlay" onclick="closePopup1()">
-        <div class="popup" onclick="event.stopPropagation()">
-            <div class="decorative-border"></div>
-            <h1>⚠️ Pagpugay ⚠️</h1>
-            <p>Kamusta ang iyong paglalakbay sa ating tatlong aralin? Kung gayon ay atin nang simulan ang pagwawakas ng ating paglalakbay, hinahamon kita na lagpasan mo ang iyong huling pagsubok, ang Pangwakas na Pagsusulit!</p>
-            <div class="popup-buttons">
-                <button class="popup-button proceed-btn" onclick="proceedToQuiz()">
-                    ⚔️ Tanggapin ang Hamon
-                </button>
-                <button class="popup-button close-btn" onclick="closePopup1()">
-                    🛡️ Umatras
-                </button>
+        <!-- Pop-up Modal -->
+        <div class="overlay" id="overlay" onclick="closePopup1()">
+            <div class="popup" onclick="event.stopPropagation()">
+                <div class="decorative-border"></div>
+                <h1>⚠️ Pagpugay ⚠️</h1>
+                <p>Kamusta ang iyong paglalakbay sa ating tatlong aralin? Kung gayon ay atin nang simulan ang pagwawakas ng ating paglalakbay, hinahamon kita na lagpasan mo ang iyong huling pagsubok, ang Pangwakas na Pagsusulit!</p>
+                <div class="popup-buttons">
+                    <button class="popup-button proceed-btn" onclick="proceedToQuiz()">
+                        ⚔️ Tanggapin ang Hamon
+                    </button>
+                    <button class="popup-button close-btn" onclick="closePopup1()">
+                        🛡️ Umatras
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -361,5 +372,6 @@
     <!-- JS FILE -->
     <script src="js-files/index.js"></script>
     <script src="js-files/aralin.js"></script>
+    <script src="js-files/preloader.js"></script>
 </body>
 </html>

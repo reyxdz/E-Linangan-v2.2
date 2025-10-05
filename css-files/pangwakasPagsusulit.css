@@ -316,3 +316,43 @@ body::before {
     0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
     50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
 }
+
+/* Explanation Popup */
+.explanation-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.explanation-content {
+    background: rgba(0, 0, 0, 0.95);
+    border: 3px solid #d4af37;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.explanation-content h3 {
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+.explanation-content p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: justify;
+}

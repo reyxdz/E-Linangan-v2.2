@@ -10,247 +10,241 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="css-files/style.css">
+        <link rel="stylesheet" href="css-files/preloader.css">
     </head>
 
     <body>
-        <!-- HEADER START-->
-         <header class="header" id="header">
-            <nav class="nav container">
-                <a href="main.html" class="nav_logo">E-LINANGAN</a>
-
-                <div class="nav_menu" id="nav-menu">
-                    <ul class="nav_list">
-                        <li class="nav_item">
-                            <a href="pambungad.html" class="nav_link">
-                                <i class="ri-arrow-right-up-line"></i>
-                                <span>Pambungad</span>
-                            </a>
-                        </li>
-
-                        <li class="nav_item dropdown">
-                            <a href="#" class="nav_link dropdown-toggle" id="nilalaman-toggle">
-                                <i class="ri-arrow-right-up-line"></i>
-                                <span>Nilalaman</span>
-                                <i class="ri-arrow-down-s-line dropdown-arrow"></i>
-                            </a>
-
-                            <ul class="dropdown-menu" id="nilalaman-dropdown">
-                                <li><a href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
-                                <li><a href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
-                                <li><a href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
-                                <li><a href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
-                                <li><a href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                <!-- CLOSE BUTTON START -->
-                <div class="nav_close" id="nav-close">
-                    <i class="ri-close-large-line"></i>
-                 </div>
-                <!-- CLOSE BUTTON END -->
-                </div>
-
-                <!-- TOOGLE BUTTON START -->
-                <div class="nav_toggle" id="nav-toggle">
-                    <i class="ri-menu-2-line"></i>
-                 </div>
-                <!-- TOOGLE BUTTON END -->
-            </nav>
-         </header>
-
-        <!-- HEADER END -->
-
-
-
-        <!-- SLIDER START -->
-        <div class="slider">
-            <!-- LIST START -->
-            <div class="list">
-                <div class="item active">
-                    <img src="images/home-slider/Designer.jpeg">
-                    <div class="content">
-                        <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
-                        <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
-                        <h2>PIYUDALISMO</h2>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <img src="images/home-slider/Designer (1).jpeg">
-                    <div class="content">
-                        <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
-                        <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
-                        <h2>Imperyong Romano</h2>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <img src="images/home-slider/Designer (2).jpeg">
-                    <div class="content">
-                        <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
-                        <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
-                        <h2>MANORYALISMO</h2>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <img src="images/home-slider/Designer (3).jpeg">
-                    <div class="content">
-                        <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
-                        <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
-                        <h2>SIMBAHANG KATOLIKO</h2>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <img src="images/home-slider/Designer (4).jpeg">
-                    <div class="content">
-                        <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
-                        <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
-                        <h2>KRUSADA</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- LIST END -->
-                
-        </div>
-        <!-- SLIDER END -->
-
-    <!-- Pop-up Modal -->
-    <div class="overlay" id="overlay" onclick="closePopup()">
-        <div class="popup" onclick="event.stopPropagation()">
-            <div class="decorative-border"></div>
-            <h1>⚠️ Babala ⚠️</h1>
-            <p>Matapang na mandirigma, ikaw ay magsisimula sa isang mapanganib na pakikipagsapalaran na susubok sa iyong talino at kaalaman! Ang landas sa unahan ay patungo sa isang hamon ng palaisipan kung saan tanging ang pinakatusong isipan lamang ang magtatagumpay. Handa ka na bang harapin ang mga pagsubok na naghihintay?</p>
-            <div class="popup-buttons">
-                <button class="popup-button proceed-btn" onclick="proceedToQuiz()">
-                    ⚔️ Tanggapin ang Hamon
-                </button>
-                <button class="popup-button close-btn" onclick="closePopup()">
-                    🛡️ Umatras
-                </button>
+        <!-- Loading Screen -->
+        <div id="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
             </div>
         </div>
-    </div>
-
-    <div class="floating-elements">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-    </div>
-
-    <div class="container2">
-        <header class="header2">
-            <h1>TUNGKOL SA <br>E-LINANGAN</h1>
-            <h2>BUOD NG PAKSA</h2>
-        </header>
-
-        <div class="content-grid">
-            <div class="text-content">
-                <h3>Ang E-Linangan</h3>
-                <p>
-                    Ang <span class="highlight">E-Linangan</span> ay isang interaktibong online na plataporma na idinisanyo upang mapalawak ang kaalaman sa <span class="highlight">Araling Panlipunan 8</span>. Nagbibigay ang website na ito ng mga kawili-wili at madaling ma-access na mga edukasyonal na kagamitan na tumatalakay sa mayamang kasaysayan at mga mahahalagang pagbabago ng <span class="highlight">Gitnang Panahon sa Europa</span>.
-                </p>
-            </div>
-
-            <div class="video-section">
-                <h3>Mga Pagbabagong Naganap sa Europa sa Gitnang Panahon</h3>
-                <div class="video-container">
-                    <iframe 
-                        id="yt-video"
-                        src="https://www.youtube.com/embed/3jSAP3WEe70?enablejsapi=1"
-                        title="AP G8/Q2:Mga Pagbabagong Naganap sa Europa sa Gitnang Panahon"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <a href="https://youtu.be/3jSAP3WEe70?si=kdbKcROCLXYzvZ9l" class="video-link" target="_blank">
-                    Panoorin sa YouTube
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- CONTAINER 3 -->
-    <div class="container3">
-        <h1 class="main-title">ANG MGA MATUTUNAN MO</h1>
         
-        <div class="modules-grid">
-            <div class="module-card module-1 floating-animation">
-                <div class="icon-container">
-                    <div class="crown">👑</div>
-                </div>
-                <h2 class="module-title">Aralin 1:</h2>
-                <h3 class="module-subtitle">Pagbabagong Pulitikal</h3>
-                <p class="module-description">
-                    Tuklasin ang mga mahalagang pagbabago sa larangan ng pulitika at pamahalaan.
-                </p>
-            </div>
+        <div id="loadercontent">
+            <!-- HEADER START-->
+            <header class="header" id="header">
+                <nav class="nav container">
+                    <a href="main.html" class="nav_logo">E-LINANGAN</a>
 
-            <div class="module-card module-2 floating-animation" style="animation-delay: 0.5s;">
-                <div class="icon-container">
-                    <div class="castle">🏰</div>
-                </div>
-                <h2 class="module-title">Aralin 2:</h2>
-                <h3 class="module-subtitle">Pagbabagong Ekonomiko</h3>
-                <p class="module-description">
-                    Alamin ang mga pagbabago sa ekonomiya at ang epekto nito sa lipunan.
-                </p>
-            </div>
+                    <div class="nav_menu" id="nav-menu">
+                        <ul class="nav_list">
+                            <li class="nav_item">
+                                <a href="pambungad.html" class="nav_link">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                    <span>Pambungad</span>
+                                </a>
+                            </li>
 
-            <div class="module-card module-3 floating-animation" style="animation-delay: 1s;">
-                <div class="icon-container">
-                    <div class="church">⛪</div>
+                            <li class="nav_item dropdown">
+                                <a href="#" class="nav_link dropdown-toggle" id="nilalaman-toggle">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                    <span>Nilalaman</span>
+                                    <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+                                </a>
+
+                                <ul class="dropdown-menu" id="nilalaman-dropdown">
+                                    <li><a href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
+                                    <li><a href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
+                                    <li><a href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
+                                    <li><a href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
+                                    <li><a href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <!-- CLOSE BUTTON START -->
+                    <div class="nav_close" id="nav-close">
+                        <i class="ri-close-large-line"></i>
+                    </div>
+                    <!-- CLOSE BUTTON END -->
+                    </div>
+
+                    <!-- TOOGLE BUTTON START -->
+                    <div class="nav_toggle" id="nav-toggle">
+                        <i class="ri-menu-2-line"></i>
+                    </div>
+                    <!-- TOOGLE BUTTON END -->
+                </nav>
+            </header>
+
+            <!-- HEADER END -->
+
+
+
+            <!-- SLIDER START -->
+            <div class="slider">
+                <!-- LIST START -->
+                <div class="list">
+                    <div class="item active">
+                        <img src="images/home-slider/Designer.jpeg">
+                        <div class="content">
+                            <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
+                            <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
+                            <h2>PIYUDALISMO</h2>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="images/home-slider/Designer (1).jpeg">
+                        <div class="content">
+                            <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
+                            <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
+                            <h2>Imperyong Romano</h2>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="images/home-slider/Designer (2).jpeg">
+                        <div class="content">
+                            <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
+                            <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
+                            <h2>MANORYALISMO</h2>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="images/home-slider/Designer (3).jpeg">
+                        <div class="content">
+                            <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
+                            <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
+                            <h2>SIMBAHANG KATOLIKO</h2>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="images/home-slider/Designer (4).jpeg">
+                        <div class="content">
+                            <p style="font-size: 10px; letter-spacing: 5px;">MGA TAMPOK NA PAKSA SA</p>
+                            <p style="letter-spacing: 10px;">GITNANG PANAHON</p>
+                            <h2>KRUSADA</h2>
+                        </div>
+                    </div>
                 </div>
-                <h2 class="module-title">Aralin 3:</h2>
-                <h3 class="module-subtitle">Pagbabagong Sosyo-Kultural</h3>
-                <p class="module-description">
-                    Pag-aralan ang mga pagbabago sa kultura at lipunan ng mga Pilipino.
-                </p>
+                <!-- LIST END -->
+                    
+            </div>
+            <!-- SLIDER END -->
+
+        <!-- Pop-up Modal -->
+        <div class="overlay" id="overlay" onclick="closePopup()">
+            <div class="popup" onclick="event.stopPropagation()">
+                <div class="decorative-border"></div>
+                <h1>⚠️ Babala ⚠️</h1>
+                <p>Matapang na mandirigma, ikaw ay magsisimula sa isang mapanganib na pakikipagsapalaran na susubok sa iyong talino at kaalaman! Ang landas sa unahan ay patungo sa isang hamon ng palaisipan kung saan tanging ang pinakatusong isipan lamang ang magtatagumpay. Handa ka na bang harapin ang mga pagsubok na naghihintay?</p>
+                <div class="popup-buttons">
+                    <button class="popup-button proceed-btn" onclick="proceedToQuiz()">
+                        ⚔️ Tanggapin ang Hamon
+                    </button>
+                    <button class="popup-button close-btn" onclick="closePopup()">
+                        🛡️ Umatras
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <p style="text-align: center; color: #444; margin-top: 3rem;">Hatid sa inyo nila</p>
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
 
-    <div class="carousel-container">
-        <div class="carousel-track">
-            <div class="carousel-slide">
-                <img src="images/m1.jpg">
-                <div class="carousel-caption">Mercedes Neri</div>
-            </div>
-            <div class="carousel-slide">
-                <img src="images/m2.jpg">
-                <div class="carousel-caption">Devine Grace Laude</div>
-            </div>
-            <div class="carousel-slide">
-                <img src="images/m3.jpg">
-                <div class="carousel-caption">Judy Ann Espellarga</div>
-            </div>
-            <div class="carousel-slide">
-                <img src="images/m4.jpg">
-                <div class="carousel-caption">Erica Bareja</div>
-            </div>
-            <div class="carousel-slide">
-                <img src="images/m5.jpg">
-                <div class="carousel-caption">Jesie Rosel</div>
-            </div>
-            <div class="carousel-slide">
-                <img src="images/m6.jpg">
-                <div class="carousel-caption">Mark Kevin Sambitan</div>
+        <div class="container2">
+            <header class="header2">
+                <h1>TUNGKOL SA <br>E-LINANGAN</h1>
+                <h2>BUOD NG PAKSA</h2>
+            </header>
+
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Ang E-Linangan</h3>
+                    <p>
+                        Ang <span class="highlight">E-Linangan</span> ay isang interaktibong online na plataporma na idinisanyo upang mapalawak ang kaalaman sa <span class="highlight">Araling Panlipunan 8</span>. Nagbibigay ang website na ito ng mga kawili-wili at madaling ma-access na mga edukasyonal na kagamitan na tumatalakay sa mayamang kasaysayan at mga mahahalagang pagbabago ng <span class="highlight">Gitnang Panahon sa Europa</span>.
+                    </p>
+                </div>
+
+                <div class="video-section">
+                    <h3>Mga Pagbabagong Naganap sa Europa sa Gitnang Panahon</h3>
+                    <div class="video-container">
+                        <iframe 
+                            id="yt-video"
+                            src="https://www.youtube.com/embed/3jSAP3WEe70?enablejsapi=1"
+                            title="AP G8/Q2:Mga Pagbabagong Naganap sa Europa sa Gitnang Panahon"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <a href="https://youtu.be/3jSAP3WEe70?si=kdbKcROCLXYzvZ9l" class="video-link" target="_blank">
+                        Panoorin sa YouTube
+                    </a>
+                </div>
             </div>
         </div>
+
+        <!-- CONTAINER 3 -->
+        <div class="container3">
+            <h1 class="main-title">ANG MGA MATUTUNAN MO</h1>
+            
+            <div class="modules-grid">
+                <div class="module-card module-1 floating-animation">
+                    <div class="icon-container">
+                        <div class="crown">👑</div>
+                    </div>
+                    <h2 class="module-title">Aralin 1:</h2>
+                    <h3 class="module-subtitle">Pagbabagong Pulitikal</h3>
+                    <p class="module-description">
+                        Tuklasin ang mga mahalagang pagbabago sa larangan ng pulitika at pamahalaan.
+                    </p>
+                </div>
+
+                <div class="module-card module-2 floating-animation" style="animation-delay: 0.5s;">
+                    <div class="icon-container">
+                        <div class="castle">🏰</div>
+                    </div>
+                    <h2 class="module-title">Aralin 2:</h2>
+                    <h3 class="module-subtitle">Pagbabagong Ekonomiko</h3>
+                    <p class="module-description">
+                        Alamin ang mga pagbabago sa ekonomiya at ang epekto nito sa lipunan.
+                    </p>
+                </div>
+
+                <div class="module-card module-3 floating-animation" style="animation-delay: 1s;">
+                    <div class="icon-container">
+                        <div class="church">⛪</div>
+                    </div>
+                    <h2 class="module-title">Aralin 3:</h2>
+                    <h3 class="module-subtitle">Pagbabagong Sosyo-Kultural</h3>
+                    <p class="module-description">
+                        Pag-aralan ang mga pagbabago sa kultura at lipunan ng mga Pilipino.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BACKGROUND MUSIC -->
+        <audio id="bg-music" autoplay muted loop>
+            <source src="audios/bgmusic.mp3" type="audio/mpeg">
+        </audio>
     </div>
-    
-    <!-- BACKGROUND MUSIC -->
-    <audio id="bg-music" autoplay muted loop>
-        <source src="audios/bgmusic.mp3" type="audio/mpeg">
-    </audio>
+
+    <footer>
+        <div class="footer-title">Hatid nila:</div>
+        <div class="footer-members">
+            <span>Mark Kevin Sambitan</span>
+            <span>Judy Ann Espellarga</span>
+            <span>Devine Grace Laude</span>
+            <span>Mercedes Neri</span>
+            <span>Erica Bareja</span>
+            <span>Jesie Rosel</span>
+        </div>
+    </footer>
          
 
     <!-- JS FILES -->
     <script src="js-files/index.js"></script>
     <script src="js-files/pambungad.js"></script>
+    <script src="js-files/preloader.js"></script>
 
     </body>
 </html>

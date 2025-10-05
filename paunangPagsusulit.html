@@ -6,55 +6,67 @@
     <title>Paunang Pagsusulit</title>
 
     <link rel="stylesheet" href="css-files/paunangPagsusulit.css">
+    <link rel="stylesheet" href="css-files/preloader.css">
 </head>
 <body>
-    <div class="parchment-bg"></div>
-    
-    <div class="container">
-        <div class="game-header">
-            <h1 class="game-title">⚔️ Paunang Pagsusulit ⚔️</h1>
-            <p class="game-subtitle">Hinahamon ko ang talas ng iyong kaalaman!</p>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
         </div>
+    </div>
+
+    <div id="loadercontent">
+        <div class="parchment-bg"></div>
         
-        <div class="stats-panel">
-            <div class="stat-card">
-                <div class="stat-label">Katanungan</div>
-                <div class="stat-value" id="questionCounter">1 / 10</div>
+        <div class="container">
+            <div class="game-header">
+                <h1 class="game-title">⚔️ Paunang Pagsusulit ⚔️</h1>
+                <p class="game-subtitle">Hinahamon ko ang talas ng iyong kaalaman!</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-label">Iskor</div>
-                <div class="stat-value" id="scoreDisplay">0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Natitirang Oras</div>
-                <div class="stat-value timer" id="timeDisplay">30</div>
-            </div>
-        </div>
-        
-        <div id="gameArea">
-            <div class="question-card">
-                <div class="question-number" id="questionNumber">Katanungan 1 sa 10</div>
-                <div class="question-text" id="questionText">Naglalakbay pa...</div>
-                <div class="answers-grid" id="answersGrid">
-                    <!-- Answers will be populated by JavaScript -->
+            
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <div class="stat-label">Katanungan</div>
+                    <div class="stat-value" id="questionCounter">1 / 10</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Iskor</div>
+                    <div class="stat-value" id="scoreDisplay">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Natitirang Oras</div>
+                    <div class="stat-value timer" id="timeDisplay">30</div>
                 </div>
             </div>
             
-            <div class="control-panel">
-                <button class="btn" id="restartBtn"></button>
-                <button class="btn" id="nextBtn" disabled>Kasunod na Tanong</button>
-            </div>
-        </div>
-        
-        <div id="resultsArea" class="hidden">
-            <div class="results-panel">
-                <h2 class="results-title">Nalagpasan mo ang aking hamon!</h2>
-                <div class="final-score" id="finalScore">Your Score: 0/10</div>
-                <div class="rank-title" id="rankTitle">Napakahina!</div>
-                <div class="rank-description" id="rankDescription">Tiyak na marami kang matututunan sa ating paglalakbay!</div>
+            <div id="gameArea">
+                <div class="question-card">
+                    <div class="question-number" id="questionNumber">Katanungan 1 sa 10</div>
+                    <div class="question-text" id="questionText">Naglalakbay pa...</div>
+                    <div class="answers-grid" id="answersGrid">
+                        <!-- Answers will be populated by JavaScript -->
+                    </div>
+                </div>
+                
                 <div class="control-panel">
-                    <button href="paunangPagsusulit.html" class="btn" id="playAgainBtn">Subukang Muli</button>
-                    <button class="btn"><a href="aralin1.html" style="text-decoration: none; color: black;">Simulan ang Paglalakbay</a></button>
+                    <button class="btn" id="restartBtn"></button>
+                    <button class="btn" id="nextBtn" disabled>Kasunod na Tanong</button>
+                </div>
+            </div>
+            
+            <div id="resultsArea" class="hidden">
+                <div class="results-panel">
+                    <h2 class="results-title">Nalagpasan mo ang aking hamon!</h2>
+                    <div class="final-score" id="finalScore">Your Score: 0/10</div>
+                    <div class="rank-title" id="rankTitle">Napakahina!</div>
+                    <div class="rank-description" id="rankDescription">Tiyak na marami kang matututunan sa ating paglalakbay!</div>
+                    <div class="control-panel">
+                        <button href="paunangPagsusulit.html" class="btn" id="playAgainBtn">Subukang Muli</button>
+                        <button class="btn"><a href="aralin1.html" style="text-decoration: none; color: black;">Simulan ang Paglalakbay</a></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,5 +74,6 @@
 
     <!-- JS FILE -->
     <script src="js-files/paunangPagsusulit.js"></script>
+    <script src="js-files/preloader.js"></script>
 </body>
 </html>

@@ -1,21 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css-files/preloader.css">
-</head>
-<body class="body">
-    <div class="book">
-        <div class="book__pg-shadow"></div>
-        <div class="book__pg"></div>
-        <div class="book__pg book__pg--2"></div>
-        <div class="book__pg book__pg--3"></div>
-        <div class="book__pg book__pg--4"></div>
-        <div class="book__pg book__pg--5"></div>
-        <div class="text">Loading...</div>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gitnang Panahon</title>
 
-    <!-- JS FILE -->
-     <script src="js-files/index.js"></script>
-</body>
+        <!-- REMIXICONS -->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css-files/style.css">
+        <link rel="stylesheet" href="css-files/index.css">
+        <link rel="stylesheet" href="css-files/popup.css">
+        <link rel="stylesheet" href="css-files/preloader.css">
+    </head>
+
+    <body>
+        <!-- Loading Screen -->
+        <div id="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+        </div>
+
+        <div id="loadercontent">
+            <!-- SLIDER START -->
+            <div class="slider">
+                <div class="parent">
+                    <div class="glass-box">
+                        <p class="welcome">HALIKA NA SA</p>
+                        <p class="title">E-LINANGAN</p>
+                        <p class="description">
+                            Ang websayt na ito ay binuo ng mga mag-aaral mula sa Biliran Province State University, partikular mula sa kursong BSED-Social Studies S.Y. 2024-2025 bilang bahagi ng kanilang pangunahing course requirement sa asignaturang Research in Social Studies.<br>
+                            <br>Layunin ng websayt na ito na paunlarin ang kaalaman ng mga mag-aaral patungkol sa mga mahahalagang pagbabagong naganap noong Gitnang Panahon sa Europa sa pamamagitan ng isang interaktibo at kawili-wiling online na platapormang pangkatuto.<br>
+                            <br>Kaya tayo na at maglakbay sa nakaraan at alamin ang mga araling makabuluhan
+                        </p>
+
+                        <!-- CONTINUE BUTTON START -->
+                        <div class="buttonContainer">
+                                <svg class="effect" width="486" height="174" viewBox="0 0 486 174">
+                                    <defs>
+                                    <clipPath id="theClip">
+                                        <path d="m 102,35 h 276 c 28.808,0 52,23.192 52,52 0,28.808 -23.192,52
+                                            -52,52 H 102 C 73.192002,139 50,115.808 50,87 50,58.192 73.192002,35
+                                            102,35 Z" />
+                                    </clipPath>
+                                    </defs>
+                                    <path style="fill: #A99E82" d="m 102,35 h 276 c 28.808,0 52,23.192 52,52 0,28.808 -23.192,52
+                                        -52,52 H 102 C 73.192002,139 50,115.808 50,87 50,58.192 73.192002,35
+                                        102,35 Z" />
+                                    <g clip-path="url(#theClip)">
+                                    <g class="sprites">
+                                        <circle class="sprite1" cx="0" cy="0" r="70" />
+                                        <circle class="sprite1" fill="none" stroke="#000" stroke-width="1" cx="0" cy="0" r="70" />
+                                        <circle class="sprite2" cx="0" cy="0" r="50" />
+                                        <circle class="sprite2" fill="none" stroke="#000" stroke-width="1" cx="0" cy="0" r="50" />
+                                        <circle class="sprite3" cx="0" cy="0" r="30" />
+                                        <circle class="sprite3" fill="none" stroke="#000" stroke-width="1" cx="0" cy="0" r="30" />
+                                        <circle class="sprite4" cx="0" cy="0" r="10" />
+                                        <circle class="sprite4" fill="none" stroke="#000" stroke-width="1" cx="0" cy="0" r="10" />
+                                    </g>
+                                    </g>
+                                    <path style="fill: #E1D3B6 " d="m 102,45 h 276 c 23.268,0 42,18.732 42,42 0,23.268 -18.732,42 -42,42 H 102 C 78.732002,129 60,110.268 60,87 60,63.732 78.732002,45 102,45 Z" />
+                                </svg>
+                                <button onclick="openPopup()" class="button">Magpatuloy</button>
+                            </div>
+                        <!-- CONTINUE BUTTON END -->
+                    </div>
+                </div>
+
+                
+                <!-- LIST START -->
+                <div class="list">
+                    <div class="item active">
+                        <img src="images/home-slider/Designer.jpeg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/home-slider/Designer (1).jpeg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/home-slider/Designer (2).jpeg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/home-slider/Designer (3).jpeg">
+                    </div>
+
+                    <div class="item">
+                        <img src="images/home-slider/Designer (4).jpeg">
+                    </div>
+                </div>
+                <!-- LIST END -->
+            </div>
+            <!-- SLIDER END -->
+
+
+            <!-- Popup -->
+            <div class="popup-overlay" id="popupOverlay" onclick="closePopupOnOverlay(event)">
+                <div class="popup-container">
+                    <button class="close-btn" onclick="closePopup()">&times;</button>
+                    
+                    <div class="popup-photo">
+                        <img src="images/mascots/boy/b1.webp" alt="Popup Image">
+                    </div>
+                    
+                    <div class="popup-description">
+                        <h2>TUTORIAL</h2>
+                        <p>Nais mo bang ipaliwanag ko sayo kung paano gamitin ang websayt na ito?</p>
+                        
+                        <!-- Action buttons -->
+                        <div class="popup-buttons">
+                            <button class="popup-btn proceed-btn" onclick="window.location.href='pambungad.html'">Hindi</button>
+                            <button class="popup-btn proceed-btn" onclick="window.location.href='walkthrough-lg.html'">Oo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+
+         <script src="js-files/index.js"></script>
+         <script src="js-files/popup.js"></script>
+         <script src="js-files/preloader.js"></script>
+    </body>
 </html>
