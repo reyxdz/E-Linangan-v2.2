@@ -5,19 +5,6 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const totalSlides = slides.length;
 
-// Add click sound effect (optional - replace with your sound file)
-const clickSound = new Audio('audios/wtbutton.mp3');
-
-// Background music (optional - replace with your music file)
-const bgMusic = new Audio('audios/wtbgmusic.mp3');
-bgMusic.loop = true;
-bgMusic.volume = 0.3;
-
-function playSound() {
-    clickSound.currentTime = 0;
-    clickSound.play().catch(e => console.log('Sound not loaded'));
-}
-
 function createIndicators() {
     indicatorContainer.innerHTML = '';
     const maxVisible = 5;
@@ -69,19 +56,6 @@ nextBtn.addEventListener('click', () => {
         openPopup();
     }
 });
-
-// Background music (optional)
-window.addEventListener('load', () => {
-    bgMusic.play().catch(error => {
-        console.log('Autoplay prevented.');
-    });
-});
-
-document.addEventListener('click', () => {
-    if (bgMusic.paused) {
-        bgMusic.play().catch(e => console.log('Music not loaded'));
-    }
-}, { once: true });
 
 // Initialize
 createIndicators();

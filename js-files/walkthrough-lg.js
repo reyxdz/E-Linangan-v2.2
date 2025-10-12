@@ -5,12 +5,6 @@ const indicatorContainer = document.querySelector('.indicators');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
-// Add sounds
-const clickSound = new Audio('audios/wtbutton.mp3');
-const bgMusic = new Audio('audios/wtbgmusic.mp3');
-bgMusic.loop = true;
-bgMusic.volume = 0.3;
-
 // Detect screen size and filter slides
 function detectScreenSize() {
     const screenType = window.innerWidth <= 768 ? 'small' : 'large';
@@ -53,11 +47,6 @@ function rebuildIndicators() {
     });
 }
 
-function playSound() {
-    clickSound.currentTime = 0;
-    clickSound.play();
-}
-
 function updateCarousel() {
     const indicators = document.querySelectorAll('.indicator');
     
@@ -89,19 +78,6 @@ nextBtn.addEventListener('click', () => {
         openPopup();
     }
 });
-
-// Background music
-window.addEventListener('load', () => {
-    bgMusic.play().catch(error => {
-        console.log('Autoplay prevented. Music will play after first interaction.');
-    });
-});
-
-document.addEventListener('click', () => {
-    if (bgMusic.paused) {
-        bgMusic.play();
-    }
-}, { once: true });
 
 // Initial setup and resize listener
 detectScreenSize();

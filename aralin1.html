@@ -35,46 +35,61 @@
                         <li class="nav_item">
                             <a href="pambungad.html" class="nav_link">
                                 <i class="ri-arrow-right-up-line"></i>
-                                <span>Pambungad</span>
+                                <span onclick="playSound()">Pambungad</span>
                             </a>
                         </li>
 
                         <li class="nav_item dropdown">
                             <a href="#" class="nav_link dropdown-toggle" id="nilalaman-toggle">
                                 <i class="ri-arrow-right-up-line"></i>
-                                <span>Nilalaman</span>
-                                <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+                                <span onclick="playSound()">Nilalaman</span>
+                                <i onclick="playSound()" class="ri-arrow-down-s-line dropdown-arrow"></i>
                             </a>
 
                             <ul class="dropdown-menu" id="nilalaman-dropdown">
-                                <li><a href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
-                                <li><a href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
-                                <li><a href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
-                                <li><a href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
-                                <li><a href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
+                                <li><a onclick="playSound()" href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
+                                <li><a onclick="playSound()" href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
+                                <li><a onclick="playSound()" href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
+                                <li><a onclick="playSound()"href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
+                                <li><a onclick="playSound()" href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
                             </ul>
                         </li>
                     </ul>
 
                 <!-- CLOSE BUTTON START -->
                 <div class="nav_close" id="nav-close">
-                    <i class="ri-close-large-line"></i>
+                    <i onclick="playSound()" class="ri-close-large-line"></i>
                 </div>
                 <!-- CLOSE BUTTON END -->
                 </div>
 
                 <!-- TOOGLE BUTTON START -->
                 <div class="nav_toggle" id="nav-toggle">
-                    <i class="ri-menu-2-line"></i>
+                    <i onclick="playSound()" class="ri-menu-2-line"></i>
                 </div>
                 <!-- TOOGLE BUTTON END -->
             </nav>
         </header>
         <!-- HEADER END -->
 
+        <!----- BACKGROUND START ----->
+        <div class="bg-animated"></div>
+        <!----- BACKGROUND END ------->
+
         <div class="lesson-container">
             <div class="decorative-elements">
                 🏛️⚔️🛡️
+            </div>
+
+            <div class="bg-container">
+                <div class="medieval-element castle" style="top: 10%; left: 15%;">🏰</div>
+                <div class="medieval-element scroll" style="top: 60%; left: 70%;">📜</div>
+                <div class="medieval-element shield" style="top: 30%; left: 80%;">🛡️</div>
+                <div class="medieval-element crown" style="top: 70%; left: 20%;">👑</div>
+                <div class="medieval-element castle" style="top: 80%; left: 85%;">🏰</div>
+                <div class="medieval-element scroll" style="top: 20%; left: 40%;">📜</div>
+                <div class="medieval-element shield" style="top: 50%; left: 10%;">🛡️</div>
+                <div class="medieval-element crown" style="top: 15%; left: 60%;">👑</div>
             </div>
 
             <header class="lesson-header">
@@ -89,11 +104,11 @@
                 <p>Bilang karagdagan sa mga panloob na problema, ang Imperyong Romano ng Kanluran ay humarap sa isang serye ng mga panlabas na banta na nagpadali sa kanyang pagbagsak. Ang mga pagsalakay ng mga barbaro ay isa sa mga pinaka-nawasak na panlabas na salik. Ang mga tribo tulad ng mga Visigoth, Vandal, at Huns ay paulit-ulit na sumalakay sa teritoryong Romano, ninakawan at winasak ang mga lungsod. Ang mga pagsalakay na ito ay hindi lamang nagdulot ng pisikal na pagkawasak, kundi pati na rin nagpasama sa pamamahala at ekonomiya ng imperyo.</p>
                 <p>Ang mga Visigoth, sa ilalim ng pamumuno ni <b>Alarico</b>, ay ninakaw ang Roma noong 410 D.C., isang kaganapan na nagpashock sa mundo ng Roma at sumisimbolo sa kahinaan ng imperyo. Ang mga Vandal, sa pamumuno ni <b>Genserico</b>, ay nakakuha ng Kartago noong 439 D.C. at kasunod nito ay ninakawan ang Roma noong 455 D.C. Ang mga pagsalakay ng mga barbaro na ito ay hindi lamang mga hiwalay na atake; sila ay kumakatawan sa isang patuloy na banta na nangangailangan ng isang gastos upang mapanatili ang depensa, na nagpapahina sa mga yaman ng imperyo.</p>
                 <p>Ang mga Huns, na pinangunahan ni <b>Atila</b>, ay nagrepresenta din ng isang makabuluhang bantang sa imperyo. Bagaman si Atila ay napabagsak sa Labanan ng mga Patlang ng Catalan noong 451 D.C., ang patuloy na pressure ng mga Huns sa mga hangganan ng Romano ay napilitang ilihis ang mga mahahalagang yaman para sa depensa, na lalo pang nagpapahina sa kanyang kakayahang harapin ang ibang mga panloob at panlabas na problema. Ang kumbinasyon ng mga pagsalakay na ito ng mga barbaro ay makabuluhang nag-ambag sa pagkakawasak ng imperyo.</p>
-                <p>Ang pagbagsak ng Imperyong Romano ng Kanluran ay tradisyonal na itinatakda noong <b>476 C.E.</b>, nang ang huling emperador Romano ng Kanluran, <b>Romulus Augustulus</b>, ay ipinatalsik ng lider barbaro na si <span class="clickable-term" onclick="showPopup('odoacer')">Odoacer</span>. Ang kaganapang ito ay madalas na itinuturing na huling marka ng Sinaunang Panahon at simula ng Gitnang Panahon sa Europa. Gayunpaman, ang pagbagsak ng imperyo ay isang unti-unting proseso at kumplikado, resulta ng mga dekadang pagbagsak.</p>
+                <p>Ang pagbagsak ng Imperyong Romano ng Kanluran ay tradisyonal na itinatakda noong <b>476 C.E.</b>, nang ang huling emperador Romano ng Kanluran, <b>Romulus Augustulus</b>, ay ipinatalsik ng lider barbaro na si <span class="clickable-term" onclick="showPopup('odoacer'); playSound();">Odoacer</span>. Ang kaganapang ito ay madalas na itinuturing na huling marka ng Sinaunang Panahon at simula ng Gitnang Panahon sa Europa. Gayunpaman, ang pagbagsak ng imperyo ay isang unti-unting proseso at kumplikado, resulta ng mga dekadang pagbagsak.</p>
                 <p>Ang pagbagsak ng Roma ay hindi nangangahulugan na ang isang agarang pagbagsak ng sibilisasyong Romano. Maraming mga institusyon, tradisyon, at imprastruktura ng Romano ang patuloy na nakaapekto sa Europa. Gayunpaman, ang desentralisasyon ng kapangyarihan at ang pagkasira ng politika ay nagbigay daan sa paglitaw ng mga bagong kaharian at ng transisyon tungo sa Gitnang Panahon. Ang pagbagsak ng sentralisadong kapangyarihan ng Roma ay nagbigay-daan sa mga estruktura ng feudal, kung saan ang kapangyarihan ay ipinamamahagi sa mga lokal na panginoon, na nagmarka ng isang bagong panahon sa kasaysayan ng Europa.</p>
 
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/D1NMm5dI9Lc" title="Roman Empire Fall" allowfullscreen></iframe>
+                    <iframe id="youtube-player" src="https://www.youtube.com/embed/D1NMm5dI9Lc" title="Roman Empire Fall" allowfullscreen></iframe>
                 </div>
             </section>
 
@@ -101,15 +116,15 @@
                 <h2 class="section-title">Pagsilang ng Holy Roman Empire</h2>
                 
                 <p>Sinasabing bumagsak ang Kanlurang Imperyong Roman dahil sa mga barbaro na sumalakay at nagwasak sa kanilang kabihasnan. Ngunit, masasabi rin na ang pagsisimula ng tinawag na Holy Roman Empire ay nagmula sa kamay ng mga Franks, pangkat ng mga barbaro na lumusob sa Gaul (ngayon ay France).</p>
-                <p>Taong 486 nang sinalakay ng mga Franks, sa pamumuno ni <span class="clickable-term" onclick="showPopup('clovis')">Clovis</span> I ang pwersang Roman sa Gaul. Matapos nito, itinatag niya ang kaharian ng mga Franks sa ilalim ng Dinastiyang Merovingian. Nagmula ang pangalang ito kay Merovius, ang ninuno ng mga Salian Frank. Nagpabinyag si Clovis ayon na rin sa kahilingan ng kanyang asawa na si Clotilde sa Rheims noong pasko ng 496 AD kasama ang kanyang 3,000 hukbo. Nang mamatay si Clovis, ang mga sumunod na hari sa kaniya ay tinawag na “mga tamad” na hari. Ang tunay na kapangyarihan ay nasa kamay ng mga maharlika na kung tawagin ay Mayor of the Palace o katumbas ng Punong Ministro. </p>
-                <p>Sa pagkamatay ni Dagobert, ang huling hari ng Dinastiyang Merovingian, noong 638, ay pinalitan ng Dinastiyang Carolingian. Si <span class="clickable-term" onclick="showPopup('charlesmartel')">Charles Martel</span> ang kauna-unahang Carolingian na naging Mayor of the Palace at tagapayo ni Haring Dagobert. Nakilala siya sa kasaysayan nang nagapi niya ang mga Moro sa Labanan sa Tours noong 732. Ito ang pagtatapos ng presensya ng mga Muslim sa Europe noong panahon na iyon.</p>
-                <p>Ang kauna-unahang haring Carolingian ay ang anak ni Charles Martel na si <span class="clickable-term" onclick="showPopup('pepiniii')">Pepin III</span>. Dahil sa pahintulot ni Papa Stephen II at sa suporta na rin ng mga maharlikang Frank, tinanghal siya bilang “Hari ng mga Frank” noong 751. Bilang pasasalamat, tinulungan ni Pepin na mapalayas ang mga Lombard sa Gitnang Italy at ibinigay ang lupain sa papa. Tinawag ito sa kasaysayan bilang “Donasyon ni Pepin” na siyang nagbigay ng kapangyarihang pulitikal sa Simbahang Katoliko sa pagkontrol sa Gitnang Italy. Sa loob ng higit isang libong taon, pinamahalaan ito ng Simbahan at tinawag na <span class="clickable-term" onclick="showPopup('papalstates')">Papal States</span>.</p>
+                <p>Taong 486 nang sinalakay ng mga Franks, sa pamumuno ni <span class="clickable-term" onclick="showPopup('clovis'); playSound();">Clovis</span> I ang pwersang Roman sa Gaul. Matapos nito, itinatag niya ang kaharian ng mga Franks sa ilalim ng Dinastiyang Merovingian. Nagmula ang pangalang ito kay Merovius, ang ninuno ng mga Salian Frank. Nagpabinyag si Clovis ayon na rin sa kahilingan ng kanyang asawa na si Clotilde sa Rheims noong pasko ng 496 AD kasama ang kanyang 3,000 hukbo. Nang mamatay si Clovis, ang mga sumunod na hari sa kaniya ay tinawag na “mga tamad” na hari. Ang tunay na kapangyarihan ay nasa kamay ng mga maharlika na kung tawagin ay Mayor of the Palace o katumbas ng Punong Ministro. </p>
+                <p>Sa pagkamatay ni Dagobert, ang huling hari ng Dinastiyang Merovingian, noong 638, ay pinalitan ng Dinastiyang Carolingian. Si <span class="clickable-term" onclick="showPopup('charlesmartel'); playSound();">Charles Martel</span> ang kauna-unahang Carolingian na naging Mayor of the Palace at tagapayo ni Haring Dagobert. Nakilala siya sa kasaysayan nang nagapi niya ang mga Moro sa Labanan sa Tours noong 732. Ito ang pagtatapos ng presensya ng mga Muslim sa Europe noong panahon na iyon.</p>
+                <p>Ang kauna-unahang haring Carolingian ay ang anak ni Charles Martel na si <span class="clickable-term" onclick="showPopup('pepiniii'); playSound();">Pepin III</span>. Dahil sa pahintulot ni Papa Stephen II at sa suporta na rin ng mga maharlikang Frank, tinanghal siya bilang “Hari ng mga Frank” noong 751. Bilang pasasalamat, tinulungan ni Pepin na mapalayas ang mga Lombard sa Gitnang Italy at ibinigay ang lupain sa papa. Tinawag ito sa kasaysayan bilang “Donasyon ni Pepin” na siyang nagbigay ng kapangyarihang pulitikal sa Simbahang Katoliko sa pagkontrol sa Gitnang Italy. Sa loob ng higit isang libong taon, pinamahalaan ito ng Simbahan at tinawag na <span class="clickable-term" onclick="showPopup('papalstates'); playSound();">Papal States</span>.</p>
                 <p>Pumalit si <span class="clickable-term" onclick="showPopup('charlemagne')">Charlemagne</span> sa kanyang ama, bilang hari noong 768. Inanyayahan niya ang iba’t ibang iskolar sa Europa upang turuan at sanayin ang mga pari at opisyal ng pamahalaan. Sinakop niya ang Lombard, Muslim, Bavarian at Saxon, at ginawang mga Kristiyano. Kinoronahan siya ni Papa Leo III habang nagdadasal sa altar ng Simbahan ni San Pedro noong pasko ng taong 800 at ipiniroklama bilang “emperador ng mga Roman”. Ang Imperyong Carolingian ay ang bagong imperyo na kinilala sa kanlurang Europa bilang tagapagmana ng Imperyong Roman ng mga Caesar. Sa pagkawala ni Charlemagne noong 814 matapos ang kanyang 46 na taong paghahari, nahati sa tatlo ang imperyo ayon sa <span class="clickable-term" onclick="showPopup('treatyofverdun')">Kasunduan sa Verdun</span> noong 843 para sa kaniyang mga apo.</p>
-                <p>Noong 962, kinoronahan ni Papa John XII si <span class="clickable-term" onclick="showPopup('ottoi')">Otto I</span>, pinuno mula sa Gitnang Europa, bilang emperador at ito ang naging simula ng Holy Roman Empire. Sa kabila ng proklamasyon na ginawa, tanging sa pangalan lamang ang imperyo na tumagal ng higit walong siglo (mula 962 hanggang 1806).</p>
+                <p>Noong 962, kinoronahan ni Papa John XII si <span class="clickable-term" onclick="showPopup('ottoi'); playSound();">Otto I</span>, pinuno mula sa Gitnang Europa, bilang emperador at ito ang naging simula ng Holy Roman Empire. Sa kabila ng proklamasyon na ginawa, tanging sa pangalan lamang ang imperyo na tumagal ng higit walong siglo (mula 962 hanggang 1806).</p>
                 <p>Ang pagkokorona ng papa sa mga hari o emperador ay nangangahulugan na ang Simbahan noong Gitnang Panahon ay nagpapakita na maaari nilang ideklara o patalsikin ang sino mang hari o emperador. Ipinapakita din nito na ang mga papa ay higit na makapangyarihan sa mga pinunong sibil, kasama na ang mga hari at emperador. Ang mga pahayag na ito ay nagdulot ng maraming sigalot sa pagitan ng Simbahan at mga estado sa loob ng maraming panahon.</p>
 
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/gcxvEvH-VC4" title="Roman Empire Fall" allowfullscreen></iframe>
+                    <iframe id="youtube-player" src="https://www.youtube.com/embed/gcxvEvH-VC4" title="Roman Empire Fall" allowfullscreen></iframe>
                 </div>
             </section>
 
@@ -137,7 +152,7 @@
                 <p>Ang isang kabataang maharlika ay pinag-aaral sa isang paaralang pang-militar upang sanayin sa pagsusuot ng kalasag (armor), paghawak ng espada, sibat (lance) at palakol. Pagsapit ng 21 taong gulang, siya ay isang mandirigmang nakasakay sa kabayo o kabalyero (knight). Ang bawat kabalyero ay inaasahang tutuparin ang mga alituntunin ng marangal na pag-uugali o <b><i>chivalry</i></b>. </p>
 
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/tcgu-xFcKas" title="Roman Empire Fall" allowfullscreen></iframe>
+                    <iframe id="youtube-player" src="https://www.youtube.com/embed/tcgu-xFcKas" title="Roman Empire Fall" allowfullscreen></iframe>
                 </div>
             </section>
 
@@ -241,7 +256,7 @@
         </div>
         <!-- GAME CONTAINER END -->
 
-        <div class="button-container">
+        <div onclick="playSound()" class="button-container">
             <a href="aralin2.html">
                 <button class="button">
                 <span class="shadow"></span>
@@ -254,6 +269,7 @@
         </div>
     </div>
 
+    <script src="js-files/background_music.js"></script>
     <script src="js-files/index.js"></script>
     <script src="js-files/aralin.js"></script>
     <script src="js-files/preloader.js"></script>

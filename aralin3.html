@@ -33,36 +33,36 @@
                         <li class="nav_item">
                             <a href="pambungad.html" class="nav_link">
                                 <i class="ri-arrow-right-up-line"></i>
-                                <span>Pambungad</span>
+                                <span onclick="playSound()">Pambungad</span>
                             </a>
                         </li>
 
                         <li class="nav_item dropdown">
                             <a href="#" class="nav_link dropdown-toggle" id="nilalaman-toggle">
                                 <i class="ri-arrow-right-up-line"></i>
-                                <span>Nilalaman</span>
-                                <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+                                <span onclick="playSound()">Nilalaman</span>
+                                <i class="ri-arrow-down-s-line dropdown-arrow" onclick="playSound()"></i>
                             </a>
 
                             <ul class="dropdown-menu" id="nilalaman-dropdown">
-                                <li><a href="paunangPagsusulit.html" class="dropdown-link">Paunang Pagsusulit</a></li>
-                                <li><a href="aralin1.html" data-lesson="1" class="dropdown-link">Aralin 1</a></li>
-                                <li><a href="aralin2.html" data-lesson="2" class="dropdown-link">Aralin 2</a></li>
-                                <li><a href="aralin3.html" data-lesson="3" class="dropdown-link">Aralin 3</a></li>
-                                <li><a href="pangwakasPagsusulit.html" class="dropdown-link">Pangwakas na Pagsusulit</a></li>
+                                <li><a href="paunangPagsusulit.html" class="dropdown-link" onclick="playSound()">Paunang Pagsusulit</a></li>
+                                <li><a href="aralin1.html" data-lesson="1" class="dropdown-link" onclick="playSound()">Aralin 1</a></li>
+                                <li><a href="aralin2.html" data-lesson="2" class="dropdown-link" onclick="playSound()">Aralin 2</a></li>
+                                <li><a href="aralin3.html" data-lesson="3" class="dropdown-link" onclick="playSound()">Aralin 3</a></li>
+                                <li><a href="pangwakasPagsusulit.html" class="dropdown-link" onclick="playSound()">Pangwakas na Pagsusulit</a></li>
                             </ul>
                         </li>
                     </ul>
 
                 <!-- CLOSE BUTTON START -->
-                <div class="nav_close" id="nav-close">
+                <div onclick="playSound();" class="nav_close" id="nav-close">
                     <i class="ri-close-large-line"></i>
                 </div>
                 <!-- CLOSE BUTTON END -->
                 </div>
 
                 <!-- TOOGLE BUTTON START -->
-                <div class="nav_toggle" id="nav-toggle">
+                <div onclick="playSound();" class="nav_toggle" id="nav-toggle">
                     <i class="ri-menu-2-line"></i>
                 </div>
                 <!-- TOOGLE BUTTON END -->
@@ -70,9 +70,24 @@
         </header>
         <!-- HEADER END -->
 
+        <!----- BACKGROUND START ----->
+        <div class="bg-animated"></div>
+        <!----- BACKGROUND END ------->
+
         <div class="lesson-container">
             <div class="decorative-elements">
                 🏛️⚔️🛡️
+            </div>
+
+            <div class="bg-container">
+                <div class="medieval-element castle" style="top: 10%; left: 15%;">🏰</div>
+                <div class="medieval-element scroll" style="top: 60%; left: 70%;">📜</div>
+                <div class="medieval-element shield" style="top: 30%; left: 80%;">🛡️</div>
+                <div class="medieval-element crown" style="top: 70%; left: 20%;">👑</div>
+                <div class="medieval-element castle" style="top: 80%; left: 85%;">🏰</div>
+                <div class="medieval-element scroll" style="top: 20%; left: 40%;">📜</div>
+                <div class="medieval-element shield" style="top: 50%; left: 10%;">🛡️</div>
+                <div class="medieval-element crown" style="top: 15%; left: 60%;">👑</div>
             </div>
 
             <header class="lesson-header">
@@ -83,12 +98,12 @@
                 <h2 class="section-title">Paglakas ng Simbahang Katoliko</h2>
 
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/MywlXg7Go6g?start=157" title="Roman Empire Fall" allowfullscreen></iframe>
+                    <iframe id="youtube-player" src="https://www.youtube.com/embed/MywlXg7Go6g?start=157" title="Roman Empire Fall" allowfullscreen></iframe>
                 </div>
                 
                 <p>Matapos ang hindi mabilang na pag-uusig sa mga sinaunang Kristiyano, dumating din ang panahon na malaya nilang isabuhay ang kanilang pananampalataya. May ilang mahahalang pangyayari ang nagbigay daan sa paglakas ng Simbahang Katoliko</p>
-                <p>Nagsimula kay <span class="clickable-term" onclick="showPopup('constantine')">Constantine the Great</span>  nang ipatupad niya ang <b><i>Edict of Milan</i></b> na nagpapahinto sa pag-uusig sa mga Kristiyano at nagbigay pahintulot sa Kristiyanismo at iba pang relihiyon sa Imperyong Roman noong 313 AD. Ito ay dahil sa pangitaing krus na nakita niya sa kalangitan bago sila nakipaglaban sa Tulay ng Milvian noong 312 AD.</p>
-                <p>Samantala, ipinagbawal ni <span class="clickable-term" onclick="showPopup('theodosiusi')">Theodosius I</span> ang lahat ng mga paganong relihiyon at ginawang opisyal na relihiyon ng imperyo ang <b><i>Kristiyanismo</i></b>. Pinalakas niya ang kapapahan (papacy) sa pamamagitan ng First Council at Constantinople kung saan napili ang Rome bilang pangunahing Diocese at ang Obispo ng Rome ang pinakamataas na pinuno ng Simbahang Romano Katoliko. Pangalawa lamang dito ang Constantinople.</p>
+                <p>Nagsimula kay <span class="clickable-term" onclick="showPopup('constantine'); playSound();">Constantine the Great</span>  nang ipatupad niya ang <b><i>Edict of Milan</i></b> na nagpapahinto sa pag-uusig sa mga Kristiyano at nagbigay pahintulot sa Kristiyanismo at iba pang relihiyon sa Imperyong Roman noong 313 AD. Ito ay dahil sa pangitaing krus na nakita niya sa kalangitan bago sila nakipaglaban sa Tulay ng Milvian noong 312 AD.</p>
+                <p>Samantala, ipinagbawal ni <span class="clickable-term" onclick="showPopup('theodosiusi'); playSound();">Theodosius I</span> ang lahat ng mga paganong relihiyon at ginawang opisyal na relihiyon ng imperyo ang <b><i>Kristiyanismo</i></b>. Pinalakas niya ang kapapahan (papacy) sa pamamagitan ng First Council at Constantinople kung saan napili ang Rome bilang pangunahing Diocese at ang Obispo ng Rome ang pinakamataas na pinuno ng Simbahang Romano Katoliko. Pangalawa lamang dito ang Constantinople.</p>
                 <p>Napagtagumpayan din ng simbahan ang ilang mga kontrobersya o <b><i>heresy</i></b> patungkol sa ilang mga turo nito. Ang heresy ay mga doktrinang pangrelihiyon na taliwas sa mga turo ng simbahan. Isa na diyan ang <b><i>Arianism</i></b> na kung saan itinuturo ni Arius na si Kristo, kahit na Anak ng Diyos ay hindi ganap ang kanyang kabanalan katulad ng sa Diyos Ama. Ipinatawag ang First Ecumenical Council at Nicaea noong 325 AD upang ayusin ang sigalot at ginamit ang “Nicene Creed” na nagpapatunay sa kabanalan ni Kristo. Gayundin ang <b><i>Nestorianism</i></b> na sinasabi ni Nestorius, isang Mongheng Syrian at Patriarch ng Constantinople na si Hesus ay may dalawang katangian – tao at banal. Sinabi rin niya na si Maria ay tao kung kaya’t hindi siya maaaring maging Ina ng Diyos. Ipinatigil ng Third Ecumenical Council at Ephesus ang kontrobersyang ito noong 431 AD. Panghuli, ang <b><i>Monophysitism</i></b> na nagsasabi na iisa lamang ang katangian ni Kristo – pagiging banal. Pinagtibay ito sa hindi opisyal na ecumenical council sa Ephesus noong 449 at idineklarang heresy ni Papa Leo I. Ang Fourth Ecumenical Council at Chalcedon noong 451 ang nagdeklara na ito ay hindi katanggap-tanggap.</p>
                 <p>Dahil sa mga pangyayaring ito, lalong lumaganap ang Kristiyanismo hindi lamang sa nasasakupan ng Imperyong Roman kundi pati sa Scandinavia, dulong bahagi ng Asya, at Silangang Africa.</p>
                 <p>Ang Kanlurang Europa ay pinamunuan ng <b>Roman Catholic Church</b> kung saan ang sentro nito ay sa Rome. Ilan sa mga tagumpay nito ang pagbibinyag kay Clovis at sa mga Frank, ang mga Irish (sa pamumuno ni St. Patrick), at ang mga Anglo at Saxon sa England (sa pamumuno ni St. Augustine ng Canterbury).</p>
@@ -100,7 +115,7 @@
                 <h2 class="section-title">Pagkakahati ng Simbahang Kristiyano</h2>
 
                 <div class="video-container">
-                    <iframe   src="https://www.youtube.com/embed/trMsytBdawc?start=168"  title="Roman Empire Fall" allowfullscreen></iframe>
+                    <iframe   id="youtube-player" src="https://www.youtube.com/embed/trMsytBdawc?start=168"  title="Roman Empire Fall" allowfullscreen></iframe>
                 </div>
                 
                 <p>Sa unang bahagi ng panahon ng mga Kristiyano, nagkaroon ng tunggalian ang Rome at Constantinople para sa kapangyarihan sa relihiyon. Ang Papa o Obispo ng Rome ay inangkin ang kataas-taasang kapangyarihan sa buong simbahan. Samantala, ang Patriarch o Obispo ng Constantinople ay iginiit nito ang kanyang kapangyarihan sa mga usapin ng simbahan sa Silangan. Maliban dito, mayroon din silang magkaibang wika na ginagamit, paniniwala, at mga ritwal. Dahil sa hindi naayos ang kanilang hindi pagkakaunawaan, nahati ang Simbahang Kristiyano noong 1054. Ang Roman Catholic Church na ang sentro ay sa Rome at ang Greek Orthodox Church na ang sentro ay nasa Constantinople. Bagaman ang dalawa ay parehong tagapagtaguyod ng kristiyanismo, ay mayroon itong mga pagkakaiba.</p>
@@ -123,29 +138,29 @@
             <div class="papal-grid">
                 <div class="papal-item">
                     <img src="images/papaleo.jpg" alt="Papa Leo The Great" class="papal-portrait">
-                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papaleoi')">Papa Leo</span></div>
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papaleoi'); playSound();">Papa Leo</span></div>
                     <div class="papal-title">The Great</div>
                 </div>
                 
                 <div class="papal-item">
                     <img src="images/papagelasius.jpg" alt="Papa Gelasius I" class="papal-portrait">
-                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagelasiusi')">Papa Gelasius I</span></div>
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagelasiusi'); playSound();">Papa Gelasius I</span></div>
                 </div>
                 
                 <div class="papal-item">
                     <img src="images/papagregory.jpg" alt="Papa Gregory The Great" class="papal-portrait">
-                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagregoryi')">Papa Gregory</span></div>
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagregoryi'); playSound();">Papa Gregory</span></div>
                     <div class="papal-title">The Great</div>
                 </div>
                 
                 <div class="papal-item">
                     <img src="images/papanicholas.jpg" alt="Papa Nicholas II" class="papal-portrait">
-                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papanicholasii')">Papa Nicholas II</span></div>
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papanicholasii'); playSound();">Papa Nicholas II</span></div>
                 </div>
                 
                 <div class="papal-item">
                     <img src="images/papagregoryvii.jpg" alt="Papa Gregory VII" class="papal-portrait">
-                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagregoryvii')">Papa Gregory VII</span></div>
+                    <div class="papal-name"><span class="clickable-term" onclick="showPopup('papagregoryvii'); playSound();">Papa Gregory VII</span></div>
                 </div>
             </div>
         </div>
@@ -162,10 +177,10 @@
                 <p>Katulad ng mga hari, ang Simbahang Katoliko ay mayroong <b><i>hierarchy</i></b> o pamunuan ng simbahan.</p>
         
                 <div class="triangle-container">
-                    <div class="triangle-layer layer-1" class="clickable-term" onclick="showPopup('papa')"><p>Papa</p></div>
-                    <div class="triangle-layer layer-2" class="clickable-term" onclick="showPopup('kardinal')"><p>Kardinal</p></div>
-                    <div class="triangle-layer layer-3" class="clickable-term" onclick="showPopup('arsobispo')"><p>Arsobispo</p></div>
-                    <div class="triangle-layer layer-4" class="clickable-term" onclick="showPopup('pari')"><p>Pari</p></div>
+                    <div class="triangle-layer layer-1" class="clickable-term" onclick="showPopup('papa'); playSound();"><p>Papa</p></div>
+                    <div class="triangle-layer layer-2" class="clickable-term" onclick="showPopup('kardinal'); playSound();"><p>Kardinal</p></div>
+                    <div class="triangle-layer layer-3" class="clickable-term" onclick="showPopup('arsobispo'); playSound();"><p>Arsobispo</p></div>
+                    <div class="triangle-layer layer-4" class="clickable-term" onclick="showPopup('pari'); playSound();"><p>Pari</p></div>
                 </div>
 
                 <p style="margin-top: 5rem;">Kasama sa istruktura ng Simbahang Katoliko ang mga lalaki at babaeng mas pinili na humiwalay sa kanilang kinagisnang buhay at pumasok sa mga <b><i>ordeng panrelihiyon</i></b>. Ang bawat order o orden ay namumuhay ayon sa mga natatanging hanay ng mga patakaran na kung tawagin ay regula. Samakatuwid, sila ay kilala rin sa tawag na mga paring regular. Ang mga miyembro nito ay nangangako ng tatlong bagay: <b>kahirapan, kalinisang-puri, at pagkamasunurin</b>. Ang mga kalalakihan ay kalimitang tinatawag na mga <b><i>monghe</i></b> at <b><i>prayle</i></b> habang ang mga babae naman ay tinatawag na <b><i>madre</i></b>. Naninirahan sila sa mga gusaling tinatawag na monasteryo. Ilan sa mga kilalang monastaryo ay ang Monastaryo ng Monte Cassino sa Italy, Iona sa Ireland, at Cluny sa Burgundy. Ang pagkakatatag ng mga monastaryo ay nagdulot sa pagsisimula ng kilusang pangrelihiyon na <b><i>monastisismo</i></b>. Ang monastisismo ay tumutukoy sa buhay ng pagtatanggi sa sarili at pamumuhay mag-isa o nakahiwalay sa nakararami upang ipagdasal ang kaligtasan ng kaluluwa ng tao.</p>
@@ -175,7 +190,7 @@
                 <h2 class="section-title">Ang Paglunsad ng mga Krusada</h2>
 
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Z7-oLm1Ysxk" title="Roman Empire Fall" allowfullscreen></iframe>
+                    <iframe id="youtube-player" src="https://www.youtube.com/embed/Z7-oLm1Ysxk" title="Roman Empire Fall" allowfullscreen></iframe>
                 </div>
                 
                 <p>Habang marami ang nagaganap sa Europa, mayroong malaking pangyayari ang naganap sa Asya na ikinagulat ng mga Kristiyano sa Europa, ang pagbagsak ng <b>Banal na Lupain</b> sa kamay ng mga <b>Turkong Muslim</b> partikular na ang sinasabing paglapastangan sa Banal na Libingan ni Hesus at pagpaslang sa mga Kristiyano roon.</p>
@@ -192,24 +207,24 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="clickable-term" onclick="showPopup('unangk')">Unang Krusada (1095-1099)</td>
-                                <td class="clickable-term" onclick="showPopup('kngmgabata')">Krusada ng mga Bata(1212)</td>
+                                <td class="clickable-term" onclick="showPopup('unangk'); playSound();">Unang Krusada (1095-1099)</td>
+                                <td class="clickable-term" onclick="showPopup('kngmgabata'); playSound();">Krusada ng mga Bata(1212)</td>
                             </tr>
                             <tr>
-                                <td class="clickable-term" onclick="showPopup('ikalawangk')">Ikalawang Krusada (1147-1149)</td>
-                                <td class="clickable-term" onclick="showPopup('ikalimangk')">Ikalimang Krusada (1217-1221)</td>
+                                <td class="clickable-term" onclick="showPopup('ikalawangk'); playSound();">Ikalawang Krusada (1147-1149)</td>
+                                <td class="clickable-term" onclick="showPopup('ikalimangk'); playSound();">Ikalimang Krusada (1217-1221)</td>
                             </tr>
                             <tr>
-                                <td class="clickable-term" onclick="showPopup('ikatlongk')">Ikatlong Krusada (1189-1192)</td>
-                                <td class="clickable-term" onclick="showPopup('ikaanimk')">Ikaanim na Krusada(1228-1229)</td>
+                                <td class="clickable-term" onclick="showPopup('ikatlongk'); playSound();">Ikatlong Krusada (1189-1192)</td>
+                                <td class="clickable-term" onclick="showPopup('ikaanimk'); playSound();">Ikaanim na Krusada(1228-1229)</td>
                             </tr>
                             <tr>
-                                <td class="clickable-term" onclick="showPopup('ikaapatk')">Ikaapat na Krusada (1202-1204)</td>
-                                <td class="clickable-term" onclick="showPopup('ikapitongk')">Ikapitong Krusada(1248-1250)</td>
+                                <td class="clickable-term" onclick="showPopup('ikaapatk'); playSound();">Ikaapat na Krusada (1202-1204)</td>
+                                <td class="clickable-term" onclick="showPopup('ikapitongk'); playSound();">Ikapitong Krusada(1248-1250)</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td class="clickable-term" onclick="showPopup('ikawalongk')">Ikawalong Krusada(1270)</td>
+                                <td class="clickable-term" onclick="showPopup('ikawalongk'); playSound();">Ikawalong Krusada(1270)</td>
                             </tr>
                         </tbody>
                 </table>
@@ -224,7 +239,7 @@
                 <p>Samantala, ibinunyag ng krusada ang tunay na mga hangarin ng mga sumali sa gawaing ito. Ang pagkakataong makapaglakbay at mangalakal, at hindi pagmamalasakit sa simbahan ang naging dahilan sa pagsama sa banal na laban.</p>
 
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/IoRegq53quk" title="Roman Empire Fall" allowfullscreen></iframe>
+                    <iframe id="youtube-player" src="https://www.youtube.com/embed/IoRegq53quk" title="Roman Empire Fall" allowfullscreen></iframe>
                 </div>
             </section>
 
@@ -236,7 +251,7 @@
         <!-- Popup Modals -->
         <div id="popup-overlay" class="popup-overlay" onclick="closePopup()">
             <div class="popup-content" onclick="event.stopPropagation()">
-                <button class="close-popup" onclick="closePopup()">&times;</button>
+                <button class="close-popup" onclick="closePopup(); playSound();">&times;</button>
                 <h3 id="popup-title" class="popup-header"></h3>
                 
                 <!-- Enhanced Image Container -->
@@ -261,8 +276,8 @@
         <!-- GAME CONTAINER START -->
         <div class="games-container">
             <div class="games-scroll-container">
-                <button class="scroll-button scroll-left" onclick="scrollGames('left')">‹</button>
-                <button class="scroll-button scroll-right" onclick="scrollGames('right')">›</button>
+                <button class="scroll-button scroll-left" onclick="scrollGames('left'); playSound();">‹</button>
+                <button class="scroll-button scroll-right" onclick="scrollGames('right'); playSound();">›</button>
                 
                 <div class="games-wrapper" id="gamesWrapper">
                     <a href="https://wordwall.net/tl/embed/f264982006f148e6a0cd08852c0b8d7e?themeId=60&templateId=5&fontStackId=0" class="game-card" target="blank">
@@ -333,21 +348,21 @@
         <div class="button-container">
             <!-- From Uiverse.io by zymantas-katinas --> 
             <a href="aralin2.html">
-                <button class="button">
-                <span class="shadow"></span>
-                <span class="edge"></span>
-                <div class="front">
-                    <span>↩ Bumalik</span>
-                </div>
+                <button onclick="playSound();" class="button">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <div class="front">
+                        <span>↩ Bumalik</span>
+                    </div>
                 </button>
             </a>
 
-            <button class="button" onclick="openPopup()">
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <div class="front">
-                <span>Susunod ↪</span>
-            </div>
+            <button class="button" onclick="openPopup(); playSound();">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <div class="front">
+                    <span>Susunod ↪</span>
+                </div>
             </button>
         </div>
 
@@ -358,10 +373,10 @@
                 <h1>⚠️ Pagpugay ⚠️</h1>
                 <p>Kamusta ang iyong paglalakbay sa ating tatlong aralin? Kung gayon ay atin nang simulan ang pagwawakas ng ating paglalakbay, hinahamon kita na lagpasan mo ang iyong huling pagsubok, ang Pangwakas na Pagsusulit!</p>
                 <div class="popup-buttons">
-                    <button class="popup-button proceed-btn" onclick="proceedToQuiz()">
+                    <button class="popup-button proceed-btn" onclick="proceedToQuiz(); playSound();">
                         ⚔️ Tanggapin ang Hamon
                     </button>
-                    <button class="popup-button close-btn" onclick="closePopup1()">
+                    <button class="popup-button close-btn" onclick="closePopup1(); playSound();">
                         🛡️ Umatras
                     </button>
                 </div>
@@ -370,6 +385,7 @@
     </div>
 
     <!-- JS FILE -->
+    <script src="js-files/background_music.js"></script>
     <script src="js-files/index.js"></script>
     <script src="js-files/aralin.js"></script>
     <script src="js-files/preloader.js"></script>
