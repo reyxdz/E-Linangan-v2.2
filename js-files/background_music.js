@@ -34,7 +34,9 @@ if (!window.YT) {
 
 let players = [];
 
-// Update the YouTube API ready callback
+// Keep track of currently playing player
+let currentlyPlayingPlayer = null;
+
 window.onYouTubeIframeAPIReady = function() {
     // Find all YouTube iframes
     const iframes = document.querySelectorAll('iframe[src*="youtube.com"]');
@@ -48,7 +50,7 @@ window.onYouTubeIframeAPIReady = function() {
         // Create player for each iframe
         const player = new YT.Player(iframe.id, {
             events: {
-                'onStateChange': handlePlayerStateChange,
+                'onStateChange': (event) => handlePlayerStateChange(event, player),
                 'onReady': onPlayerReady
             }
         });
@@ -61,13 +63,21 @@ function onPlayerReady(event) {
     console.log('Player ready');
 }
 
-function handlePlayerStateChange(event) {
-    // 1 = playing, 2 = paused, 0 = ended
+function handlePlayerStateChange(event, player) {
     if (event.data === YT.PlayerState.PLAYING) {
+        // Pause any other playing video
+        if (currentlyPlayingPlayer && currentlyPlayingPlayer !== player) {
+            currentlyPlayingPlayer.pauseVideo();
+        }
+        // Update currently playing player
+        currentlyPlayingPlayer = player;
         bgMusic.pause();
         console.log('Video playing - music paused');
     } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-        bgMusic.play();
-        console.log('Video paused/ended - music resumed');
+        if (currentlyPlayingPlayer === player) {
+            currentlyPlayingPlayer = null;
+            bgMusic.play();
+            console.log('Video paused/ended - music resumed');
+        }
     }
 }
