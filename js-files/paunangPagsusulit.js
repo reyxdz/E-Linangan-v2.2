@@ -120,8 +120,146 @@ class MedievalQuiz {
                 answers: ["Arsobispo", "Papa", "Obispo", "Kardinal"],
                 correct: 1
             },
-            
-
+            {
+                question: "Ano ang pangunahing layunin ng Krusada?",
+                answers: ["Palawakin ang teritoryo ng Pransiya", "Bawiin ang Banal na Lupain mula sa mga Muslim", "Magtatag ng bagong relihiyon", "Magpalaganap ng sining"],
+                correct: 1
+            },
+            {
+                question: "Ano ang naging papel ng Simbahang Katoliko sa Gitnang Panahon?",
+                answers: ["Tagapagtanggol ng mga Muslim", "Sentro ng kapangyarihang espiritwal at politikal", "Tagapagtatag ng mga lungsod", "Tagapagsimula ng Renaissance"],
+                correct: 1
+            },
+            {
+                question: "Ano ang tawag sa pamumuno ng mga panginoong maylupa sa kanilang mga nasasakupan?",
+                answers: ["Demokrasya", "Piyudalismo", "Monarkiya", "Oligarkiya"],
+                correct: 1
+            },
+            {
+                question: "Ano ang naging papel ng mga kabalyero sa sistemang piyudal?",
+                answers: ["Tagapagtanggol ng manor at tagapagsilbi sa panginoong maylupa", "Tagapagturo ng relihiyon", "Tagapamahala ng lungsod", "Tagapagtayo ng simbahan"],
+                correct: 0
+            },
+            {
+                question: "Ano ang ibig sabihin ng “fief” sa sistemang piyudalismo?",
+                answers: ["Serbisyong panrelihiyon", "Lupaing ipinagkakaloob sa basalyo kapalit ng serbisyo", "Templo ng mga pari", "Palasyo ng hari"],
+                correct: 1
+            },
+            {
+                question: "Siya ang kinikilala bilang ang unang emperador ng Banal na Imperyong Romano?",
+                answers: ["Charlemagne", "Otto 1", "Clovis I", "Pepin II"],
+                correct: 1
+            },
+            {
+                question: "Ito ang kasunduan na humati sa imperyo ni Charlemagne?",
+                answers: ["Kasunduan ng Paris", "Kasunduan ng Verdun", "Kasunduan ng Roma", "Kasunduan ng Versailles"],
+                correct: 1
+            },
+            {
+                question: "Ano ang pangunahing yaman ng panginoon sa sistemang manoryal?",
+                answers: ["Ginto at pilak", "Buwis mula sa mga serf", "Kita mula sa kalakalan", "Lupa at serbisyo ng mga magsasaka"],
+                correct: 3
+            },
+            {
+                question: "Sino ang tumatanggap ng lupa mula sa panginoong maylupa sa sistemang piyudal?",
+                answers: ["Basalyo", "Serf", "Hari", "Pari"],
+                correct: 0
+            },
+            {
+                question: "Anong dinastiya ang pinagmulan ng Banal na Imperyong Romano?",
+                answers: ["Carolingian", "Merovingian", "Saxon", "Habsburg"],
+                correct: 0
+            },
+            {
+                question: "Ano ang tawag sa pinuno ng Banal na Imperyong Romano?",
+                answers: ["Emperador", "Papa", "Basalyo", "Panginoon Maylupa"],
+                correct: 0
+            },
+            {
+                question: "Ano ang tawag sa mga alagad ng simbahan na maaaring secular o regular?",
+                answers: ["Basalyo", "Pari at Monghe", "Serf", "Bourgeoisie"],
+                correct: 0
+            },
+            {
+                question: "Siya ang tinaguriang “Ama ng Europa”?",
+                answers: ["Clovis I", "Otto I", "Charlemagne", "Charles Martel"],
+                correct: 2
+            },
+            {
+                question: "Ang Santo Papang nagkorona kay Charlemagne bilang emperador ng Banal na Imperyong Romano?",
+                answers: ["Papa John III", "Papa Gregory III", "Papa Leo III", "Papa Francis"],
+                correct: 2
+            },
+            {
+                question: "Ano ang tawag sa lupang pag-aari ng isang panginoon sa sistemang piyudal?",
+                answers: ["Manor", "Polis", "Fief", "Estate"],
+                correct: 0
+            },
+            {
+                question: "Ano ang tawag sa sentrong pang-ekonomiya sa ilalim ng manoryalismo?",
+                answers: ["Bayan", "Manor", "Lungsod", "Fief"],
+                correct: 1
+            },
+            {
+                question: "Anong institusyon ang may kapangyarihang mag-excommunicate o magtanggal sa isang tao mula sa simbahan?",
+                answers: ["Hari", "Simbahang Katoliko", "Parlamento", "Guild"],
+                correct: 0
+            },
+            {
+                question: "Ano ang naging epekto ng pagbagsak ng Imperyong Romano sa pag-usbong ng Simbahang Katoliko?",
+                answers: ["Nawala ang kapangyarihan ng simbahan", "Lumakas ang kapangyarihan ng Papa bilang lider ng mga Kristiyanismo", "Nawala ang relihiyon sa Europa", "Nagsimula ang mga Krusada"],
+                correct: 1
+            },
+            {
+                question: "Ano ang papel ng mga monasteryo sa Gitnang Panahon?",
+                answers: ["Sentro ng kalakalan", "Sentro ng edukasyon at pagpapanatili ng kaalaman", "Sentro ng pamahalaan", "Sentro ng piyudalismo"],
+                correct: 1
+            },
+            {
+                question: "Sino ang naglunsad ng unang Krusada noong 1096?",
+                answers: ["Papa Urban II", "Papa Gregory VII", "Charlemagne", "Otto I"],
+                correct: 0
+            },
+            {
+                question: "Ano ang pangunahing layunin ng Banal na Imperyong Romano?",
+                answers: ["Palawakin ang Islam", "Pagkaisahin ang Kanlurang Europa", "Palakasin ang kalakalan", "Itaguyod ang Renaissance"],
+                correct: 1
+            },
+            {
+                question: "Ano ang naging epekto ng paglakas ng Simbahang Katoliko sa Europa?",
+                answers: ["Pagkawala ng mga hari", "Paglawak ng impluwensya sa pulitika at kultura", "Pagbaba ng edukasyon", "Paglakas ng Islam"],
+                correct: 1
+            },
+            {
+                question: "Ano ang tawag sa kapangyarihan ng Simbahan na magpatalsik ng mga pinuno ng estado?",
+                answers: ["Ekskomunikasyon", "Indulhensiya", "Sakramento", "Felibustero"],
+                correct: 0
+            },
+            {
+                question: "Sino ang Papa na nakipaglaban kay Haring Henry IV ukol sa karapatan sa pagtatalaga ng mga opisyal ng simbahan?",
+                answers: ["Gregory I", "Gregory VII", "Urban II", "Leo III"],
+                correct: 1
+            },
+            {
+                question: "Sino ang namumuno sa manor?",
+                answers: ["Serf", "Panginoong maylupa", "Hari", "Obispo"],
+                correct: 1
+            },
+            {
+                question: "Ano ang pangunahing layunin ng manoryalismo?",
+                answers: ["Pagpapalawak ng kalakalan", "Pagkakaroon ng sariling sapat na pagkain", "Pagpapalaganap ng relihiyon", "Pag-unlad ng sining"],
+                correct: 1
+            },
+            {
+                question: "Ano ang pangunahing dahilan ng pagiging makasarili ng manor?",
+                answers: ["Kakulangan ng kalakalan", "Takot sa pagsalakay", "Pag-unlad ng siyensiya", "Paglakas ng Simbahang Katoliko"],
+                correct: 1
+            },
+            {
+                question: "Ano ang naging papel ng Simbahang Katoliko sa Krusada?",
+                answers: ["Nagbigay ng armas", "Nagbasbas at nag-udyok sa mga Kristiyano", "Nagpatayo ng mga paaralan", "Nagpalaganap ng Islam"],
+                correct: 1
+            }
         ];
         
         this.currentQuestion = 0;
