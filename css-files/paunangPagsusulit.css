@@ -61,32 +61,38 @@ body {
 }
 
 .stats-panel {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
     margin-bottom: 30px;
+    flex-wrap: nowrap;
 }
 
 .stat-card {
+    flex: 1;
     background: #ffffff;
     border: 4px solid #000000;
     border-radius: 10px;
-    padding: 15px;
+    padding: 12px 8px;
     text-align: center;
     box-shadow: 4px 4px 0 #000;
+    min-width: 0; /* Allows cards to shrink below content size */
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #000000;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .stat-value {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #010101;
 }
@@ -337,5 +343,59 @@ body {
     
     .btn {
         width: 200px;
+    }
+    
+    .stats-panel {
+        padding: 0 5px;
+    }
+    
+    .stat-card {
+        padding: 8px 4px;
+        border-width: 3px;
+        box-shadow: 3px 3px 0 #000;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+    
+    .timer {
+        font-size: 1rem !important;
+    }
+
+    .game-title{
+        font-size: 0.9rem;
+    }
+
+    .game-subtitle{
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .stats-panel {
+        gap: 5px;
+    }
+    
+    .stat-card {
+        padding: 6px 3px;
+    }
+    
+    .stat-label {
+        font-size: 0.6rem;
+        margin-bottom: 2px;
+    }
+    
+    .stat-value {
+        font-size: 0.9rem;
+    }
+
+    .game-title{
+        font-size: 0.9rem;
     }
 }

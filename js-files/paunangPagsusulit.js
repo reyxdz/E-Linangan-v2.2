@@ -318,7 +318,6 @@ class MedievalQuiz {
         this.questionText = document.getElementById('questionText');
         this.answersGrid = document.getElementById('answersGrid');
         this.nextBtn = document.getElementById('nextBtn');
-        this.restartBtn = document.getElementById('restartBtn');
         this.gameArea = document.getElementById('gameArea');
         this.resultsArea = document.getElementById('resultsArea');
         this.finalScore = document.getElementById('finalScore');
@@ -335,10 +334,6 @@ class MedievalQuiz {
             this.soundManager.playClick();
             // Use nextQuestion instead of direct manipulation
             this.nextQuestion();
-        });
-        this.restartBtn.addEventListener('click', () => {
-            this.soundManager.playClick();
-            this.restartGame();
         });
         this.playAgainBtn.addEventListener('click', () => {
             this.soundManager.playClick();
