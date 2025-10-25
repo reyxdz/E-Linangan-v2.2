@@ -272,9 +272,6 @@ class MedievalQuiz {
                 correct: 1
             }
         ];
-
-        
-
         
         
         this.currentQuestion = 0;
@@ -332,10 +329,12 @@ class MedievalQuiz {
     
     bindEvents() {
         this.nextBtn.addEventListener('click', () => {
+            // Prevent default behavior
+            event.preventDefault();
+            
             this.soundManager.playClick();
-            // Increment question counter and load next question
-            this.currentQuestion++;
-            this.loadQuestion();
+            // Use nextQuestion instead of direct manipulation
+            this.nextQuestion();
         });
         this.restartBtn.addEventListener('click', () => {
             this.soundManager.playClick();
@@ -367,34 +366,58 @@ class MedievalQuiz {
     }
     
     loadQuestion() {
+        // Add check to prevent resetting
         if (this.currentQuestion >= this.questions.length) {
             this.endGame();
             return;
         }
 
-        const question = this.questions[this.currentQuestion];
+        // Clear previous answers and states
         this.selectedAnswer = null;
+        this.nextBtn.disabled = true;
+
+        const question = this.questions[this.currentQuestion];
         
+        // Update display counters
         this.questionCounter.textContent = `${this.currentQuestion + 1} / ${this.questions.length}`;
         this.questionNumber.textContent = `Katanungan ${this.currentQuestion + 1} sa ${this.questions.length}`;
         this.questionText.textContent = question.question;
         
+        // Clear and rebuild answers grid
         this.answersGrid.innerHTML = '';
         question.answers.forEach((answer, index) => {
             const btn = document.createElement('button');
             btn.className = 'answer-btn';
             btn.textContent = answer;
+            // Use arrow function to maintain context
             btn.addEventListener('click', () => {
-                this.soundManager.playClick();
-                this.selectAnswer(index, btn);
+                if (!this.selectedAnswer && this.gameActive) {
+                    this.soundManager.playClick();
+                    this.selectAnswer(index, btn);
+                }
             });
             this.answersGrid.appendChild(btn);
         });
-        
-        // Disable next button until answer is selected
-        this.nextBtn.disabled = true;
     }
-    
+
+    nextQuestion() {
+        // Prevent accidental double-clicks
+        if (!this.gameActive) return;
+        
+        // Only proceed if an answer was selected
+        if (this.selectedAnswer !== null) {
+            // Increment before loading next question
+            this.currentQuestion++;
+            
+            // Check if we should end the game
+            if (this.currentQuestion >= this.questions.length) {
+                this.endGame();
+            } else {
+                this.loadQuestion();
+            }
+        }
+    }
+
     selectAnswer(index, btn) {
         if (!this.gameActive || this.selectedAnswer !== null) return;
         
@@ -486,13 +509,6 @@ class MedievalQuiz {
         this.clearTimer();
         this.gameActive = false;
         this.endGame();
-    }
-    
-    nextQuestion() {
-        // Remove the automatic progression
-        if (this.selectedAnswer !== null) {
-            this.checkAnswer();
-        }
     }
     
     endGame() {
