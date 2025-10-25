@@ -1,5 +1,3 @@
-
-
 // SOUND EFFECTC
 class SoundManager {
     constructor() {
@@ -108,7 +106,20 @@ class SoundManager {
 // PRE-QUIZ CONTENT
 class MedievalQuiz {
     constructor() {
+        // Initialize background music
+        this.bgMusic = document.getElementById('bgMusic');
+        this.bgMusic.volume = 1.0;
+        
+        // Initialize sound manager
         this.soundManager = new SoundManager();
+        
+        // Setup audio context on construction
+        this.setupAudioContext();
+        
+        this.totalTimeInSeconds = 1200; // 20 minutes = 1200 seconds
+        this.timeLeft = this.totalTimeInSeconds;
+        this.timer = null;
+
         this.questions = [
             {
                 question: "Ano ang tawag sa sistemang pang-ekonomiya kung saan ang manor ang sentro ng buhay?",
@@ -261,6 +272,10 @@ class MedievalQuiz {
                 correct: 1
             }
         ];
+
+        
+
+        
         
         this.currentQuestion = 0;
         this.score = 0;
@@ -272,6 +287,30 @@ class MedievalQuiz {
         this.initializeElements();
         this.bindEvents();
         this.startGame();
+    }
+    
+    setupAudioContext() {
+        // Create audio context on first user interaction
+        const setupAudio = () => {
+            // Create new audio context
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            const audioCtx = new AudioContext();
+
+            // Start background music
+            this.bgMusic.play()
+                .then(() => {
+                    console.log('Background music started');
+                })
+                .catch(e => {
+                    console.log('Background music failed to start:', e);
+                });
+
+            // Remove the event listener once audio is set up
+            document.removeEventListener('click', setupAudio);
+        };
+
+        // Add click listener to start audio
+        document.addEventListener('click', setupAudio, { once: true });
     }
     
     initializeElements() {
@@ -294,7 +333,9 @@ class MedievalQuiz {
     bindEvents() {
         this.nextBtn.addEventListener('click', () => {
             this.soundManager.playClick();
-            this.nextQuestion();
+            // Increment question counter and load next question
+            this.currentQuestion++;
+            this.loadQuestion();
         });
         this.restartBtn.addEventListener('click', () => {
             this.soundManager.playClick();
@@ -310,12 +351,19 @@ class MedievalQuiz {
             this.soundManager.initialize();
         }, { once: true });
     }
-    
+
     startGame() {
         this.gameActive = true;
         this.soundManager.playGameStart();
+        this.timeLeft = this.totalTimeInSeconds;
         this.loadQuestion();
         this.startTimer();
+
+        // Ensure background music is playing
+        if (this.bgMusic.paused) {
+            this.bgMusic.play()
+                .catch(e => console.log('Background music failed to start:', e));
+        }
     }
     
     loadQuestion() {
@@ -323,10 +371,9 @@ class MedievalQuiz {
             this.endGame();
             return;
         }
-        
+
         const question = this.questions[this.currentQuestion];
         this.selectedAnswer = null;
-        this.timeLeft = 30;
         
         this.questionCounter.textContent = `${this.currentQuestion + 1} / ${this.questions.length}`;
         this.questionNumber.textContent = `Katanungan ${this.currentQuestion + 1} sa ${this.questions.length}`;
@@ -344,12 +391,12 @@ class MedievalQuiz {
             this.answersGrid.appendChild(btn);
         });
         
+        // Disable next button until answer is selected
         this.nextBtn.disabled = true;
-        this.startTimer();
     }
     
     selectAnswer(index, btn) {
-        if (!this.gameActive) return;
+        if (!this.gameActive || this.selectedAnswer !== null) return;
         
         // Remove previous selection
         document.querySelectorAll('.answer-btn').forEach(b => {
@@ -359,6 +406,41 @@ class MedievalQuiz {
         // Mark new selection
         btn.classList.add('selected');
         this.selectedAnswer = index;
+        
+        // Check answer immediately after selection
+        this.checkAnswer();
+    }
+    
+    checkAnswer() {
+        const question = this.questions[this.currentQuestion];
+        const correct = this.selectedAnswer === question.correct;
+        
+        // Get all answer buttons
+        const buttons = document.querySelectorAll('.answer-btn');
+        
+        // Disable all buttons after selection
+        buttons.forEach(btn => btn.disabled = true);
+        
+        // Show correct and incorrect answers
+        buttons.forEach((btn, index) => {
+            if (index === question.correct) {
+                btn.classList.add('correct');
+            }
+            if (index === this.selectedAnswer && index !== question.correct) {
+                btn.classList.add('incorrect');
+            }
+        });
+        
+        // Update score and play sound
+        if (correct) {
+            this.score++;
+            this.scoreDisplay.textContent = this.score;
+            this.soundManager.playCorrect();
+        } else {
+            this.soundManager.playIncorrect();
+        }
+        
+        // Enable next button
         this.nextBtn.disabled = false;
     }
     
@@ -382,7 +464,14 @@ class MedievalQuiz {
     }
     
     updateTimeDisplay() {
-        this.timeDisplay.textContent = this.timeLeft;
+        const minutes = Math.floor(this.timeLeft / 60);
+        const seconds = this.timeLeft % 60;
+        this.timeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        
+        // Add warning when 5 minutes or less remain
+        if (this.timeLeft <= 300) {
+            this.timeDisplay.classList.add('warning');
+        }
     }
     
     clearTimer() {
@@ -395,56 +484,15 @@ class MedievalQuiz {
     
     timeUp() {
         this.clearTimer();
-        this.revealAnswer();
-        this.nextBtn.disabled = false;
         this.gameActive = false;
+        this.endGame();
     }
     
     nextQuestion() {
+        // Remove the automatic progression
         if (this.selectedAnswer !== null) {
-            this.clearTimer();
             this.checkAnswer();
-        } else {
-            this.currentQuestion++;
-            this.gameActive = true;
-            this.loadQuestion();
         }
-    }
-    
-    checkAnswer() {
-        const question = this.questions[this.currentQuestion];
-        const correct = this.selectedAnswer === question.correct;
-        
-        if (correct) {
-            this.score++;
-            this.scoreDisplay.textContent = this.score;
-            this.soundManager.playCorrect();
-        } else {
-            this.soundManager.playIncorrect();
-        }
-        
-        this.revealAnswer();
-        this.gameActive = false;
-    }
-    
-    revealAnswer() {
-        const question = this.questions[this.currentQuestion];
-        const buttons = document.querySelectorAll('.answer-btn');
-        
-        buttons.forEach((btn, index) => {
-            btn.disabled = true;
-            if (index === question.correct) {
-                btn.classList.add('correct');
-            } else if (index === this.selectedAnswer && index !== question.correct) {
-                btn.classList.add('incorrect');
-            }
-        });
-        
-        setTimeout(() => {
-            this.currentQuestion++;
-            this.gameActive = true;
-            this.loadQuestion();
-        }, 2000);
     }
     
     endGame() {
@@ -454,6 +502,8 @@ class MedievalQuiz {
         
         // Play victory sound
         this.soundManager.playVictory();
+        this.bgMusic.pause();
+        this.bgMusic.currentTime = 0;
         
         this.finalScore.textContent = `Your Score: ${this.score}/${this.questions.length}`;
         
@@ -493,6 +543,10 @@ class MedievalQuiz {
         this.scoreDisplay.textContent = this.score;
         this.resultsArea.classList.add('hidden');
         this.gameArea.classList.remove('hidden');
+
+        this.bgMusic.currentTime = 0;
+        this.bgMusic.play()
+            .catch(e => console.log('Background music failed to restart:', e));
         
         this.startGame();
     }

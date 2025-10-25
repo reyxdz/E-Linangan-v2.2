@@ -12,7 +12,7 @@ const updateProgress = (value) => {
 
 // Get all resources to load
 const images = document.querySelectorAll('img');
-const totalResources = images.length + 1; // +1 for DOM
+const totalResources = Math.max(images.length + 1, 2); // Ensure at least 2 resources to load
 let loadedResources = 0;
 
 const resourceLoaded = () => {
@@ -24,15 +24,20 @@ const resourceLoaded = () => {
     }
 };
 
-// Load all images
-images.forEach(img => {
-    if (img.complete) {
-        resourceLoaded();
-    } else {
-        img.addEventListener('load', resourceLoaded);
-        img.addEventListener('error', resourceLoaded); // Count errors too
-    }
-});
+// Start loading sequence immediately
+resourceLoaded();
+
+// Load all images if they exist
+if (images.length > 0) {
+    images.forEach(img => {
+        if (img.complete) {
+            resourceLoaded();
+        } else {
+            img.addEventListener('load', resourceLoaded);
+            img.addEventListener('error', resourceLoaded);
+        }
+    });
+}
 
 // Wait for DOM to be fully loaded
 if (document.readyState === 'complete') {
