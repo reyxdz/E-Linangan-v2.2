@@ -307,6 +307,7 @@ body {
     opacity: 0.8;
     line-height: 1.5;
     font-weight: 400;
+    text-align: center;
 }
 
 .hidden {
@@ -343,6 +344,11 @@ body {
     
     .btn {
         width: 200px;
+        font-size: 0.7rem;
+    }
+
+    #nextBtn {
+        font-size: 0.7rem;
     }
     
     .stats-panel {
@@ -374,6 +380,22 @@ body {
 
     .game-subtitle{
         font-size: 0.7rem;
+    }
+
+    .control-panel .btn{
+        font-size: 0.8rem;
+    }
+
+    .results-title {
+        font-size: 0.9rem;
+    }
+
+    .final-score {
+        font-size: 0.9rem;
+    }
+
+    .rank-title {
+        font-size: 0.9rem;
     }
 }
 

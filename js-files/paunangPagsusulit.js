@@ -125,151 +125,6 @@ class MedievalQuiz {
                 question: "Ano ang tawag sa sistemang pang-ekonomiya kung saan ang manor ang sentro ng buhay?",
                 answers: ["Merkatilismo", "Manoryalismo", "Piyudalismo", "Kapitalismo"],
                 correct: 1
-            },
-            {
-                question: "Sino ang itinuturing na pinakamakapangyarihang pinuno ng Simbahang Katoliko sa Gitnang Panahon?",
-                answers: ["Arsobispo", "Papa", "Obispo", "Kardinal"],
-                correct: 1
-            },
-            {
-                question: "Ano ang pangunahing layunin ng Krusada?",
-                answers: ["Palawakin ang teritoryo ng Pransiya", "Bawiin ang Banal na Lupain mula sa mga Muslim", "Magtatag ng bagong relihiyon", "Magpalaganap ng sining"],
-                correct: 1
-            },
-            {
-                question: "Ano ang naging papel ng Simbahang Katoliko sa Gitnang Panahon?",
-                answers: ["Tagapagtanggol ng mga Muslim", "Sentro ng kapangyarihang espiritwal at politikal", "Tagapagtatag ng mga lungsod", "Tagapagsimula ng Renaissance"],
-                correct: 1
-            },
-            {
-                question: "Ano ang tawag sa pamumuno ng mga panginoong maylupa sa kanilang mga nasasakupan?",
-                answers: ["Demokrasya", "Piyudalismo", "Monarkiya", "Oligarkiya"],
-                correct: 1
-            },
-            {
-                question: "Ano ang naging papel ng mga kabalyero sa sistemang piyudal?",
-                answers: ["Tagapagtanggol ng manor at tagapagsilbi sa panginoong maylupa", "Tagapagturo ng relihiyon", "Tagapamahala ng lungsod", "Tagapagtayo ng simbahan"],
-                correct: 0
-            },
-            {
-                question: "Ano ang ibig sabihin ng “fief” sa sistemang piyudalismo?",
-                answers: ["Serbisyong panrelihiyon", "Lupaing ipinagkakaloob sa basalyo kapalit ng serbisyo", "Templo ng mga pari", "Palasyo ng hari"],
-                correct: 1
-            },
-            {
-                question: "Siya ang kinikilala bilang ang unang emperador ng Banal na Imperyong Romano?",
-                answers: ["Charlemagne", "Otto 1", "Clovis I", "Pepin II"],
-                correct: 1
-            },
-            {
-                question: "Ito ang kasunduan na humati sa imperyo ni Charlemagne?",
-                answers: ["Kasunduan ng Paris", "Kasunduan ng Verdun", "Kasunduan ng Roma", "Kasunduan ng Versailles"],
-                correct: 1
-            },
-            {
-                question: "Ano ang pangunahing yaman ng panginoon sa sistemang manoryal?",
-                answers: ["Ginto at pilak", "Buwis mula sa mga serf", "Kita mula sa kalakalan", "Lupa at serbisyo ng mga magsasaka"],
-                correct: 3
-            },
-            {
-                question: "Sino ang tumatanggap ng lupa mula sa panginoong maylupa sa sistemang piyudal?",
-                answers: ["Basalyo", "Serf", "Hari", "Pari"],
-                correct: 0
-            },
-            {
-                question: "Anong dinastiya ang pinagmulan ng Banal na Imperyong Romano?",
-                answers: ["Carolingian", "Merovingian", "Saxon", "Habsburg"],
-                correct: 0
-            },
-            {
-                question: "Ano ang tawag sa pinuno ng Banal na Imperyong Romano?",
-                answers: ["Emperador", "Papa", "Basalyo", "Panginoon Maylupa"],
-                correct: 0
-            },
-            {
-                question: "Ano ang tawag sa mga alagad ng simbahan na maaaring secular o regular?",
-                answers: ["Basalyo", "Pari at Monghe", "Serf", "Bourgeoisie"],
-                correct: 0
-            },
-            {
-                question: "Siya ang tinaguriang “Ama ng Europa”?",
-                answers: ["Clovis I", "Otto I", "Charlemagne", "Charles Martel"],
-                correct: 2
-            },
-            {
-                question: "Ang Santo Papang nagkorona kay Charlemagne bilang emperador ng Banal na Imperyong Romano?",
-                answers: ["Papa John III", "Papa Gregory III", "Papa Leo III", "Papa Francis"],
-                correct: 2
-            },
-            {
-                question: "Ano ang tawag sa lupang pag-aari ng isang panginoon sa sistemang piyudal?",
-                answers: ["Manor", "Polis", "Fief", "Estate"],
-                correct: 0
-            },
-            {
-                question: "Ano ang tawag sa sentrong pang-ekonomiya sa ilalim ng manoryalismo?",
-                answers: ["Bayan", "Manor", "Lungsod", "Fief"],
-                correct: 1
-            },
-            {
-                question: "Anong institusyon ang may kapangyarihang mag-excommunicate o magtanggal sa isang tao mula sa simbahan?",
-                answers: ["Hari", "Simbahang Katoliko", "Parlamento", "Guild"],
-                correct: 0
-            },
-            {
-                question: "Ano ang naging epekto ng pagbagsak ng Imperyong Romano sa pag-usbong ng Simbahang Katoliko?",
-                answers: ["Nawala ang kapangyarihan ng simbahan", "Lumakas ang kapangyarihan ng Papa bilang lider ng mga Kristiyanismo", "Nawala ang relihiyon sa Europa", "Nagsimula ang mga Krusada"],
-                correct: 1
-            },
-            {
-                question: "Ano ang papel ng mga monasteryo sa Gitnang Panahon?",
-                answers: ["Sentro ng kalakalan", "Sentro ng edukasyon at pagpapanatili ng kaalaman", "Sentro ng pamahalaan", "Sentro ng piyudalismo"],
-                correct: 1
-            },
-            {
-                question: "Sino ang naglunsad ng unang Krusada noong 1096?",
-                answers: ["Papa Urban II", "Papa Gregory VII", "Charlemagne", "Otto I"],
-                correct: 0
-            },
-            {
-                question: "Ano ang pangunahing layunin ng Banal na Imperyong Romano?",
-                answers: ["Palawakin ang Islam", "Pagkaisahin ang Kanlurang Europa", "Palakasin ang kalakalan", "Itaguyod ang Renaissance"],
-                correct: 1
-            },
-            {
-                question: "Ano ang naging epekto ng paglakas ng Simbahang Katoliko sa Europa?",
-                answers: ["Pagkawala ng mga hari", "Paglawak ng impluwensya sa pulitika at kultura", "Pagbaba ng edukasyon", "Paglakas ng Islam"],
-                correct: 1
-            },
-            {
-                question: "Ano ang tawag sa kapangyarihan ng Simbahan na magpatalsik ng mga pinuno ng estado?",
-                answers: ["Ekskomunikasyon", "Indulhensiya", "Sakramento", "Felibustero"],
-                correct: 0
-            },
-            {
-                question: "Sino ang Papa na nakipaglaban kay Haring Henry IV ukol sa karapatan sa pagtatalaga ng mga opisyal ng simbahan?",
-                answers: ["Gregory I", "Gregory VII", "Urban II", "Leo III"],
-                correct: 1
-            },
-            {
-                question: "Sino ang namumuno sa manor?",
-                answers: ["Serf", "Panginoong maylupa", "Hari", "Obispo"],
-                correct: 1
-            },
-            {
-                question: "Ano ang pangunahing layunin ng manoryalismo?",
-                answers: ["Pagpapalawak ng kalakalan", "Pagkakaroon ng sariling sapat na pagkain", "Pagpapalaganap ng relihiyon", "Pag-unlad ng sining"],
-                correct: 1
-            },
-            {
-                question: "Ano ang pangunahing dahilan ng pagiging makasarili ng manor?",
-                answers: ["Kakulangan ng kalakalan", "Takot sa pagsalakay", "Pag-unlad ng siyensiya", "Paglakas ng Simbahang Katoliko"],
-                correct: 1
-            },
-            {
-                question: "Ano ang naging papel ng Simbahang Katoliko sa Krusada?",
-                answers: ["Nagbigay ng armas", "Nagbasbas at nag-udyok sa mga Kristiyano", "Nagpatayo ng mga paaralan", "Nagpalaganap ng Islam"],
-                correct: 1
             }
         ];
         
@@ -516,29 +371,29 @@ class MedievalQuiz {
         this.bgMusic.pause();
         this.bgMusic.currentTime = 0;
         
-        this.finalScore.textContent = `Your Score: ${this.score}/${this.questions.length}`;
+        this.finalScore.textContent = `Iskor: ${this.score}/${this.questions.length}`;
         
         const percentage = (this.score / this.questions.length) * 100;
         let rank, description;
         
         if (percentage >= 90) {
-            rank = "🏰 Noble Lord/Lady";
-            description = "Thou art truly learned in the ways of the medieval realm! A master of history!";
+            rank = "🏰 Marangal na Ginoo/Ginang";
+            description = "Ikaw ay tunay na bihasa sa mga paraan ng kaharian ng gitnang panahon! Isang dalubhasa sa kasaysayan!";
         } else if (percentage >= 80) {
-            rank = "⚔️ Knight";
-            description = "Well done, brave knight! Thy knowledge serves thee well in these ancient lands!";
+            rank = "⚔️ Kabalyero";
+            description = "Magaling, matapang na kabalyero! Ang iyong kaalaman ay malaking tulong sa iyo sa mga sinaunang lupain na ito!";
         } else if (percentage >= 70) {
-            rank = "🛡️ Squire";
-            description = "A respectable showing! With more study, thou shall become a true knight!";
+            rank = "🛡️ Eskuwyer";
+            description = "Isang kapuri-puring pagtatanghal! Sa mas maraming pag-aaral, ikaw ay magiging isang tunay na kabalyero!";
         } else if (percentage >= 60) {
-            rank = "🏹 Archer";
-            description = "Thy aim is fair, but there is room for improvement in thy medieval studies!";
+            rank = "🏹 Mamamana";
+            description = "Maganda ang iyong layunin, ngunit may puwang pa para sa pagpapabuti sa iyong pag-aaral ng medyebal na panahon!";
         } else if (percentage >= 50) {
-            rank = "🔨 Blacksmith";
-            description = "Thou hast some knowledge, but more learning awaits thee at the forge of wisdom!";
+            rank = "🔨 Panday";
+            description = "Ikaw ay may kaunting kaalaman, ngunit higit pang pagkatuto ang naghihintay sa iyo sa pandayan ng karunungan!";
         } else {
-            rank = "👨‍🌾 Peasant";
-            description = "Fear not! Every lord was once a peasant. Study the medieval times and return!";
+            rank = "👨‍🌾 Magsasaka";
+            description = "Huwag matakot! Bawat panginoon ay minsang isang-pangkaraniwang tao. Pag-aralan ang panahon ng medieval at bumalik!";
         }
         
         this.rankTitle.textContent = rank;
