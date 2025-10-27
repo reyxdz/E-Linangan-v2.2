@@ -60,10 +60,12 @@
             
             <div class="game-over" id="gameOver" style="display: none;">
                 <div class="final-score" id="finalScore">Ang Iyong Huling Iskor: 0/1</div>
+                <div class="rank-title" id="rankTitle">Antas ng Kasanayan:</div>
+                <div class="rank-description" id="rankDescription">Walang Kasanayan</div>
                 <div class="game-over-message" id="gameOverMessage">
                     Magiting na mandirigma, mahusay ang iyong pakikipaglaban! Patuloy ang iyong paglalakbay tungo sa karunungan...
                 </div>
-                <a href="pambungad3.html"><button class="btn" id="restartBtn">Pumasyal</button></a>
+                <a href="pambungad.html"><button class="btn" id="restartBtn">Pumasyal</button></a>
             </div>
 
             <div id="explanationPopup" class="explanation-popup">
@@ -75,6 +77,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Keep only this part for the audio -->
+    <audio id="bgMusic" loop>
+        <source src="audios/paunangpagsusulitbgmusic.flac" type="audio/flac">
+    </audio>
 
     <script src="js-files/pangwakasPagsusulit.js"></script>
     <script src="js-files/preloader.js"></script>

@@ -11,16 +11,16 @@
         @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
         body {
-        margin: 0;
-        padding: 0;
-        background: #fefefe;
-        font-family: 'Space Mono', monospace;
+            margin: 0;
+            padding: 0;
+            background: #1a1a2e;  /* Changed to dark theme */
+            font-family: 'Space Mono', monospace;
         }
 
         .card-container {
             width: 320px;
-            height: 80vh; /* Set maximum height to 80% of viewport height */
-            background: #ffffff;
+            height: 80vh;
+            background: rgba(0, 0, 0, 0.8);  /* Changed to dark background */
             border: 4px solid #000000;
             box-shadow: 8px 8px 0 #000;
             position: absolute;
@@ -29,18 +29,18 @@
             transform: translate(-50%, -50%);
             display: flex;
             flex-direction: column;
-            max-height: 600px; /* Add maximum height */
+            max-height: 600px;
         }
 
         .upper-container {
             height: 140px;
-            min-height: 140px; /* Prevent shrinking */
-            background: #ffe600;
+            min-height: 140px;
+            background: rgba(212, 175, 55, 0.9);  /* Changed to gold theme */
             border-bottom: 4px solid #000;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            position: relative; /* Added for positioning context */
+            position: relative;
         }
 
         .image-container {
@@ -68,38 +68,38 @@
         .lower-container {
             padding: 60px 20px 30px;
             text-align: center;
-            overflow-y: auto; /* Make content scrollable */
-            flex-grow: 1; /* Allow container to grow */
+            overflow-y: auto;
+            flex-grow: 1;
         }
 
         .lower-container h3 {
             margin: 0;
             font-size: 20px;
             font-weight: bold;
-            color: #000;
+            color: #d4af37;  /* Changed to gold */
         }
 
         .lower-container h4 {
             margin: 5px 0 15px;
             font-size: 14px;
-            color: #333;
+            color: #ffffff;  /* Changed to white */
             font-weight: normal;
         }
 
         .lower-container p {
             font-size: 14px;
-            color: #000;
-            border: 2px dashed #000;
+            color: #ffffff;  /* Changed to white */
+            border: 2px dashed #d4af37;  /* Changed to gold */
             padding: 10px;
-            background: #f0f0f0;
+            background: rgba(0, 0, 0, 0.5);  /* Changed to semi-transparent dark */
             margin-bottom: 20px;
         }
 
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background: #ff006e;
-            color: #fff;
+            background: #d4af37;  /* Changed to gold */
+            color: #000000;  /* Changed to black */
             text-decoration: none;
             font-weight: bold;
             border: 3px solid #000;
@@ -108,29 +108,28 @@
         }
 
         .btn:hover {
-            background: #fff;
-            color: #ff006e;
-            border: 3px solid #ff006e;
+            background: #ffffff;
+            color: #d4af37;  /* Changed to gold */
+            border: 3px solid #d4af37;  /* Changed to gold */
             box-shadow: none;
         }
 
-        /* Add custom scrollbar styling */
+        /* Custom scrollbar styling */
         .lower-container::-webkit-scrollbar {
             width: 8px;
         }
 
         .lower-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.5);  /* Changed to semi-transparent dark */
         }
 
         .lower-container::-webkit-scrollbar-thumb {
-            background: #888;
+            background: #d4af37;  /* Changed to gold */
             border-radius: 4px;
         }
 
         .lower-container::-webkit-scrollbar-thumb:hover {
-            background: #555;
+            background: rgba(212, 175, 55, 0.7);  /* Changed to semi-transparent gold */
         }
     </style>
 </head>
@@ -155,10 +154,9 @@
             <div class="lower-container">
                 <div>
                     <h3>PAUNANG PAGSUSULIT</h3>
-                    <h4>Sagutin muna ang paunang pagsusulit na ito bago tumungo sa mga aralin.
+                    <h4>Sagutin muna ang pangwakas na pagsusulit na ito.
                     Mahalaga ito upang malaman natin ang lawak ng iyong kaalaman patungkol sa
-                    panibagong paksa at nang sa gayon ay magabayan ka sa iyong pag-aaral sa mga
-                    panibagong aralin.</h4>
+                    natalakay na paksa at nang sa gayon ay mas magabayan ka pa sa iyong pag-aaral sa mga aralin.</h4>
                 </div>
                 <div>
                     <p>⚫<b>BAWAL</b> ang magsaliksik sa iyong gadget o gumamit ng libro habang sinasagutan ito.</p>
@@ -166,10 +164,9 @@
                     <p>⚫ Pumili ng isang sagot na sa tingin mo ay tama.</p>
                     <p>⚫ Pindutin ang titik ng iyong napiling sagot.</p>
                     <p>⚫ Siguraduhing sagutin ang lahat ng tanong ng tapat.</p>
-                    <p>⚫ Sagutan ito sa loob ng dalawampung minuto (20 mins.).</p>
                 </div>
                 <div>
-                    <a href="paunangPagsusulit.html" class="btn" onclick="playSound()">Simulan</a>
+                    <a href="pangwakasPagsusulit.html" class="btn" onclick="playSound()">Simulan</a>
                 </div>
             </div>
         </div>

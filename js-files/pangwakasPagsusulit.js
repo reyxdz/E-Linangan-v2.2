@@ -185,8 +185,7 @@ const questions = [
         answers: ["Itatanghal ang mga pangunahing tauhan ng mga krusada upang maipakita ang kanilang katapangan at katapatan sa simbahan","Iiugnay ang relihiyosong paniniwala sa mga politikal na interes at personal na ambisyon ng mga namumuno", "Ipagtatanghal lang ang mga labanan bilang pangunahing batayan sa pagkakaroon ng mga krusada", "Itatago ang mga seryosong isyung dulot ng mga krusada upang mapanatili ang kabanalan ng layunin ng mga ito"],
         correct: 1,
         explanation: "Ang mga Krusada ay hindi lamang laban para sa relihiyon kundi may halong mga politikal na motibo at personal na layunin ng mga pinuno. Mahalaga na ipakita sa dula ang ugnayan ng relihiyosong paniniwala at politikal na interes upang maunawaan ang buong konteksto ng mga Krusada."
-    },
-    
+    }  
 ];
 
 // DOM elements
@@ -205,6 +204,8 @@ const quizContainer = document.getElementById('quizContainer');
 const explanationPopup = document.getElementById('explanationPopup');
 const explanationText = document.getElementById('explanationText');
 const continueBtn = document.getElementById('continueBtn');
+const bgMusic = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
 
 // Sound effects using Web Audio API
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -243,8 +244,18 @@ const sounds = {
         setTimeout(() => playSound(659, 0.2, 'sine'), 100);
         setTimeout(() => playSound(784, 0.2, 'sine'), 200);
         setTimeout(() => playSound(1047, 0.4, 'sine'), 300);
+    },
+    popup: () => {
+        playSound(440, 0.1, 'sine'); // A4 note
+        setTimeout(() => playSound(554.37, 0.1, 'sine'), 100); // C#5 note
+    },
+    continue: () => {
+        playSound(587.33, 0.1, 'sine'); // D5 note
+        setTimeout(() => playSound(440, 0.1, 'sine'), 150); // A4 note
     }
 };
+
+let isMusicPlaying = false;
 
 // Initialize game
 function initGame() {
@@ -254,6 +265,18 @@ function initGame() {
     answered = false;
     updateDisplay();
     showQuestion();
+}
+
+// Initialize music
+function initMusic() {
+    bgMusic.volume = 0.3;
+    bgMusic.play()
+        .then(() => {
+            isMusicPlaying = true;
+        })
+        .catch(error => {
+            console.log("Autoplay prevented:", error);
+        });
 }
 
 // Show current question
@@ -340,10 +363,11 @@ function submitAnswer() {
     
     updateDisplay();
     
-    // Show explanation popup after a short delay
+    // Show explanation popup after a short delay with sound
     setTimeout(() => {
         explanationText.textContent = question.explanation;
         explanationPopup.style.display = 'flex';
+        sounds.popup(); // Play popup sound
     }, 1000);
 }
 
@@ -358,20 +382,45 @@ function endGame() {
     quizContainer.style.display = 'none';
     gameOver.style.display = 'block';
     
-    finalScore.textContent = `Your Final Score: ${score}/${questions.length}`;
+    finalScore.textContent = `Ang Iyong Huling Iskor: ${score}/${questions.length}`;
     
-    // Custom message based on score
-    const percentage = (score / questions.length) * 100;
-    if (percentage === 100) {
-        gameOverMessage.textContent = "Perpekto! Tunay kang bihasa sa kaalaman ng Gitnang Panahon!";
-    } else if (percentage >= 80) {
-        gameOverMessage.textContent = "Napakagaling! Napatunayan mong ikaw ay isang karapat-dapat na iskolar!";
-    } else if (percentage >= 60) {
-        gameOverMessage.textContent = "Magaling! Kapuri-puri ang iyong kaalaman sa panahon ng Gitnang Panahon!";
+    // Determine rank based on score
+    let rank;
+    if (score <= 7) {
+        rank = "Walang Kasanayan";
+    } else if (score <= 14) {
+        rank = "Mahinang Kasanayan";
+    } else if (score <= 22) {
+        rank = "Halos Bihasa";
+    } else if (score <= 26) {
+        rank = "Bihasa";
     } else {
-        gameOverMessage.textContent = "Matapang na pagsisikap! Ipagpatuloy ang iyong pag-aaral upang maging isang tunay na dalubhasa sa Gitnang Panahon!";
+        rank = "Lubos na Bihasa";
     }
     
+    document.getElementById('rankDescription').textContent = rank;
+    
+    // Custom message based on rank
+    let message;
+    switch(rank) {
+        case "Walang Kasanayan":
+            message = "Magpatuloy sa pag-aaral upang mapaunlad ang iyong kaalaman sa Gitnang Panahon.";
+            break;
+        case "Mahinang Kasanayan":
+            message = "May pundasyon ka na. Pag-aralan pang mabuti ang mga aralin sa Gitnang Panahon.";
+            break;
+        case "Halos Bihasa":
+            message = "Magaling! Konting pag-aaral pa upang maging ganap na bihasa.";
+            break;
+        case "Bihasa":
+            message = "Napakahusay! Tunay kang may malalim na pang-unawa sa Gitnang Panahon.";
+            break;
+        case "Lubos na Bihasa":
+            message = "Perpekto! Ikaw ay isang mahusay na iskolar ng Gitnang Panahon!";
+            break;
+    }
+    
+    gameOverMessage.textContent = message;
     sounds.complete();
 }
 
@@ -407,6 +456,7 @@ submitBtn.addEventListener('click', submitAnswer);
 nextBtn.addEventListener('click', nextQuestion);
 restartBtn.addEventListener('click', restartGame);
 continueBtn.addEventListener('click', () => {
+    sounds.continue(); // Play continue sound
     explanationPopup.style.display = 'none';
     
     if (currentQuestion < questions.length - 1) {
@@ -417,7 +467,23 @@ continueBtn.addEventListener('click', () => {
 });
 
 // Initialize game on load
-document.addEventListener('DOMContentLoaded', initGame);
+document.addEventListener('DOMContentLoaded', () => {
+    initGame();
+    initMusic(); // Add this line
+});
+
+// Add this to handle user interaction requirement
+document.addEventListener('click', () => {
+    if (bgMusic.paused) {
+        bgMusic.play()
+            .then(() => {
+                isMusicPlaying = true;
+                musicToggle.classList.remove('muted');
+                musicToggle.innerHTML = '<i class="ri-volume-up-fill"></i>';
+            })
+            .catch(error => console.log("Playback failed:", error));
+    }
+}, { once: true });
 
 // Handle audio context for mobile devices
 document.addEventListener('click', () => {

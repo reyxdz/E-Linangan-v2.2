@@ -32,7 +32,7 @@ const popupData = {
             <p class="sanggunian"><b>Sanggunian:</b></p>
             <a href="https://www.britannica.com/facts/Odoacer" target="_blank">Odoacer Facts | Britannica</a>
         `,
-        image: 'images/odoacer.jpg' // No image for this example - will show placeholder
+        image: 'images/Odoacer.jpg' // No image for this example - will show placeholder
     },
     'charlesmartel': {
         title: 'Charles Martel',
