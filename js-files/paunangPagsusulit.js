@@ -189,7 +189,7 @@ class MedievalQuiz {
             {
                 question: "Ano ang tawag sa mga alagad ng simbahan na maaaring secular o regular?",
                 answers: ["Basalyo", "Pari at Monghe", "Serf", "Bourgeoisie"],
-                correct: 0
+                correct: 1
             },
             {
                 question: "Siya ang tinaguriang “Ama ng Europa”?",
@@ -214,7 +214,7 @@ class MedievalQuiz {
             {
                 question: "Anong institusyon ang may kapangyarihang mag-excommunicate o magtanggal sa isang tao mula sa simbahan?",
                 answers: ["Hari", "Simbahang Katoliko", "Parlamento", "Guild"],
-                correct: 0
+                correct: 1
             },
             {
                 question: "Ano ang naging epekto ng pagbagsak ng Imperyong Romano sa pag-usbong ng Simbahang Katoliko?",

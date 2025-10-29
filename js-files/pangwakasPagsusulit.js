@@ -31,7 +31,7 @@ const questions = [
         explanation: "Ang Homage ay ang seremonya kung saan nangangako ang vassal ng katapatan sa kanilang lord, karaniwang ginagawa sa pamamagitan ng paglalagay ng kamay ng vassal sa pagitan ng mga kamay ng lord bilang tanda ng pangakong katapatan."
     },
     {
-        question: "Sino ang kauna-unahang in koronahang Emperador ng Banal na Imperyong Romano noong 962?",
+        question: "Sino ang kauna-unahang kinoronahang Emperador ng Banal na Imperyong Romano noong 962?",
         answers: ["Charlemagne", "Romulus Augustulus", "Pepin III", "Otto I"],
         correct: 3,
         explanation: "Si Otto I ang kauna-unahang in koronahang Emperador ng Banal na Imperyong Romano noong 962. Siya ang itinuturing na tagapagtatag ng Banal na Imperyong Romano bilang isang pampolitikang entidad noong ika-10 siglo."
