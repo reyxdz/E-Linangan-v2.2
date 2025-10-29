@@ -928,43 +928,36 @@ a{
             width: 120px;
             height: 120px;
             margin: 0 auto 25px;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
             position: relative;
-            overflow: hidden;
-        }
-
-        .module-1 .icon-container {
-            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
-        }
-
-        .module-2 .icon-container {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-        }
-
-        .module-3 .icon-container {
-            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            background: transparent; /* Remove the gradient background */
+            padding: 30px;
         }
 
         .crown {
-            font-size: 4rem;
-            color: #2c3e50;
+            width: 100px;  /* Set a specific width */
+            height: 100px; /* Set a specific height */
+            object-fit: contain; /* This prevents image distortion */
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            margin-top: 1rem;
         }
 
         .castle {
-            font-size: 4rem;
-            color: #8b4513;
+            width: 100px;  /* Set a specific width */
+            height: 100px; /* Set a specific height */
+            object-fit: contain; /* This prevents image distortion */
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            margin-top: 1rem;
         }
 
         .church {
-            font-size: 4rem;
-            color: #f39c12;
+            width: 100px;  /* Set a specific width */
+            height: 100px; /* Set a specific height */
+            object-fit: contain; /* This prevents image distortion */
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            margin-top: 1rem;
         }
 
         .module-title {
