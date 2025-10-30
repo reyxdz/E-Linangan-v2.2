@@ -11,25 +11,41 @@
                 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
                 body {
-                margin: 0;
-                padding: 0;
-                background: #fefefe;
-                font-family: 'Space Mono', monospace;
+                    margin: 0;
+                    padding: 0;
+                    background: #fefefe;
+                    font-family: 'Space Mono', monospace;
+                    min-height: 100vh;
+                    overflow: hidden;
                 }
 
                 .card-container {
                     width: 320px;
-                    height: 80vh; /* Set maximum height to 80% of viewport height */
+                    height: min(80vh, 600px); /* Use the smaller of 80vh or 600px */
                     background: #ffffff;
                     border: 4px solid #000000;
                     box-shadow: 8px 8px 0 #000;
-                    position: absolute;
+                    position: fixed;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     display: flex;
                     flex-direction: column;
-                    max-height: 600px; /* Add maximum height */
+                    margin: auto;
+                }
+
+                @media (max-height: 700px) {
+                    .card-container {
+                        height: min(90vh, 600px);
+                        margin: 20px auto;
+                    }
+                }
+
+                @media (max-height: 600px) {
+                    .card-container {
+                        height: 95vh;
+                        margin: 10px auto;
+                    }
                 }
 
                 .upper-container {
@@ -149,7 +165,7 @@
                 <div class="card-container">
                     <div class="upper-container">
                         <div class="image-container">
-                            <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=Alaina" alt="profile image" />
+                            <img src="images/pagsusulit/aralin/paunangAralinPanuto.jpg" alt="profile image" />
                         </div>
                     </div>
 
