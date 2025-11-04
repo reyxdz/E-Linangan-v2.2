@@ -3,25 +3,28 @@
   --dark-color: #010101;
 }
 
-.slider .parent .glass-box .title{
-  color: var(--light-color);
-  font-size: 1.75rem;
+.logo-container {
+  width: 100%;
+  max-width: 150px;
+  margin: 10px auto 20px; /* Added bottom margin */
+  padding: 0 15px;
+}
+
+.title-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   margin-top: 5px;
-
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid var(--light-color);
-  width: 0;
-  animation: typing 3s steps(12) 1 forwards, blink 0.7s step-end infinite;
+  animation: spinLogo 8s linear infinite;
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 14ch; } /* Adjust based on character count */
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
+@keyframes spinLogo {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }
 
 .slider .parent .glass-box .welcome{
@@ -34,7 +37,7 @@
   color: var(--light-color);
   margin: 0 2rem;
   text-indent: 2rem;
-  margin-top: 1.5rem;
+  margin-top: 0; /* Removed top margin since we added it to logo container */
   font-family: Poppins, sans-serif;
   font-weight: 300;
   text-indent: 2rem;
@@ -65,11 +68,7 @@
 @media (max-width: 767px) {
   .glass-box{
       height: 90vh;
-      margin-top: 0;
-  }
-
-  .slider .parent .glass-box .title{
-      font-size: 1rem;
+      margin-top: -2rem;
   }
 
   .slider .parent .glass-box .welcome{
@@ -83,7 +82,7 @@
       font-weight: 300;
       margin: 0 3rem;
       text-indent: 1.5rem;
-      margin-top: 2rem;
+      margin-top: -0.7rem;
   }
 }
 
