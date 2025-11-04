@@ -94,10 +94,32 @@ a{
 }
 
 .nav_logo{
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds space between logo and text */
+}
+
+.nav_logo-img {
+    height: 75px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.nav_logo-text {
     color: var(--light-color);
     font-weight: var(--font-medium);
     font-family: Medieval;
     font-size: 20px;
+    transition: color 0.3s ease;
+    margin-left: -0.8rem;
+}
+
+.nav_logo:hover .nav_logo-img {
+    transform: scale(1.05);
+}
+
+.nav_logo:hover .nav_logo-text {
+    color: #fff; /* Optional: makes text slightly brighter on hover */
 }
 
 .nav_close,
@@ -846,6 +868,17 @@ a{
 
             .video-link {
                 margin-left: 3rem;
+            }
+
+            .nav_logo {
+                gap: 5px;
+            }
+            .nav_logo-img {
+                height: 40px;
+            }
+            .nav_logo-text {
+                font-size: 14px;
+                margin-left: -0.4rem;
             }
         }
 

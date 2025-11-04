@@ -17,12 +17,24 @@
         </div>
     </div>
 
+    <!-- Intro screen -->
+    <div id="introScreen" class="intro-screen">
+        <div class="intro-content">
+            <h1 class="sword">⚔️</h1>
+            <h1>Pangwakas na Pagsusulit</h1>
+            <p>Para sa pinakamahusay na karanasan, kailangan itong buksan sa fullscreen mode.</p>
+            <button id="startQuizBtn" class="btn">Simulan ang Pagsusulit</button>
+        </div>
+    </div>
+
     <div id="loadercontent">
-        <div class="container">
-            <div class="game-header">
-                <h1 class="game-title">Pangwakas na Pagsusulit</h1>
-                <p class="game-subtitle">Sukatin natin ang iyong kaalaman!</p>
-            </div>
+        <!-- Main quiz content - initially hidden -->
+        <div id="quizContent" class="hidden">
+            <div class="container">
+                <div class="game-header">
+                    <h1 class="game-title">Pangwakas na Pagsusulit</h1>
+                    <p class="game-subtitle">Sukatin natin ang iyong kaalaman!</p>
+                </div>
             
             <div class="quiz-container" id="quizContainer">
                 <div class="progress-bar">
@@ -83,7 +95,28 @@
         <source src="audios/paunangpagsusulitbgmusic.flac" type="audio/flac">
     </audio>
 
+    <!-- Fullscreen exit confirmation modal -->
+    <div id="exitFsModal" class="fs-modal hidden" aria-hidden="true">
+        <div class="fs-modal-content" role="dialog" aria-modal="true" aria-labelledby="fsModalTitle">
+            <h2 id="fsModalTitle">Nais mong lumabas?</h2>
+            <p>Kung ipagpapatuloy mo ang paglabas ng fullscreen, ibabalik ka sa pangunahing pahina.</p>
+            <div class="fs-modal-actions">
+                <button id="fsConfirmExit" class="btn">Oo, Lumabas</button>
+                <button id="fsCancelExit" class="btn">Magpatuloy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small banner if automatic fullscreen is blocked -->
+    <div id="enterFsBanner" class="enter-fs-banner hidden" aria-hidden="true">
+        <div class="enter-fs-inner">
+            <p>Tap para mag-fullscreen para sa pinakamahusay na karanasan</p>
+            <button id="enterFsBtn" class="btn">Enter Fullscreen</button>
+        </div>
+    </div>
+
     <script src="js-files/pangwakasPagsusulit.js"></script>
+    <script src="js-files/fullscreen-handler-pangwakas.js"></script>
     <script src="js-files/preloader.js"></script>
 </body>
 </html>
