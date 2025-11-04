@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remarks sa Iyong Pag-unlad</title>
+    <link rel="stylesheet" href="css-files/style.css">
+    <link rel="stylesheet" href="css-files/preloader.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a2e;
+            font-family: 'Space Mono', monospace;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .remarks-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border: 4px solid #000000;
+            box-shadow: 8px 8px 0 #000;
+        }
+
+        h1, h3 {
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .score-comparison {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+            gap: 2rem;
+        }
+
+        .score-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #d4af37;
+            min-width: 200px;
+            color: #ffffff;
+        }
+
+        .score-box h3 {
+            margin-top: 0;
+        }
+
+        .progress-indicator {
+            margin: 2rem 0;
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #d4af37;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #d4af37;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #d4af37;
+            transition: width 1s ease-in-out;
+        }
+
+        .back-btn {
+            display: block;
+            margin: 2rem auto;
+            padding: 10px 20px;
+            background: #d4af37;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            transition: all 0.2s ease;
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .back-btn:hover {
+            background: #ffffff;
+            color: #d4af37;
+            border: 3px solid #d4af37;
+            box-shadow: none;
+        }
+
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(212, 175, 55, 0.7);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 840px) {
+            .remarks-container {
+                max-width: 90%;
+                margin: 1rem auto;
+                padding: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .score-comparison {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .score-box {
+                min-width: unset;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .remarks-container {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+
+            .progress-indicator {
+                padding: 1rem;
+            }
+
+            .progress-bar {
+                height: 15px;
+            }
+
+            .back-btn {
+                width: 100%;
+                max-width: none;
+                box-sizing: border-box;
+                margin: 1rem 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            body {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .remarks-container {
+                padding: 0.8rem;
+                margin: 0.3rem;
+            }
+
+            .score-box,
+            .progress-indicator {
+                padding: 0.8rem;
+            }
+
+            .progress-bar {
+                height: 12px;
+            }
+        }
+
+        /* Fix for very small screens */
+        @media screen and (max-height: 600px) {
+            .remarks-container {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .score-comparison {
+                margin: 1rem 0;
+            }
+
+            .progress-indicator {
+                margin: 1rem 0;
+            }
+        }
+
+        /* Ensure content is readable on larger screens */
+        @media screen and (min-width: 1200px) {
+            .remarks-container {
+                max-width: 1000px;
+            }
+
+            body {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .score-box {
+                min-width: 300px;
+            }
+        }
+
+        /* Handle landscape orientation on mobile */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            .remarks-container {
+                margin: 0.5rem auto;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+
+            .score-comparison {
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            .score-box {
+                flex: 1;
+            }
+        }
+
+        /* Loader Styles */
+        .loader-progress-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loader-progress-fill {
+            width: 0%;
+            height: 100%;
+            background-color: #d4af37;
+            transition: width 0.5s ease;
+        }
+
+        /* Animation Styles */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #d4af37;
+            opacity: 0;
+            pointer-events: none;
+            animation: confettiRain 3s ease-in-out infinite;
+        }
+
+        @keyframes confettiRain {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .sad-emoji {
+            position: fixed;
+            font-size: 100px;
+            opacity: 0;
+            pointer-events: none;
+            animation: sadEmoji 4s ease-in-out infinite;
+        }
+
+        @keyframes sadEmoji {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(40vh) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .celebration-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: #d4af37;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            animation: celebrationText 4s ease-in-out infinite;
+        }
+
+        @keyframes celebrationText {
+            0%, 100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        .star {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #d4af37;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0;
+            pointer-events: none;
+            animation: starTwinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+        <div class="loader-progress-bar">
+            <div class="loader-progress-fill" id="progress"></div>
+        </div>
+    </div>
+
+    <div id="loadercontent">
+        <div class="remarks-container">
+        <h1>Remarks sa Iyong Pag-unlad</h1>
+        
+        <div class="score-comparison">
+            <div class="score-box">
+                <h3>Paunang Pagsusulit</h3>
+                <p id="preQuizScore">Loading...</p>
+            </div>
+            <div class="score-box">
+                <h3>Pangwakas na Pagsusulit</h3>
+                <p id="postQuizScore">Loading...</p>
+            </div>
+        </div>
+
+        <div class="progress-indicator">
+            <h3>Antas ng Pag-unlad</h3>
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <p id="progressText">Loading...</p>
+        </div>
+
+        <a href="pambungad.html" class="back-btn">Pumasyal</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get scores from localStorage
+            const preQuizScore = parseInt(localStorage.getItem('paunangPagsusulit_score')) || 0;
+            const preQuizTotal = parseInt(localStorage.getItem('paunangPagsusulit_total')) || 30;
+            const postQuizScore = parseInt(localStorage.getItem('pangwakasPagsusulit_score')) || 0;
+            const postQuizTotal = parseInt(localStorage.getItem('pangwakasPagsusulit_total')) || 30;
+
+            // Calculate percentages
+            const preQuizPercentage = (preQuizScore / preQuizTotal) * 100;
+            const postQuizPercentage = (postQuizScore / postQuizTotal) * 100;
+            const improvement = postQuizPercentage - preQuizPercentage;
+
+            // Update the display
+            document.getElementById('preQuizScore').textContent = 
+                `${preQuizScore}/${preQuizTotal} (${preQuizPercentage.toFixed(1)}%)`;
+            document.getElementById('postQuizScore').textContent = 
+                `${postQuizScore}/${postQuizTotal} (${postQuizPercentage.toFixed(1)}%)`;
+
+            // Update progress bar
+            const progressFill = document.getElementById('progressFill');
+            progressFill.style.width = `${Math.max(0, improvement)}%`;
+            
+            // Update progress text
+            const progressText = document.getElementById('progressText');
+            if (improvement > 0) {
+                progressText.textContent = `Ikaw ay umunlad ng ${improvement.toFixed(1)}%`;
+            } else if (improvement === 0) {
+                progressText.textContent = 'Walang pagbabago sa iyong marka';
+            } else {
+                progressText.textContent = `Bumaba ng ${Math.abs(improvement).toFixed(1)}% ang iyong marka`;
+            }
+
+            // Animation will show based on improvement percentage
+
+            // Handle animations based on improvement percentage
+            if (improvement > 50) {
+                createCelebrationEffects();
+            } else {
+                createDisappointmentEffects();
+            }
+        });
+
+        function createCelebrationEffects() {
+            // Create confetti
+            for (let i = 0; i < 50; i++) {
+                createConfetti();
+            }
+
+            // Create stars
+            for (let i = 0; i < 20; i++) {
+                createStar();
+            }
+
+            // Create celebration text
+            const celebText = document.createElement('div');
+            celebText.className = 'celebration-text';
+            celebText.innerHTML = '🎉 Napakahusay! 🎉<br>Ipagpatuloy mo!';
+            document.body.appendChild(celebText);
+
+            // Remove celebration effects after animation
+            setTimeout(() => {
+                const elements = document.querySelectorAll('.confetti, .star, .celebration-text');
+                elements.forEach(el => el.remove());
+            }, 4000);
+        }
+
+        function createDisappointmentEffects() {
+            // Create sad emoji
+            const sadEmoji = document.createElement('div');
+            sadEmoji.className = 'sad-emoji';
+            sadEmoji.textContent = '😔';
+            sadEmoji.style.left = Math.random() * 80 + 10 + '%';
+            document.body.appendChild(sadEmoji);
+
+            // Remove sad emoji after animation
+            setTimeout(() => {
+                sadEmoji.remove();
+            }, 4000);
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            confetti.style.backgroundColor = getRandomColor();
+            document.body.appendChild(confetti);
+        }
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(star);
+        }
+
+        function getRandomColor() {
+            const colors = ['#d4af37', '#FFD700', '#FFA500', '#FF69B4', '#87CEEB'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+    <script src="js-files/preloader.js"></script>
+    <script src="js-files/background_music.js"></script>
+</body>
+</html>

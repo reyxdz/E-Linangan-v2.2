@@ -516,6 +516,10 @@ class MedievalQuiz {
         this.bgMusic.pause();
         this.bgMusic.currentTime = 0;
         
+        // Store the score in localStorage
+        localStorage.setItem('paunangPagsusulit_score', this.score);
+        localStorage.setItem('paunangPagsusulit_total', this.questions.length);
+        
         this.finalScore.textContent = `Iskor: ${this.score}/${this.questions.length}`;
         
         const percentage = (this.score / this.questions.length) * 100;

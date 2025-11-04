@@ -379,6 +379,10 @@ function nextQuestion() {
 
 // End game
 function endGame() {
+    // Store score in localStorage
+    localStorage.setItem('pangwakasPagsusulit_score', score);
+    localStorage.setItem('pangwakasPagsusulit_total', questions.length);
+
     quizContainer.style.display = 'none';
     gameOver.style.display = 'block';
     
