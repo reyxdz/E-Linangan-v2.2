@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Logo](images/logo.png) <!-- TODO: Add project logo (if available, or create a placeholder) -->
+![Logo](images/eLinangan_logo.png) <!-- TODO: Add project logo (if available, or create a placeholder) -->
 
 [![GitHub stars](https://img.shields.io/github/stars/reyxdz/E-Linangan-v2.2?style=for-the-badge)](https://github.com/reyxdz/E-Linangan-v2.2/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/reyxdz/E-Linangan-v2.2?style=for-the-badge)](https://github.com/reyxdz/E-Linangan-v2.2/network)
