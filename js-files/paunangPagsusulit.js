@@ -519,6 +519,20 @@ class MedievalQuiz {
         // Store the score in localStorage
         localStorage.setItem('paunangPagsusulit_score', this.score);
         localStorage.setItem('paunangPagsusulit_total', this.questions.length);
+
+        // Submit score to API if logged in
+        if (typeof AUTH !== 'undefined' && AUTH.isLoggedIn() && AUTH.getUserRole() === 'student') {
+            AUTH.apiCall('/api/scores', {
+                method: 'POST',
+                body: JSON.stringify({
+                    quizType: 'paunang',
+                    score: this.score,
+                    totalQuestions: this.questions.length
+                })
+            }).then(r => {
+                if (!r.error) console.log('Score saved to server:', r.message);
+            }).catch(e => console.log('Score API error:', e));
+        }
         
         this.finalScore.textContent = `Iskor: ${this.score}/${this.questions.length}`;
         

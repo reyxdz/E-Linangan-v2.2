@@ -383,6 +383,20 @@ function endGame() {
     localStorage.setItem('pangwakasPagsusulit_score', score);
     localStorage.setItem('pangwakasPagsusulit_total', questions.length);
 
+    // Submit score to API if logged in
+    if (typeof AUTH !== 'undefined' && AUTH.isLoggedIn() && AUTH.getUserRole() === 'student') {
+        AUTH.apiCall('/api/scores', {
+            method: 'POST',
+            body: JSON.stringify({
+                quizType: 'pangwakas',
+                score: score,
+                totalQuestions: questions.length
+            })
+        }).then(r => {
+            if (!r.error) console.log('Score saved to server:', r.message);
+        }).catch(e => console.log('Score API error:', e));
+    }
+
     quizContainer.style.display = 'none';
     gameOver.style.display = 'block';
     
