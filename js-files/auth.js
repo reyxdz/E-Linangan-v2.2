@@ -8,7 +8,7 @@ const AUTH = {
     // ⚠️ REPLACE 'YOUR_RENDER_APP_NAME' with your actual Render service name after deploying
     API_BASE_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
         ? 'http://localhost:5000'
-        : 'https://YOUR_RENDER_APP_NAME.onrender.com',
+        : 'https://e-linangan-v2-2.onrender.com',
 
     // Token management
     getToken() {
