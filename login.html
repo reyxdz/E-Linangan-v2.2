@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Linangan | Mag-login</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css-files/login.css">
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element">⚔️</div>
+        <div class="floating-element">🛡️</div>
+        <div class="floating-element">👑</div>
+        <div class="floating-element">🏰</div>
+        <div class="floating-element">📜</div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="images/eLinangan_logo_cropped.png" alt="E-Linangan Logo" class="login-logo">
+                <h1>E-LINANGAN</h1>
+                <p class="login-subtitle">Mag-login sa iyong account</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="ri-user-line"></i> Username
+                    </label>
+                    <input type="text" id="username" name="username" placeholder="Ilagay ang iyong username" required autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="ri-lock-line"></i> Password
+                    </label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Ilagay ang iyong password" required autocomplete="current-password">
+                        <button type="button" class="toggle-password" onclick="togglePassword()">
+                            <i class="ri-eye-off-line" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                <div id="successMessage" class="success-message" style="display: none;"></div>
+
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span class="btn-text">Mag-login</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="ri-loader-4-line ri-spin"></i>
+                    </span>
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>Wala ka pang account? <a href="register.html">Mag-rehistro</a></p>
+                <a href="index.html" class="back-link"><i class="ri-arrow-left-line"></i> Bumalik sa Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js-files/auth.js"></script>
+    <script src="js-files/login.js"></script>
+</body>
+</html>

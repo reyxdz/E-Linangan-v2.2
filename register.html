@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Linangan | Mag-rehistro</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css-files/register.css">
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element">⚔️</div>
+        <div class="floating-element">🛡️</div>
+        <div class="floating-element">👑</div>
+        <div class="floating-element">🏰</div>
+        <div class="floating-element">📜</div>
+    </div>
+
+    <div class="register-container">
+        <div class="register-card">
+            <div class="register-header">
+                <img src="images/eLinangan_logo_cropped.png" alt="E-Linangan Logo" class="register-logo">
+                <h1>E-LINANGAN</h1>
+                <p class="register-subtitle">Gumawa ng bagong account</p>
+            </div>
+
+            <!-- Role selector -->
+            <div class="role-selector">
+                <button type="button" class="role-btn active" data-role="student" onclick="selectRole('student')">
+                    <i class="ri-graduation-cap-line"></i> Estudyante
+                </button>
+                <button type="button" class="role-btn" data-role="teacher" onclick="selectRole('teacher')">
+                    <i class="ri-user-star-line"></i> Guro
+                </button>
+            </div>
+
+            <form id="registerForm" class="register-form">
+                <input type="hidden" id="role" name="role" value="student">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">
+                            <i class="ri-user-line"></i> Pangalan
+                        </label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Juan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">
+                            <i class="ri-user-line"></i> Apelyido
+                        </label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Dela Cruz" required>
+                    </div>
+                </div>
+
+                <div class="form-group" id="gradeLevelGroup">
+                    <label for="gradeLevel">
+                        <i class="ri-book-line"></i> Grade Level
+                    </label>
+                    <select id="gradeLevel" name="gradeLevel" required>
+                        <option value="">Pumili ng grade level</option>
+                        <option value="Grade 7">Grade 7</option>
+                        <option value="Grade 8">Grade 8</option>
+                        <option value="Grade 9">Grade 9</option>
+                        <option value="Grade 10">Grade 10</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="schoolId">
+                        <i class="ri-building-line"></i> Paaralan
+                    </label>
+                    <select id="schoolId" name="schoolId" required>
+                        <option value="">Naglo-load ng mga paaralan...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">
+                        <i class="ri-at-line"></i> Username
+                    </label>
+                    <input type="text" id="username" name="username" placeholder="Gumawa ng username" required minlength="3" autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="ri-lock-line"></i> Password
+                    </label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Gumawa ng password (min. 6)" required minlength="6" autocomplete="new-password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('password', 'toggleIcon1')">
+                            <i class="ri-eye-off-line" id="toggleIcon1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        <i class="ri-lock-line"></i> Kumpirmahin ang Password
+                    </label>
+                    <div class="password-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Ulitin ang password" required minlength="6" autocomplete="new-password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword', 'toggleIcon2')">
+                            <i class="ri-eye-off-line" id="toggleIcon2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                <div id="successMessage" class="success-message" style="display: none;"></div>
+
+                <button type="submit" class="register-btn" id="registerBtn">
+                    <span class="btn-text">Mag-rehistro</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="ri-loader-4-line ri-spin"></i>
+                    </span>
+                </button>
+            </form>
+
+            <div class="register-footer">
+                <p>Mayroon ka nang account? <a href="login.html">Mag-login</a></p>
+                <a href="index.html" class="back-link"><i class="ri-arrow-left-line"></i> Bumalik sa Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js-files/auth.js"></script>
+    <script src="js-files/register.js"></script>
+</body>
+</html>
