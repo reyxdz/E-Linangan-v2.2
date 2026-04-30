@@ -405,13 +405,45 @@
         <a href="pambungad.html" class="back-btn">Pumasyal</a>
     </div>
 
+    <script src="js-files/auth.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get scores from localStorage
-            const preQuizScore = parseInt(localStorage.getItem('paunangPagsusulit_score')) || 0;
-            const preQuizTotal = parseInt(localStorage.getItem('paunangPagsusulit_total')) || 30;
-            const postQuizScore = parseInt(localStorage.getItem('pangwakasPagsusulit_score')) || 0;
-            const postQuizTotal = parseInt(localStorage.getItem('pangwakasPagsusulit_total')) || 30;
+        document.addEventListener('DOMContentLoaded', async function() {
+            let preQuizScore, preQuizTotal, postQuizScore, postQuizTotal;
+
+            // Try to fetch scores from API if logged in
+            if (typeof AUTH !== 'undefined' && AUTH.isLoggedIn() && AUTH.getUserRole() === 'student') {
+                try {
+                    const r = await AUTH.apiCall('/api/scores/me');
+                    if (!r.error) {
+                        if (r.paunang) {
+                            preQuizScore = r.paunang.score;
+                            preQuizTotal = r.paunang.totalQuestions;
+                        }
+                        if (r.pangwakas) {
+                            postQuizScore = r.pangwakas.score;
+                            postQuizTotal = r.pangwakas.totalQuestions;
+                        }
+                    }
+                } catch (e) {
+                    console.log('Failed to fetch scores from API, using localStorage fallback.');
+                }
+            }
+
+            // Fallback to localStorage
+            if (preQuizScore === undefined) {
+                preQuizScore = parseInt(localStorage.getItem('paunangPagsusulit_score')) || 0;
+                preQuizTotal = parseInt(localStorage.getItem('paunangPagsusulit_total')) || 30;
+            }
+            if (postQuizScore === undefined) {
+                postQuizScore = parseInt(localStorage.getItem('pangwakasPagsusulit_score')) || 0;
+                postQuizTotal = parseInt(localStorage.getItem('pangwakasPagsusulit_total')) || 30;
+            }
+
+            // Ensure defaults
+            preQuizTotal = preQuizTotal || 30;
+            postQuizTotal = postQuizTotal || 30;
+            preQuizScore = preQuizScore || 0;
+            postQuizScore = postQuizScore || 0;
 
             // Calculate percentages
             const preQuizPercentage = (preQuizScore / preQuizTotal) * 100;
@@ -437,8 +469,6 @@
             } else {
                 progressText.textContent = `Bumaba ng ${Math.abs(improvement).toFixed(1)}% ang iyong marka`;
             }
-
-            // Animation will show based on improvement percentage
 
             // Handle animations based on improvement percentage
             if (improvement > 50) {
