@@ -163,9 +163,9 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
             el.disabled = true;
         });
 
-        // Redirect to login after 3 seconds
+        // Redirect to login after 3 seconds with status banner
         setTimeout(() => {
-            window.location.href = 'login.html';
+            window.location.href = `login.html?status=pending&role=${selectedRole}`;
         }, 3000);
     } catch (error) {
         showError('Hindi makakonekta sa server. Subukan muli.');

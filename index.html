@@ -67,16 +67,9 @@
                                     </g>
                                     <path style="fill: #E1D3B6 " d="m 102,45 h 276 c 23.268,0 42,18.732 42,42 0,23.268 -18.732,42 -42,42 H 102 C 78.732002,129 60,110.268 60,87 60,63.732 78.732002,45 102,45 Z" />
                                 </svg>
-                                <button onclick="openPopup(); playSound();" class="button">Magpatuloy</button>
+                                <button onclick="handleMagpatuloy()" class="button">Magpatuloy</button>
                             </div>
                         <!-- CONTINUE BUTTON END -->
-
-                        <!-- AUTH BUTTONS -->
-                        <div class="auth-buttons" style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
-                            <a href="login.html" style="color: #d4af37; font-family: 'Space Mono', monospace; font-size: 0.8rem; text-decoration: none; border: 1px solid #d4af37; padding: 6px 16px; transition: all 0.3s;">Mag-login</a>
-                            <a href="register.html" style="color: #E1D3B6; font-family: 'Space Mono', monospace; font-size: 0.8rem; text-decoration: none; border: 1px solid #E1D3B6; padding: 6px 16px; transition: all 0.3s;">Mag-rehistro</a>
-                        </div>
-                        <!-- AUTH BUTTONS END -->
                     </div>
                 </div>
 
@@ -108,7 +101,28 @@
             <!-- SLIDER END -->
 
 
-            <!-- Popup -->
+            <!-- Choice Modal: Visitor vs Login -->
+            <div class="popup-overlay" id="choiceOverlay" onclick="closeChoiceOnOverlay(event)">
+                <div class="popup-container">
+                    <button class="close-btn" onclick="closeChoiceModal()">&times;</button>
+                    
+                    <div class="popup-photo">
+                        <img src="images/mascots/boy/b1.webp" alt="Popup Image">
+                    </div>
+                    
+                    <div class="popup-description">
+                        <h2>PAANO KA MAGPAPATULOY?</h2>
+                        <p>Maaari kang magpatuloy bilang bisita o mag-login gamit ang iyong account para ma-save ang iyong progreso at marka.</p>
+                        
+                        <div class="popup-buttons">
+                            <button class="popup-btn proceed-btn" onclick="chooseVisitor()">Bisita</button>
+                            <button class="popup-btn proceed-btn" onclick="window.location.href='login.html'">Mag-login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutorial Popup -->
             <div class="popup-overlay" id="popupOverlay" onclick="closePopupOnOverlay(event)">
                 <div class="popup-container">
                     <button class="close-btn" onclick="closePopup()">&times;</button>
@@ -121,10 +135,9 @@
                         <h2>TUTORIAL</h2>
                         <p>Nais mo bang ipaliwanag ko sayo kung paano gamitin ang websayt na ito?</p>
                         
-                        <!-- Action buttons -->
                         <div class="popup-buttons">
-                            <button class="popup-btn proceed-btn" onclick="window.location.href='pambungad.html'">Hindi</button>
-                            <button class="popup-btn proceed-btn" onclick="window.location.href='walkthrough-lg.html'">Oo</button>
+                            <button class="popup-btn proceed-btn" onclick="skipTutorial()">Hindi</button>
+                            <button class="popup-btn proceed-btn" onclick="goToTutorial()">Oo</button>
                         </div>
                     </div>
                 </div>
@@ -132,9 +145,62 @@
         </div>
          
 
+         <script src="js-files/auth.js"></script>
          <script src="js-files/background_music.js"></script>
          <script src="js-files/index.js"></script>
          <script src="js-files/popup.js"></script>
          <script src="js-files/preloader.js"></script>
+         <script>
+             // Main flow when "Magpatuloy" is clicked
+             function handleMagpatuloy() {
+                 playSound();
+                 // If already logged in, skip choice modal
+                 if (typeof AUTH !== 'undefined' && AUTH.isLoggedIn()) {
+                     checkTutorial();
+                     return;
+                 }
+                 // Show visitor/login choice
+                 openChoiceModal();
+             }
+
+             // Choice modal (visitor vs login)
+             function openChoiceModal() {
+                 document.getElementById('choiceOverlay').classList.add('active');
+                 document.body.style.overflow = 'hidden';
+             }
+             function closeChoiceModal() {
+                 document.getElementById('choiceOverlay').classList.remove('active');
+                 document.body.style.overflow = '';
+             }
+             function closeChoiceOnOverlay(event) {
+                 if (event.target.id === 'choiceOverlay') closeChoiceModal();
+             }
+
+             // Visitor chose to continue without login
+             function chooseVisitor() {
+                 closeChoiceModal();
+                 checkTutorial();
+             }
+
+             // Check if user has seen the tutorial before
+             function checkTutorial() {
+                 const hasSeen = localStorage.getItem('hasSeenTutorial');
+                 if (!hasSeen) {
+                     openPopup();
+                 } else {
+                     window.location.href = 'pambungad.html';
+                 }
+             }
+
+             // Tutorial popup actions
+             function skipTutorial() {
+                 localStorage.setItem('hasSeenTutorial', 'true');
+                 window.location.href = 'pambungad.html';
+             }
+             function goToTutorial() {
+                 localStorage.setItem('hasSeenTutorial', 'true');
+                 window.location.href = 'walkthrough-lg.html';
+             }
+         </script>
     </body>
 </html>
