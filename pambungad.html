@@ -11,6 +11,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="css-files/style.css">
         <link rel="stylesheet" href="css-files/preloader.css">
+        <link rel="stylesheet" href="css-files/popup.css">
         <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     </head>
 
@@ -235,6 +236,27 @@
         </audio>
     </div>
 
+    <!-- Tutorial Popup (shown on first visit) -->
+    <div class="popup-overlay" id="tutorialOverlay" onclick="closeTutorialOnOverlay(event)">
+        <div class="popup-container">
+            <button class="close-btn" onclick="closeTutorialPopup()">&times;</button>
+            
+            <div class="popup-photo">
+                <img src="images/mascots/boy/b1.webp" alt="Popup Image">
+            </div>
+            
+            <div class="popup-description">
+                <h2>TUTORIAL</h2>
+                <p>Nais mo bang ipaliwanag ko sayo kung paano gamitin ang websayt na ito?</p>
+                
+                <div class="popup-buttons">
+                    <button class="popup-btn proceed-btn" onclick="skipTutorial()">Hindi</button>
+                    <button class="popup-btn proceed-btn" onclick="goToTutorial()">Oo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-title">Hatid nila:</div>
         <div class="footer-members">
@@ -265,7 +287,30 @@
     <script src="js-files/pambungad.js"></script>
     <script src="js-files/preloader.js"></script>
     <script>
+        // Tutorial popup functions
+        function openTutorialPopup() {
+            document.getElementById('tutorialOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeTutorialPopup() {
+            document.getElementById('tutorialOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            localStorage.setItem('hasSeenTutorial', 'true');
+        }
+        function closeTutorialOnOverlay(event) {
+            if (event.target.id === 'tutorialOverlay') closeTutorialPopup();
+        }
+        function skipTutorial() {
+            localStorage.setItem('hasSeenTutorial', 'true');
+            closeTutorialPopup();
+        }
+        function goToTutorial() {
+            localStorage.setItem('hasSeenTutorial', 'true');
+            window.location.href = 'walkthrough-lg.html';
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // Auth nav
             const authNav = document.getElementById('authNav');
             if (AUTH.isLoggedIn()) {
                 const user = AUTH.getUser();
@@ -277,6 +322,11 @@
                 authNav.innerHTML = `
                     <a href="login.html" style="color:#d4af37;font-size:0.7rem;font-family:'Space Mono',monospace;text-decoration:none;border:1px solid #d4af37;padding:4px 10px;">Login</a>
                 `;
+            }
+
+            // Show tutorial popup if first visit
+            if (!localStorage.getItem('hasSeenTutorial')) {
+                openTutorialPopup();
             }
         });
     </script>
