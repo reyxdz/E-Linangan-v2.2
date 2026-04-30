@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
 // POST /api/auth/register (student or teacher self-registration)
 router.post('/register', async (req, res) => {
     try {
-        const { username, password, firstName, lastName, gradeLevel, schoolId, role } = req.body;
+        const { username, password, firstName, lastName, schoolId, role } = req.body;
 
         // Validate role — only student and teacher can self-register
         const allowedRoles = ['student', 'teacher'];
@@ -79,10 +79,7 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ message: 'Kailangan ang lahat ng field.' });
         }
 
-        // Students must provide grade level
-        if (userRole === 'student' && !gradeLevel) {
-            return res.status(400).json({ message: 'Kailangan ang grade level para sa estudyante.' });
-        }
+
 
         // Check if username already exists
         const existingUser = await User.findOne({ username });
@@ -103,7 +100,6 @@ router.post('/register', async (req, res) => {
             lastName,
             role: userRole,
             schoolId,
-            gradeLevel: userRole === 'student' ? gradeLevel : null,
             status: 'pending'
         });
 

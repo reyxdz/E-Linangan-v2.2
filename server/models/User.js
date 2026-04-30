@@ -34,10 +34,7 @@ const userSchema = new mongoose.Schema({
         ref: 'School',
         default: null
     },
-    gradeLevel: {
-        type: String,
-        default: null
-    },
+
     status: {
         type: String,
         enum: ['pending', 'approved', 'rejected'],

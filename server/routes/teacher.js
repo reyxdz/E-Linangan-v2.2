@@ -87,13 +87,11 @@ router.patch('/reject/:id', async (req, res) => {
 // GET /api/teacher/students
 router.get('/students', async (req, res) => {
     try {
-        const { gradeLevel } = req.query;
         const filter = {
             role: 'student',
             status: 'approved',
             schoolId: req.user.schoolId
         };
-        if (gradeLevel) filter.gradeLevel = gradeLevel;
 
         const students = await User.find(filter)
             .select('-password')
@@ -110,13 +108,12 @@ router.get('/students', async (req, res) => {
 // GET /api/teacher/performance
 router.get('/performance', async (req, res) => {
     try {
-        const { gradeLevel, quizStatus, scoreMin, scoreMax } = req.query;
+        const { quizStatus, scoreMin, scoreMax } = req.query;
         const filter = {
             role: 'student',
             status: 'approved',
             schoolId: req.user.schoolId
         };
-        if (gradeLevel) filter.gradeLevel = gradeLevel;
 
         // Get students
         const students = await User.find(filter)
@@ -156,7 +153,6 @@ router.get('/performance', async (req, res) => {
                 _id: student._id,
                 firstName: student.firstName,
                 lastName: student.lastName,
-                gradeLevel: student.gradeLevel,
                 paunangScore: paunangScore ? {
                     score: paunangScore.score,
                     total: paunangScore.totalQuestions,

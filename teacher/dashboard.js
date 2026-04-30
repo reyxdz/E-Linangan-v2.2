@@ -68,7 +68,6 @@ async function loadPending() {
     tbody.innerHTML = r.students.map(s => `<tr>
         <td>${s.firstName} ${s.lastName}</td>
         <td>${s.username}</td>
-        <td>${s.gradeLevel || '-'}</td>
         <td>${fmtDate(s.createdAt)}</td>
         <td>
             <button class="tbl-btn tbl-btn-approve" onclick="approveStudent('${s._id}')"><i class="ri-check-line"></i> Aprubahan</button>
@@ -94,11 +93,9 @@ async function rejectStudent(id) {
 
 // ===== PERFORMANCE =====
 async function loadPerformance() {
-    const gradeLevel = document.getElementById('filterGrade').value;
     const quizStatus = document.getElementById('filterQuizStatus').value;
 
     let query = '?';
-    if (gradeLevel) query += `gradeLevel=${encodeURIComponent(gradeLevel)}&`;
     if (quizStatus) query += `quizStatus=${encodeURIComponent(quizStatus)}&`;
 
     const r = await AUTH.apiCall(`/api/teacher/performance${query}`);
@@ -127,7 +124,6 @@ async function loadPerformance() {
 
         return `<tr>
             <td>${p.lastName}, ${p.firstName}</td>
-            <td>${p.gradeLevel || '-'}</td>
             <td>${preScore}</td>
             <td>${postScore}</td>
             <td><span class="${improvementClass}">${improvementText}</span></td>
@@ -154,10 +150,9 @@ function exportPDF() {
     if (user) doc.text(`Guro: ${user.firstName} ${user.lastName}`, 14, 27);
 
     // Table data
-    const headers = [['Pangalan', 'Grade', 'Paunang Pagsusulit', 'Pangwakas', 'Improvement', 'Aralin', 'Oras']];
+    const headers = [['Pangalan', 'Paunang Pagsusulit', 'Pangwakas', 'Improvement', 'Aralin', 'Oras']];
     const rows = performanceData.map(p => [
         `${p.lastName}, ${p.firstName}`,
-        p.gradeLevel || '-',
         p.paunangScore ? `${p.paunangScore.score}/${p.paunangScore.total} (${p.paunangScore.percentage.toFixed(1)}%)` : '-',
         p.pangwakasScore ? `${p.pangwakasScore.score}/${p.pangwakasScore.total} (${p.pangwakasScore.percentage.toFixed(1)}%)` : '-',
         p.improvement !== null ? `${p.improvement > 0 ? '+' : ''}${p.improvement.toFixed(1)}%` : '-',
@@ -184,7 +179,6 @@ function exportExcel() {
 
     const rows = performanceData.map(p => ({
         'Pangalan': `${p.lastName}, ${p.firstName}`,
-        'Grade Level': p.gradeLevel || '-',
         'Paunang Score': p.paunangScore ? p.paunangScore.score : '-',
         'Paunang Total': p.paunangScore ? p.paunangScore.total : '-',
         'Paunang %': p.paunangScore ? p.paunangScore.percentage.toFixed(1) + '%' : '-',

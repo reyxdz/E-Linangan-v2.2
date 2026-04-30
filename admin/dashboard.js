@@ -229,7 +229,7 @@ async function loadStudents() {
     const tbody = document.getElementById('studentsBody');
     if (!r.students.length) { tbody.innerHTML = '<tr><td colspan="6" class="loading-cell">Walang estudyante.</td></tr>'; return; }
     tbody.innerHTML = r.students.map(s => `<tr>
-        <td>${s.firstName} ${s.lastName}</td><td>${s.username}</td><td>${s.gradeLevel || '-'}</td>
+        <td>${s.firstName} ${s.lastName}</td><td>${s.username}</td>
         <td>${s.schoolId ? s.schoolId.name : '-'}</td>
         <td><span class="status-badge status-${s.status}">${s.status}</span></td>
         <td><button class="tbl-btn tbl-btn-delete" onclick="deleteStudent('${s._id}','${s.firstName}')"><i class="ri-delete-bin-line"></i></button></td>

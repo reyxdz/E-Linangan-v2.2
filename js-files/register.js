@@ -10,17 +10,8 @@ function selectRole(role) {
         btn.classList.toggle('active', btn.dataset.role === role);
     });
 
-    // Show/hide grade level field (only for students)
-    const gradeLevelGroup = document.getElementById('gradeLevelGroup');
-    const gradeLevelSelect = document.getElementById('gradeLevel');
-
-    if (role === 'teacher') {
-        gradeLevelGroup.classList.add('hidden');
-        gradeLevelSelect.removeAttribute('required');
-    } else {
-        gradeLevelGroup.classList.remove('hidden');
-        gradeLevelSelect.setAttribute('required', '');
-    }
+    // Clear messages
+    hideMessages();
 
     // Clear messages
     hideMessages();
@@ -104,16 +95,10 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const schoolId = document.getElementById('schoolId').value;
-    const gradeLevel = document.getElementById('gradeLevel').value;
 
     // Validation
     if (!firstName || !lastName || !username || !password || !schoolId) {
         showError('Kailangan ang lahat ng field.');
-        return;
-    }
-
-    if (selectedRole === 'student' && !gradeLevel) {
-        showError('Kailangan pumili ng grade level.');
         return;
     }
 
@@ -143,10 +128,6 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
             schoolId,
             role: selectedRole
         };
-
-        if (selectedRole === 'student') {
-            data.gradeLevel = gradeLevel;
-        }
 
         const result = await AUTH.register(data);
 

@@ -52,8 +52,8 @@
             <h1 class="section-title"><i class="ri-time-line"></i> Mga Naghihintay na Estudyante</h1>
             <div class="table-container">
                 <table class="data-table">
-                    <thead><tr><th>Pangalan</th><th>Username</th><th>Grade Level</th><th>Petsa</th><th>Aksyon</th></tr></thead>
-                    <tbody id="pendingBody"><tr><td colspan="5" class="loading-cell">Naglo-load...</td></tr></tbody>
+                    <thead><tr><th>Pangalan</th><th>Username</th><th>Petsa</th><th>Aksyon</th></tr></thead>
+                    <tbody id="pendingBody"><tr><td colspan="4" class="loading-cell">Naglo-load...</td></tr></tbody>
                 </table>
             </div>
         </section>
@@ -69,16 +69,7 @@
             </div>
             <!-- Filters -->
             <div class="filters-bar">
-                <div class="filter-group">
-                    <label>Grade Level</label>
-                    <select id="filterGrade" onchange="loadPerformance()">
-                        <option value="">Lahat</option>
-                        <option value="Grade 7">Grade 7</option>
-                        <option value="Grade 8">Grade 8</option>
-                        <option value="Grade 9">Grade 9</option>
-                        <option value="Grade 10">Grade 10</option>
-                    </select>
-                </div>
+
                 <div class="filter-group">
                     <label>Quiz Status</label>
                     <select id="filterQuizStatus" onchange="loadPerformance()">
@@ -93,10 +84,10 @@
             <div class="table-container">
                 <table class="data-table" id="perfTable">
                     <thead><tr>
-                        <th>Pangalan</th><th>Grade</th><th>Paunang Pagsusulit</th><th>Pangwakas</th>
+                        <th>Pangalan</th><th>Paunang Pagsusulit</th><th>Pangwakas</th>
                         <th>Improvement</th><th>Aralin</th><th>Oras</th>
                     </tr></thead>
-                    <tbody id="perfBody"><tr><td colspan="7" class="loading-cell">Naglo-load...</td></tr></tbody>
+                    <tbody id="perfBody"><tr><td colspan="6" class="loading-cell">Naglo-load...</td></tr></tbody>
                 </table>
             </div>
         </section>
