@@ -1,0 +1,5 @@
+server/
+.git
+node_modules
+.env
+try.*
