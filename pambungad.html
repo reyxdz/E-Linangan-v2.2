@@ -66,6 +66,9 @@
                     <!-- CLOSE BUTTON END -->
                     </div>
 
+                    <!-- AUTH NAV -->
+                    <div id="authNav" style="display:flex;align-items:center;gap:8px;margin-left:auto;margin-right:10px;"></div>
+
                     <!-- TOOGLE BUTTON START -->
                     <div class="nav_toggle" id="nav-toggle">
                         <i class="ri-menu-2-line"></i>
@@ -257,9 +260,26 @@
          
 
     <!-- JS FILES -->
+    <script src="js-files/auth.js"></script>
     <script src="js-files/index.js"></script>
     <script src="js-files/pambungad.js"></script>
     <script src="js-files/preloader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const authNav = document.getElementById('authNav');
+            if (AUTH.isLoggedIn()) {
+                const user = AUTH.getUser();
+                authNav.innerHTML = `
+                    <span style="color:#d4af37;font-size:0.75rem;font-family:'Space Mono',monospace;">👤 ${user.firstName}</span>
+                    <button onclick="AUTH.logout()" style="background:none;border:1px solid #ff6b6b;color:#ff6b6b;padding:4px 10px;font-family:'Space Mono',monospace;font-size:0.7rem;cursor:pointer;">Logout</button>
+                `;
+            } else {
+                authNav.innerHTML = `
+                    <a href="login.html" style="color:#d4af37;font-size:0.7rem;font-family:'Space Mono',monospace;text-decoration:none;border:1px solid #d4af37;padding:4px 10px;">Login</a>
+                `;
+            }
+        });
+    </script>
 
     </body>
 </html>
