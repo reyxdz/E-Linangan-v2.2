@@ -380,6 +380,7 @@ a{
         display: flex;
         align-items: center;
         column-gap: 3.5rem;
+        margin-left: auto;
     }
 }
 
@@ -1530,3 +1531,265 @@ footer {
     }
 }
 /*---------- FOOTER END -----------*/
+
+/*---------- PROFILE DROPDOWN ----------*/
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    user-select: none;
+    margin-left: auto;
+    margin-right: 10px;
+}
+.profile-trigger:hover {
+    border-color: #d4af37;
+    background: rgba(212, 175, 55, 0.08);
+}
+.profile-trigger i {
+    font-size: 1.2rem;
+    color: #d4af37;
+}
+.profile-trigger .profile-name {
+    color: #d4af37;
+    font-size: 0.8rem;
+    font-family: 'Space Mono', monospace;
+    white-space: nowrap;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.profile-trigger .profile-arrow {
+    font-size: 0.7rem;
+    color: #d4af37;
+    transition: transform 0.3s;
+}
+.profile-trigger.active .profile-arrow {
+    transform: rotate(180deg);
+}
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    background: #1a1a1a;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    z-index: 1001;
+    overflow: hidden;
+}
+.profile-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.profile-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--light-color);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+.profile-dropdown .dropdown-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+.profile-dropdown .dropdown-item i {
+    font-size: 1rem;
+    color: #d4af37;
+    width: 20px;
+    text-align: center;
+}
+.profile-dropdown .dropdown-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 0;
+}
+.profile-dropdown .dropdown-item.logout-item {
+    color: #ff6b6b;
+}
+.profile-dropdown .dropdown-item.logout-item i {
+    color: #ff6b6b;
+}
+.profile-dropdown .dropdown-item.logout-item:hover {
+    background: rgba(255, 107, 107, 0.1);
+}
+
+/* Guest login link */
+.guest-login-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #d4af37;
+    font-size: 0.8rem;
+    font-family: 'Space Mono', monospace;
+    text-decoration: none;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    margin-left: auto;
+    margin-right: 10px;
+}
+.guest-login-link:hover {
+    border-color: #d4af37;
+    background: rgba(212, 175, 55, 0.08);
+}
+
+/*---------- PROFILE EDIT MODAL ----------*/
+.profile-modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 2000;
+    padding: 20px;
+}
+.profile-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.profile-modal {
+    background: #1a1a1a;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 15px;
+    max-width: 420px;
+    width: 100%;
+    padding: 30px;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.profile-modal-overlay.active .profile-modal {
+    transform: scale(1);
+}
+.profile-modal h2 {
+    color: #d4af37;
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.profile-modal .pm-form-group {
+    margin-bottom: 14px;
+}
+.profile-modal .pm-form-group label {
+    display: block;
+    color: var(--light-color);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+    opacity: 0.8;
+}
+.profile-modal .pm-form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    background: #0d0d0d;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    color: var(--light-color);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+.profile-modal .pm-form-group input:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+.profile-modal .pm-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 18px 0;
+}
+.profile-modal .pm-divider-label {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+    margin-bottom: 14px;
+}
+.profile-modal .pm-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.profile-modal .pm-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+.profile-modal .pm-btn-cancel {
+    background: #2a2a2a;
+    color: var(--light-color);
+}
+.profile-modal .pm-btn-cancel:hover {
+    background: #333;
+}
+.profile-modal .pm-btn-save {
+    background: #d4af37;
+    color: #000;
+}
+.profile-modal .pm-btn-save:hover {
+    background: #e0c050;
+}
+.profile-modal .pm-message {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    display: none;
+}
+.profile-modal .pm-message.error {
+    display: block;
+    background: rgba(255,107,107,0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(255,107,107,0.3);
+}
+.profile-modal .pm-message.success {
+    display: block;
+    background: rgba(76,175,80,0.15);
+    color: #4CAF50;
+    border: 1px solid rgba(76,175,80,0.3);
+}
+
+@media screen and (max-width: 1150px) {
+    .profile-trigger, .guest-login-link {
+        margin-right: 5px;
+    }
+    .profile-trigger .profile-name {
+        max-width: 80px;
+    }
+}
+/*---------- PROFILE DROPDOWN END ----------*/

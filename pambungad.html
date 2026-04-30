@@ -67,8 +67,8 @@
                     <!-- CLOSE BUTTON END -->
                     </div>
 
-                    <!-- AUTH NAV -->
-                    <div id="authNav" style="display:flex;align-items:center;gap:8px;margin-left:auto;margin-right:10px;"></div>
+                    <!-- PROFILE / LOGIN NAV -->
+                    <div id="authNav"></div>
 
                     <!-- TOOGLE BUTTON START -->
                     <div class="nav_toggle" id="nav-toggle">
@@ -279,6 +279,42 @@
             Ipinagbabawal ang pagkopya o paggamit ng mga nilalaman nang walang pahintulot.
         </div>
     </footer>
+
+    <!-- Profile Edit Modal -->
+    <div class="profile-modal-overlay" id="profileModalOverlay" onclick="if(event.target===this)closeProfileModal()">
+        <div class="profile-modal">
+            <h2><i class="ri-edit-line"></i> I-edit ang Profile</h2>
+            <div id="pmMessage" class="pm-message"></div>
+            <form id="profileEditForm" onsubmit="handleProfileSave(event)">
+                <div class="pm-form-group">
+                    <label for="pmFirstName">Pangalan</label>
+                    <input type="text" id="pmFirstName" required>
+                </div>
+                <div class="pm-form-group">
+                    <label for="pmLastName">Apelyido</label>
+                    <input type="text" id="pmLastName" required>
+                </div>
+                <div class="pm-form-group">
+                    <label for="pmUsername">Username</label>
+                    <input type="text" id="pmUsername" required minlength="3">
+                </div>
+                <hr class="pm-divider">
+                <div class="pm-divider-label">Palitan ang Password (opsyonal)</div>
+                <div class="pm-form-group">
+                    <label for="pmCurrentPw">Kasalukuyang Password</label>
+                    <input type="password" id="pmCurrentPw" placeholder="Kung babaguhin lang">
+                </div>
+                <div class="pm-form-group">
+                    <label for="pmNewPw">Bagong Password</label>
+                    <input type="password" id="pmNewPw" minlength="6" placeholder="Min. 6 na karakter">
+                </div>
+                <div class="pm-actions">
+                    <button type="button" class="pm-btn pm-btn-cancel" onclick="closeProfileModal()">Kanselahin</button>
+                    <button type="submit" class="pm-btn pm-btn-save">I-save</button>
+                </div>
+            </form>
+        </div>
+    </div>
          
 
     <!-- JS FILES -->
@@ -287,7 +323,105 @@
     <script src="js-files/pambungad.js"></script>
     <script src="js-files/preloader.js"></script>
     <script>
-        // Tutorial popup functions
+        // ===== PROFILE DROPDOWN =====
+        function toggleProfileDropdown() {
+            const trigger = document.getElementById('profileTrigger');
+            const dropdown = document.getElementById('profileDropdown');
+            trigger.classList.toggle('active');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            const trigger = document.getElementById('profileTrigger');
+            const dropdown = document.getElementById('profileDropdown');
+            if (trigger && dropdown && !trigger.contains(e.target)) {
+                trigger.classList.remove('active');
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // ===== PROFILE EDIT MODAL =====
+        function openProfileModal() {
+            // Close dropdown first
+            document.getElementById('profileTrigger')?.classList.remove('active');
+            document.getElementById('profileDropdown')?.classList.remove('show');
+
+            const user = AUTH.getUser();
+            if (!user) return;
+            document.getElementById('pmFirstName').value = user.firstName || '';
+            document.getElementById('pmLastName').value = user.lastName || '';
+            document.getElementById('pmUsername').value = user.username || '';
+            document.getElementById('pmCurrentPw').value = '';
+            document.getElementById('pmNewPw').value = '';
+            document.getElementById('pmMessage').className = 'pm-message';
+            document.getElementById('pmMessage').textContent = '';
+            document.getElementById('profileModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeProfileModal() {
+            document.getElementById('profileModalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        async function handleProfileSave(e) {
+            e.preventDefault();
+            const msgEl = document.getElementById('pmMessage');
+            const user = AUTH.getUser();
+            const data = {};
+
+            const firstName = document.getElementById('pmFirstName').value.trim();
+            const lastName = document.getElementById('pmLastName').value.trim();
+            const username = document.getElementById('pmUsername').value.trim();
+            const currentPw = document.getElementById('pmCurrentPw').value;
+            const newPw = document.getElementById('pmNewPw').value;
+
+            if (firstName && firstName !== user.firstName) data.firstName = firstName;
+            if (lastName && lastName !== user.lastName) data.lastName = lastName;
+            if (username && username !== user.username) data.username = username;
+            if (newPw) {
+                if (!currentPw) {
+                    msgEl.className = 'pm-message error';
+                    msgEl.textContent = 'Kailangan ang kasalukuyang password.';
+                    return;
+                }
+                data.currentPassword = currentPw;
+                data.newPassword = newPw;
+            }
+
+            if (Object.keys(data).length === 0) {
+                msgEl.className = 'pm-message error';
+                msgEl.textContent = 'Walang binago.';
+                return;
+            }
+
+            const r = await AUTH.apiCall('/api/auth/profile', {
+                method: 'PATCH',
+                body: JSON.stringify(data)
+            });
+
+            if (r.error) {
+                msgEl.className = 'pm-message error';
+                msgEl.textContent = r.message;
+                return;
+            }
+
+            // Update stored data
+            if (r.token) AUTH.setToken(r.token);
+            if (r.user) AUTH.setUser(r.user);
+
+            msgEl.className = 'pm-message success';
+            msgEl.textContent = 'Matagumpay na na-update!';
+
+            // Update the nav display
+            const updatedUser = AUTH.getUser();
+            const nameEl = document.querySelector('.profile-name');
+            if (nameEl) nameEl.textContent = updatedUser.firstName;
+
+            setTimeout(() => closeProfileModal(), 1200);
+        }
+
+        // ===== TUTORIAL POPUP =====
         function openTutorialPopup() {
             document.getElementById('tutorialOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -309,18 +443,32 @@
             window.location.href = 'walkthrough-lg.html';
         }
 
+        // ===== INIT =====
         document.addEventListener('DOMContentLoaded', () => {
-            // Auth nav
             const authNav = document.getElementById('authNav');
             if (AUTH.isLoggedIn()) {
                 const user = AUTH.getUser();
                 authNav.innerHTML = `
-                    <span style="color:#d4af37;font-size:0.75rem;font-family:'Space Mono',monospace;">👤 ${user.firstName}</span>
-                    <button onclick="AUTH.logout()" style="background:none;border:1px solid #ff6b6b;color:#ff6b6b;padding:4px 10px;font-family:'Space Mono',monospace;font-size:0.7rem;cursor:pointer;">Logout</button>
+                    <div class="profile-trigger" id="profileTrigger" onclick="toggleProfileDropdown()">
+                        <i class="ri-user-line"></i>
+                        <span class="profile-name">${user.firstName}</span>
+                        <i class="ri-arrow-down-s-line profile-arrow"></i>
+                        <div class="profile-dropdown" id="profileDropdown">
+                            <button class="dropdown-item" onclick="openProfileModal()">
+                                <i class="ri-edit-line"></i> I-edit ang Profile
+                            </button>
+                            <hr class="dropdown-divider">
+                            <button class="dropdown-item logout-item" onclick="AUTH.logout()">
+                                <i class="ri-logout-box-line"></i> Logout
+                            </button>
+                        </div>
+                    </div>
                 `;
             } else {
                 authNav.innerHTML = `
-                    <a href="login.html" style="color:#d4af37;font-size:0.7rem;font-family:'Space Mono',monospace;text-decoration:none;border:1px solid #d4af37;padding:4px 10px;">Login</a>
+                    <a href="login.html" class="guest-login-link">
+                        <i class="ri-login-box-line"></i> Login
+                    </a>
                 `;
             }
 

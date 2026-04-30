@@ -123,7 +123,7 @@ router.post('/register', async (req, res) => {
 // PATCH /api/auth/profile (update own username/password)
 router.patch('/profile', verifyToken, async (req, res) => {
     try {
-        const { username, currentPassword, newPassword } = req.body;
+        const { username, firstName, lastName, currentPassword, newPassword } = req.body;
         const user = await User.findById(req.user._id);
 
         if (!user) {
@@ -134,6 +134,10 @@ router.patch('/profile', verifyToken, async (req, res) => {
         if (!['student', 'teacher'].includes(user.role)) {
             return res.status(403).json({ message: 'Bawal i-edit ang profile ng admin dito.' });
         }
+
+        // If updating name
+        if (firstName && firstName.trim()) user.firstName = firstName.trim();
+        if (lastName && lastName.trim()) user.lastName = lastName.trim();
 
         // If updating username
         if (username && username !== user.username) {
