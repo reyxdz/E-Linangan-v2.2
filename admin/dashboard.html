@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Linangan | Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../images/eLinangan_logo_cropped.png" alt="Logo" class="sidebar-logo">
+            <h2>E-LINANGAN</h2>
+            <span class="sidebar-badge">ADMIN</span>
+        </div>
+        <nav class="sidebar-nav">
+            <button class="nav-btn active" data-section="stats" onclick="showSection('stats')">
+                <i class="ri-dashboard-line"></i> Dashboard
+            </button>
+            <button class="nav-btn" data-section="schools" onclick="showSection('schools')">
+                <i class="ri-building-line"></i> Mga Paaralan
+            </button>
+            <button class="nav-btn" data-section="teachers" onclick="showSection('teachers')">
+                <i class="ri-user-star-line"></i> Mga Guro
+            </button>
+            <button class="nav-btn" data-section="students" onclick="showSection('students')">
+                <i class="ri-graduation-cap-line"></i> Mga Estudyante
+            </button>
+            <button class="nav-btn" data-section="admins" onclick="showSection('admins')">
+                <i class="ri-shield-user-line"></i> Mga Admin
+            </button>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <i class="ri-user-line"></i>
+                <span id="adminName">Admin</span>
+            </div>
+            <button class="logout-btn" onclick="AUTH.logout()">
+                <i class="ri-logout-box-line"></i> Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- Mobile header -->
+    <header class="mobile-header">
+        <button class="menu-toggle" onclick="toggleSidebar()"><i class="ri-menu-line"></i></button>
+        <h2>E-LINANGAN <span class="mobile-badge">ADMIN</span></h2>
+        <button class="logout-btn-mobile" onclick="AUTH.logout()"><i class="ri-logout-box-line"></i></button>
+    </header>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+        <!-- STATS SECTION -->
+        <section id="section-stats" class="section active">
+            <h1 class="section-title"><i class="ri-dashboard-line"></i> Dashboard</h1>
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card"><div class="stat-icon"><i class="ri-building-line"></i></div><div class="stat-info"><span class="stat-value" id="statSchools">-</span><span class="stat-label">Mga Paaralan</span></div></div>
+                <div class="stat-card"><div class="stat-icon"><i class="ri-user-star-line"></i></div><div class="stat-info"><span class="stat-value" id="statTeachers">-</span><span class="stat-label">Mga Guro</span></div></div>
+                <div class="stat-card"><div class="stat-icon"><i class="ri-graduation-cap-line"></i></div><div class="stat-info"><span class="stat-value" id="statStudents">-</span><span class="stat-label">Mga Estudyante</span></div></div>
+                <div class="stat-card warn"><div class="stat-icon"><i class="ri-time-line"></i></div><div class="stat-info"><span class="stat-value" id="statPendingStudents">-</span><span class="stat-label">Pending na Estudyante</span></div></div>
+                <div class="stat-card warn"><div class="stat-icon"><i class="ri-time-line"></i></div><div class="stat-info"><span class="stat-value" id="statPendingTeachers">-</span><span class="stat-label">Pending na Guro</span></div></div>
+                <div class="stat-card"><div class="stat-icon"><i class="ri-shield-user-line"></i></div><div class="stat-info"><span class="stat-value" id="statAdmins">-</span><span class="stat-label">Mga Admin</span></div></div>
+            </div>
+        </section>
+
+        <!-- SCHOOLS SECTION -->
+        <section id="section-schools" class="section">
+            <div class="section-header">
+                <h1 class="section-title"><i class="ri-building-line"></i> Mga Paaralan</h1>
+                <button class="action-btn" onclick="openModal('schoolModal')"><i class="ri-add-line"></i> Magdagdag</button>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="schoolsTable">
+                    <thead><tr><th>School ID</th><th>Pangalan</th><th>Petsa</th><th>Aksyon</th></tr></thead>
+                    <tbody id="schoolsBody"><tr><td colspan="4" class="loading-cell">Naglo-load...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TEACHERS SECTION -->
+        <section id="section-teachers" class="section">
+            <div class="section-header">
+                <h1 class="section-title"><i class="ri-user-star-line"></i> Mga Guro</h1>
+                <button class="action-btn" onclick="openModal('teacherModal')"><i class="ri-add-line"></i> Magdagdag</button>
+            </div>
+            <!-- Pending teachers -->
+            <div id="pendingTeachersSection" style="display:none;">
+                <h3 class="sub-title"><i class="ri-time-line"></i> Mga Naghihintay na Guro</h3>
+                <div class="table-container">
+                    <table class="data-table"><thead><tr><th>Pangalan</th><th>Username</th><th>Paaralan</th><th>Aksyon</th></tr></thead>
+                    <tbody id="pendingTeachersBody"></tbody></table>
+                </div>
+            </div>
+            <h3 class="sub-title" style="margin-top:1.5rem;"><i class="ri-check-line"></i> Mga Na-approve na Guro</h3>
+            <div class="table-container">
+                <table class="data-table" id="teachersTable">
+                    <thead><tr><th>Pangalan</th><th>Username</th><th>Paaralan</th><th>Petsa</th><th>Aksyon</th></tr></thead>
+                    <tbody id="teachersBody"><tr><td colspan="5" class="loading-cell">Naglo-load...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- STUDENTS SECTION -->
+        <section id="section-students" class="section">
+            <div class="section-header">
+                <h1 class="section-title"><i class="ri-graduation-cap-line"></i> Mga Estudyante</h1>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="studentsTable">
+                    <thead><tr><th>Pangalan</th><th>Username</th><th>Grade</th><th>Paaralan</th><th>Status</th><th>Aksyon</th></tr></thead>
+                    <tbody id="studentsBody"><tr><td colspan="6" class="loading-cell">Naglo-load...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ADMINS SECTION -->
+        <section id="section-admins" class="section">
+            <div class="section-header">
+                <h1 class="section-title"><i class="ri-shield-user-line"></i> Mga Admin</h1>
+                <button class="action-btn" onclick="openModal('adminModal')"><i class="ri-add-line"></i> Magdagdag</button>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="adminsTable">
+                    <thead><tr><th>Pangalan</th><th>Username</th><th>Petsa</th><th>Aksyon</th></tr></thead>
+                    <tbody id="adminsBody"><tr><td colspan="4" class="loading-cell">Naglo-load...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL: School -->
+    <div class="modal-overlay" id="schoolModal">
+        <div class="modal">
+            <div class="modal-header"><h2 id="schoolModalTitle">Magdagdag ng Paaralan</h2><button class="modal-close" onclick="closeModal('schoolModal')">&times;</button></div>
+            <form id="schoolForm" onsubmit="handleSchoolSubmit(event)">
+                <input type="hidden" id="schoolEditId">
+                <div class="form-group"><label>School ID</label><input type="text" id="schoolIdInput" placeholder="e.g. SCH-001" required></div>
+                <div class="form-group"><label>Pangalan ng Paaralan</label><input type="text" id="schoolNameInput" placeholder="e.g. Biliran Province State University" required></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('schoolModal')">Kanselahin</button>
+                    <button type="submit" class="btn-submit">I-save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: Teacher -->
+    <div class="modal-overlay" id="teacherModal">
+        <div class="modal">
+            <div class="modal-header"><h2 id="teacherModalTitle">Magdagdag ng Guro</h2><button class="modal-close" onclick="closeModal('teacherModal')">&times;</button></div>
+            <form id="teacherForm" onsubmit="handleTeacherSubmit(event)">
+                <input type="hidden" id="teacherEditId">
+                <div class="form-row"><div class="form-group"><label>Pangalan</label><input type="text" id="teacherFirstName" required></div><div class="form-group"><label>Apelyido</label><input type="text" id="teacherLastName" required></div></div>
+                <div class="form-group"><label>Username</label><input type="text" id="teacherUsername" required minlength="3"></div>
+                <div class="form-group"><label>Password</label><input type="password" id="teacherPassword" minlength="6"><small class="hint" id="teacherPasswordHint" style="display:none;">Iwanang blangko kung hindi babaguhin</small></div>
+                <div class="form-group"><label>Paaralan</label><select id="teacherSchool" required><option value="">Pumili...</option></select></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('teacherModal')">Kanselahin</button>
+                    <button type="submit" class="btn-submit">I-save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: Admin -->
+    <div class="modal-overlay" id="adminModal">
+        <div class="modal">
+            <div class="modal-header"><h2 id="adminModalTitle">Magdagdag ng Admin</h2><button class="modal-close" onclick="closeModal('adminModal')">&times;</button></div>
+            <form id="adminForm" onsubmit="handleAdminSubmit(event)">
+                <input type="hidden" id="adminEditId">
+                <div class="form-row"><div class="form-group"><label>Pangalan</label><input type="text" id="adminFirstName" required></div><div class="form-group"><label>Apelyido</label><input type="text" id="adminLastName" required></div></div>
+                <div class="form-group"><label>Username</label><input type="text" id="adminUsername" required minlength="3"></div>
+                <div class="form-group"><label>Password</label><input type="password" id="adminPassword" minlength="6"><small class="hint" id="adminPasswordHint" style="display:none;">Iwanang blangko kung hindi babaguhin</small></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('adminModal')">Kanselahin</button>
+                    <button type="submit" class="btn-submit">I-save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="../js-files/auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
