@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Linangan | Teacher Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- PDF/Excel export libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../images/eLinangan_logo_cropped.png" alt="Logo" class="sidebar-logo">
+            <h2>E-LINANGAN</h2>
+            <span class="sidebar-badge">GURO</span>
+        </div>
+        <nav class="sidebar-nav">
+            <button class="nav-btn active" data-section="pending" onclick="showSection('pending')">
+                <i class="ri-time-line"></i> Mga Naghihintay
+                <span class="pending-count" id="pendingCount" style="display:none;">0</span>
+            </button>
+            <button class="nav-btn" data-section="performance" onclick="showSection('performance')">
+                <i class="ri-bar-chart-line"></i> Performance
+            </button>
+            <button class="nav-btn" data-section="profile" onclick="showSection('profile')">
+                <i class="ri-settings-line"></i> Profile
+            </button>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info"><i class="ri-user-line"></i><span id="teacherName">Guro</span></div>
+            <div class="user-info" style="margin-bottom:0.6rem;"><i class="ri-building-line"></i><span id="teacherSchool">Paaralan</span></div>
+            <button class="logout-btn" onclick="AUTH.logout()"><i class="ri-logout-box-line"></i> Logout</button>
+        </div>
+    </aside>
+
+    <!-- Mobile header -->
+    <header class="mobile-header">
+        <button class="menu-toggle" onclick="toggleSidebar()"><i class="ri-menu-line"></i></button>
+        <h2>E-LINANGAN <span class="mobile-badge">GURO</span></h2>
+        <button class="logout-btn-mobile" onclick="AUTH.logout()"><i class="ri-logout-box-line"></i></button>
+    </header>
+
+    <main class="main-content">
+        <!-- PENDING SECTION -->
+        <section id="section-pending" class="section active">
+            <h1 class="section-title"><i class="ri-time-line"></i> Mga Naghihintay na Estudyante</h1>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead><tr><th>Pangalan</th><th>Username</th><th>Grade Level</th><th>Petsa</th><th>Aksyon</th></tr></thead>
+                    <tbody id="pendingBody"><tr><td colspan="5" class="loading-cell">Naglo-load...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PERFORMANCE SECTION -->
+        <section id="section-performance" class="section">
+            <div class="section-header">
+                <h1 class="section-title"><i class="ri-bar-chart-line"></i> Performance ng mga Estudyante</h1>
+                <div class="export-btns">
+                    <button class="action-btn" onclick="exportPDF()"><i class="ri-file-pdf-2-line"></i> PDF</button>
+                    <button class="action-btn" style="background:#34c759;border-color:#1a8a3e;" onclick="exportExcel()"><i class="ri-file-excel-2-line"></i> Excel</button>
+                </div>
+            </div>
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <label>Grade Level</label>
+                    <select id="filterGrade" onchange="loadPerformance()">
+                        <option value="">Lahat</option>
+                        <option value="Grade 7">Grade 7</option>
+                        <option value="Grade 8">Grade 8</option>
+                        <option value="Grade 9">Grade 9</option>
+                        <option value="Grade 10">Grade 10</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Quiz Status</label>
+                    <select id="filterQuizStatus" onchange="loadPerformance()">
+                        <option value="">Lahat</option>
+                        <option value="completed_both">Natapos pareho</option>
+                        <option value="completed_pretest">Pre-test lang</option>
+                        <option value="not_started">Hindi pa nagsimula</option>
+                    </select>
+                </div>
+            </div>
+            <div class="perf-summary" id="perfSummary"></div>
+            <div class="table-container">
+                <table class="data-table" id="perfTable">
+                    <thead><tr>
+                        <th>Pangalan</th><th>Grade</th><th>Paunang Pagsusulit</th><th>Pangwakas</th>
+                        <th>Improvement</th><th>Aralin</th><th>Oras</th>
+                    </tr></thead>
+                    <tbody id="perfBody"><tr><td colspan="7" class="loading-cell">Naglo-load...</td></tr></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PROFILE SECTION -->
+        <section id="section-profile" class="section">
+            <h1 class="section-title"><i class="ri-settings-line"></i> I-edit ang Profile</h1>
+            <div class="profile-card">
+                <form id="profileForm" onsubmit="handleProfileUpdate(event)">
+                    <div class="form-group"><label>Username</label><input type="text" id="profileUsername" required minlength="3"></div>
+                    <hr class="divider">
+                    <h3 class="sub-title" style="margin-top:0;">Palitan ang Password</h3>
+                    <div class="form-group"><label>Kasalukuyang Password</label><input type="password" id="profileCurrentPw"></div>
+                    <div class="form-group"><label>Bagong Password</label><input type="password" id="profileNewPw" minlength="6"></div>
+                    <div class="modal-actions"><button type="submit" class="btn-submit">I-save</button></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="../js-files/auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
