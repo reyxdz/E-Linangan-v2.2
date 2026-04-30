@@ -246,10 +246,46 @@
     </div>
 
     <!-- JS FILE -->
+    <script src="js-files/auth.js"></script>
     <script src="js-files/background_music.js"></script>
     <script src="js-files/index.js"></script>
     <script src="js-files/aralin.js"></script>
     <script src="js-files/preloader.js"></script>
     <script src="js-files/progress-bar.js"></script>
+    <script>
+        // Lesson progress tracking
+        (function() {
+            const LESSON_ID = 'aralin2';
+            const startTime = Date.now();
+
+            if (typeof AUTH !== 'undefined' && AUTH.isLoggedIn() && AUTH.getUserRole() === 'student') {
+                AUTH.apiCall('/api/progress/start', {
+                    method: 'POST',
+                    body: JSON.stringify({ lessonId: LESSON_ID })
+                }).then(r => {
+                    if (!r.error) console.log('Lesson start recorded:', LESSON_ID);
+                }).catch(e => console.log('Progress start error:', e));
+            }
+
+            function recordComplete() {
+                if (typeof AUTH === 'undefined' || !AUTH.isLoggedIn() || AUTH.getUserRole() !== 'student') return;
+                const timeSpentSeconds = Math.round((Date.now() - startTime) / 1000);
+                const token = AUTH.getToken();
+                const url = `${AUTH.API_BASE_URL}/api/progress/complete`;
+                const data = JSON.stringify({ lessonId: LESSON_ID, timeSpentSeconds });
+                fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                    body: data,
+                    keepalive: true
+                }).catch(() => {});
+            }
+
+            window.addEventListener('beforeunload', recordComplete);
+            document.addEventListener('visibilitychange', function() {
+                if (document.visibilityState === 'hidden') recordComplete();
+            });
+        })();
+    </script>
 </body>
 </html>
