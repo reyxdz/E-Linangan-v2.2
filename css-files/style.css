@@ -382,6 +382,12 @@ a{
         column-gap: 3.5rem;
         margin-left: auto;
     }
+
+    .profile-trigger, 
+    .guest-login-link {
+        margin-left: 3.5rem;
+        margin-right: 0;
+    }
 }
 
 @media screen and (max-width: 678px){
