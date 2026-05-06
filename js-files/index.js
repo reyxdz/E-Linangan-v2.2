@@ -5,13 +5,15 @@ let items = document.querySelectorAll('.slider .list .item');
 let countItem = items.length;
 let itemActive = 0;
 
-let refreshInterval = setInterval(() => {
-    itemActive = (itemActive + 1) % countItem;
-    showSlider();
-}, 3000);
-
+if (countItem > 0) {
+    let refreshInterval = setInterval(() => {
+        itemActive = (itemActive + 1) % countItem;
+        showSlider();
+    }, 3000);
+}
 
 function showSlider() {
+    if (countItem === 0) return;
     // REMOVE OLD ACTIVE ITEM
     items.forEach(item => item.classList.remove('active'));
     // NEW ACTIVE ITEM
@@ -44,11 +46,13 @@ if (navClose) {
 // LOADER
 window.addEventListener('load', () => {
     const preloader = document.querySelector('.body');
-    preloader.classList.add('fade-out');
+    if (preloader) {
+        preloader.classList.add('fade-out');
 
-    setTimeout(() => {
-    window.location.href = "welcome.html";
-    }, 1000); // adjust delay based on your fade-out animation
+        setTimeout(() => {
+        window.location.href = "welcome.html";
+        }, 1000); // adjust delay based on your fade-out animation
+    }
 });
 
 
@@ -84,19 +88,21 @@ document.addEventListener('keydown', function(event) {
 // Dropdown functionality
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownToggle = document.getElementById('nilalaman-toggle');
-    const dropdown = dropdownToggle.closest('.dropdown');
-    
-    dropdownToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        dropdown.classList.toggle('active');
+    if (dropdownToggle) {
+        const dropdown = dropdownToggle.closest('.dropdown');
         
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!dropdown.contains(event.target)) {
-                dropdown.classList.remove('active');
-            }
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
         });
-    });
+    }
 });
 
 
@@ -131,6 +137,7 @@ currentLink.classList.add("active");
 //---------- GAMES CONTAINER STARTS ----------//
 function scrollGames(direction) {
     const wrapper = document.getElementById('gamesWrapper');
+    if (!wrapper) return;
     const scrollAmount = 300;
     
     if (direction === 'left') {
@@ -141,59 +148,64 @@ function scrollGames(direction) {
 }
 
 // Hide/show scroll buttons based on scroll position
-document.getElementById('gamesWrapper').addEventListener('scroll', function() {
-    const wrapper = this;
-    const leftButton = document.querySelector('.scroll-left');
-    const rightButton = document.querySelector('.scroll-right');
-    
-    // Hide left button if at the start
-    if (wrapper.scrollLeft <= 0) {
-        leftButton.style.opacity = '0.3';
-    } else {
-        leftButton.style.opacity = '0.7';
-    }
-    
-    // Hide right button if at the end
-    if (wrapper.scrollLeft >= wrapper.scrollWidth - wrapper.clientWidth - 1) {
-        rightButton.style.opacity = '0.3';
-    } else {
-        rightButton.style.opacity = '0.7';
-    }
-});
-
-// Initialize button states
-window.addEventListener('load', function() {
-    document.getElementById('gamesWrapper').dispatchEvent(new Event('scroll'));
-});
-
-// Touch/swipe support for mobile
-let isDown = false;
-let startX;
-let scrollLeft;
 const wrapper = document.getElementById('gamesWrapper');
+if (wrapper) {
+    wrapper.addEventListener('scroll', function() {
+        const leftButton = document.querySelector('.scroll-left');
+        const rightButton = document.querySelector('.scroll-right');
+        
+        // Hide left button if at the start
+        if (leftButton) {
+            if (wrapper.scrollLeft <= 0) {
+                leftButton.style.opacity = '0.3';
+            } else {
+                leftButton.style.opacity = '0.7';
+            }
+        }
+        
+        // Hide right button if at the end
+        if (rightButton) {
+            if (wrapper.scrollLeft >= wrapper.scrollWidth - wrapper.clientWidth - 1) {
+                rightButton.style.opacity = '0.3';
+            } else {
+                rightButton.style.opacity = '0.7';
+            }
+        }
+    });
 
-wrapper.addEventListener('mousedown', (e) => {
-    isDown = true;
-    wrapper.style.cursor = 'grabbing';
-    startX = e.pageX - wrapper.offsetLeft;
-    scrollLeft = wrapper.scrollLeft;
-});
+    // Initialize button states
+    window.addEventListener('load', function() {
+        wrapper.dispatchEvent(new Event('scroll'));
+    });
 
-wrapper.addEventListener('mouseleave', () => {
-    isDown = false;
-    wrapper.style.cursor = 'grab';
-});
+    // Touch/swipe support for mobile
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-wrapper.addEventListener('mouseup', () => {
-    isDown = false;
-    wrapper.style.cursor = 'grab';
-});
+    wrapper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        wrapper.style.cursor = 'grabbing';
+        startX = e.pageX - wrapper.offsetLeft;
+        scrollLeft = wrapper.scrollLeft;
+    });
 
-wrapper.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - wrapper.offsetLeft;
-    const walk = (x - startX) * 2;
-    wrapper.scrollLeft = scrollLeft - walk;
-});
+    wrapper.addEventListener('mouseleave', () => {
+        isDown = false;
+        wrapper.style.cursor = 'grab';
+    });
+
+    wrapper.addEventListener('mouseup', () => {
+        isDown = false;
+        wrapper.style.cursor = 'grab';
+    });
+
+    wrapper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - wrapper.offsetLeft;
+        const walk = (x - startX) * 2;
+        wrapper.scrollLeft = scrollLeft - walk;
+    });
+}
 //---------- GAMES CONTAINER ENDS -----------//
