@@ -75,7 +75,7 @@ body { font-family: 'Space Mono', monospace; background: var(--bg); color: var(-
 .improvement-neutral { color: var(--text-dim); }
 
 /* Profile */
-.profile-card { max-width: 450px; background: var(--bg-card); border: 2px solid var(--gold-dim); padding: 1.5rem; }
+.profile-card { width: 100%; background: var(--bg-card); border: 2px solid var(--gold-dim); padding: 1.5rem; }
 .profile-card .form-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 1rem; }
 .profile-card label { color: var(--gold); font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; }
 .profile-card input { background: rgba(255,255,255,0.05); border: 2px solid var(--gold-dim); color: var(--text); padding: 0.65rem 0.8rem; font-family: inherit; font-size: 0.85rem; outline: none; }
