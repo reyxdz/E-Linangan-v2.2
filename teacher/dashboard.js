@@ -137,8 +137,17 @@ async function loadPerformance() {
 function exportPDF() {
     if (!performanceData.length) return showToast('Walang datos na mai-export.', true);
 
+    if (!window.jspdf) return showToast('PDF library hindi pa na-load. Subukan muli.', true);
+
+    // Ensure autotable plugin can find jsPDF
+    if (!window.jsPDF) window.jsPDF = window.jspdf.jsPDF;
+
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('landscape');
+
+    if (typeof doc.autoTable !== 'function') {
+        return showToast('PDF table plugin hindi na-load. I-refresh ang page at subukan muli.', true);
+    }
 
     // Title
     doc.setFontSize(16);
