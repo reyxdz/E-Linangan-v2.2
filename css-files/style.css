@@ -630,31 +630,47 @@ a {
 }
 
 .header2 {
-    background: #141414;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.95));
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
+    padding: 60px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     text-align: center;
-    animation: fadeInUp 0.8s ease-out;
-    font-family: Medieval;
+    animation: fadeInUp 1s ease-out;
+    font-family: 'MedievalSharp', cursive;
     color: var(--light-color);
+    border: 1px solid rgba(225, 211, 182, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.header2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(225, 211, 182, 0.3), transparent);
 }
 
 .header2 h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: var(--light-color);
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    letter-spacing: 4px;
 }
 
 .header2 h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #e74c3c;
     margin-bottom: 20px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
 }
 
 .content-grid {
@@ -665,12 +681,19 @@ a {
 }
 
 .text-content {
-    background: #141414;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(35, 35, 35, 0.9), rgba(20, 20, 20, 0.95));
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
     padding: 40px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    animation: fadeInLeft 0.8s ease-out;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    animation: fadeInLeft 1s ease-out;
+    border: 1px solid rgba(225, 211, 182, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.text-content:hover {
+    border-color: rgba(225, 211, 182, 0.2);
+    transform: translateY(-5px);
 }
 
 .text-content h3 {
@@ -689,12 +712,19 @@ a {
 }
 
 .video-section {
-    background: #141414;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(35, 35, 35, 0.9), rgba(20, 20, 20, 0.95));
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
     padding: 40px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    animation: fadeInRight 0.8s ease-out;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    animation: fadeInRight 1s ease-out;
+    border: 1px solid rgba(225, 211, 182, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.video-section:hover {
+    border-color: rgba(225, 211, 182, 0.2);
+    transform: translateY(-5px);
 }
 
 .video-section h3 {
