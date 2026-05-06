@@ -492,7 +492,7 @@
             // Create celebration text
             const celebText = document.createElement('div');
             celebText.className = 'celebration-text';
-            celebText.innerHTML = '🎉 Napakahusay! 🎉<br>Ipagpatuloy mo!';
+            celebText.innerHTML = '<i class="fas fa-trophy"></i> Napakahusay! <i class="fas fa-trophy"></i><br>Ipagpatuloy mo!';
             document.body.appendChild(celebText);
 
             // Remove celebration effects after animation
@@ -506,7 +506,7 @@
             // Create sad emoji
             const sadEmoji = document.createElement('div');
             sadEmoji.className = 'sad-emoji';
-            sadEmoji.textContent = '😔';
+            sadEmoji.innerHTML = '<i class="fas fa-frown"></i>';
             sadEmoji.style.left = Math.random() * 80 + 10 + '%';
             document.body.appendChild(sadEmoji);
 

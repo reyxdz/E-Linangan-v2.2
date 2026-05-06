@@ -57,7 +57,7 @@ async function loadPending() {
     const countEl = document.getElementById('pendingCount');
 
     if (!r.students.length) {
-        tbody.innerHTML = '<tr><td colspan="5" class="loading-cell">Walang naghihintay na estudyante. 🎉</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" class="loading-cell">Walang naghihintay na estudyante. <i class="fas fa-star"></i></td></tr>';
         countEl.style.display = 'none';
         return;
     }

@@ -78,7 +78,9 @@ body {
 }
 
 .content::before {
-    content: '📜';
+    content: '\f70e';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
     position: absolute;
     top: -10px;
     left: 20px;

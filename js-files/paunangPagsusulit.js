@@ -540,26 +540,26 @@ class MedievalQuiz {
         let rank, description;
         
         if (percentage >= 90) {
-            rank = "🏰 Marangal na Ginoo/Ginang";
+            rank = "<i class='fab fa-fort-awesome'></i> Marangal na Ginoo/Ginang";
             description = "Ikaw ay tunay na bihasa sa mga paraan ng kaharian ng gitnang panahon! Isang dalubhasa sa kasaysayan!";
         } else if (percentage >= 80) {
-            rank = "⚔️ Kabalyero";
+            rank = "<i class='fas fa-khanda'></i> Kabalyero";
             description = "Magaling, matapang na kabalyero! Ang iyong kaalaman ay malaking tulong sa iyo sa mga sinaunang lupain na ito!";
         } else if (percentage >= 70) {
-            rank = "🛡️ Eskuwyer";
+            rank = "<i class='fas fa-shield-alt'></i> Eskuwyer";
             description = "Isang kapuri-puring pagtatanghal! Sa mas maraming pag-aaral, ikaw ay magiging isang tunay na kabalyero!";
         } else if (percentage >= 60) {
-            rank = "🏹 Mamamana";
+            rank = "<i class='fas fa-location-arrow'></i> Mamamana";
             description = "Maganda ang iyong layunin, ngunit may puwang pa para sa pagpapabuti sa iyong pag-aaral ng medyebal na panahon!";
         } else if (percentage >= 50) {
-            rank = "🔨 Panday";
+            rank = "<i class='fas fa-hammer'></i> Panday";
             description = "Ikaw ay may kaunting kaalaman, ngunit higit pang pagkatuto ang naghihintay sa iyo sa pandayan ng karunungan!";
         } else {
-            rank = "👨‍🌾 Magsasaka";
+            rank = "<i class='fas fa-seedling'></i> Magsasaka";
             description = "Huwag matakot! Bawat panginoon ay minsang isang-pangkaraniwang tao. Pag-aralan ang panahon ng medieval at bumalik!";
         }
         
-        this.rankTitle.textContent = rank;
+        this.rankTitle.innerHTML = rank;
         this.rankDescription.textContent = description;
     }
     

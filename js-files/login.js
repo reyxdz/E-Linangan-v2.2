@@ -97,18 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
             banner.style.border = '1px solid #d4af37';
             banner.style.color = '#d4af37';
             const approver = role === 'teacher' ? 'admin' : 'guro';
-            banner.innerHTML = `⏳ Matagumpay na nairehistro! Hinihintay ang pag-apruba ng ${approver}. Subukang mag-login muli mamaya.`;
+            banner.innerHTML = `<i class="fas fa-hourglass-half"></i> Matagumpay na nairehistro! Hinihintay ang pag-apruba ng ${approver}. Subukang mag-login muli mamaya.`;
         } else if (status === 'approved') {
             banner.style.background = 'rgba(76, 175, 80, 0.15)';
             banner.style.border = '1px solid #4CAF50';
             banner.style.color = '#4CAF50';
-            banner.innerHTML = '✅ Inaprubahan na ang iyong account! Maaari ka nang mag-login.';
+            banner.innerHTML = '<i class="fas fa-check-circle"></i> Inaprubahan na ang iyong account! Maaari ka nang mag-login.';
         } else if (status === 'rejected') {
             banner.style.background = 'rgba(244, 67, 54, 0.15)';
             banner.style.border = '1px solid #F44336';
             banner.style.color = '#F44336';
             const contact = role === 'teacher' ? 'Makipag-ugnayan sa admin.' : 'Makipag-ugnayan sa iyong guro.';
-            banner.innerHTML = `❌ Tinanggihan ang iyong rehistrasyon. ${contact}`;
+            banner.innerHTML = `<i class="fas fa-times-circle"></i> Tinanggihan ang iyong rehistrasyon. ${contact}`;
         }
 
         // Clean the URL without reloading

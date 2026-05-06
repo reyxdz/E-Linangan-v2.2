@@ -171,7 +171,7 @@ const AUTH = {
 
         return `
             <div class="nav-auth">
-                <span class="nav-user">👤 ${user.firstName}</span>
+                <span class="nav-user"><i class="fas fa-user"></i> ${user.firstName}</span>
                 <button class="nav-logout-btn" onclick="AUTH.logout()">Logout</button>
             </div>
         `;

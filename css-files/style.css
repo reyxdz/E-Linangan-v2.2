@@ -503,7 +503,9 @@ a {
 }
 
 .popup::after {
-    content: '⚔️';
+    content: '\f714'; /* fa-khanda */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
     position: absolute;
     top: -5px;
     left: 50%;
@@ -1234,7 +1236,10 @@ a {
 
 
 .dropdown-link.finished::before {
-    content: "✔ ";
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 5px;
     color: lightgreen;
     font-weight: bold;
 }
