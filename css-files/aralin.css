@@ -84,7 +84,7 @@ body {
     position: absolute;
     top: -10px;
     left: 20px;
-    background: var(--dark-color);
+    background: transparent;
     padding: 0 10px;
     font-size: 1.5rem;
 }
