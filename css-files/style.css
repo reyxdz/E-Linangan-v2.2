@@ -503,7 +503,8 @@ a {
 }
 
 .popup::after {
-    content: '\f714'; /* fa-khanda */
+    content: '\f714';
+    /* fa-khanda */
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     position: absolute;
@@ -987,9 +988,11 @@ a {
     border-color: rgba(43, 88, 118, 0.3);
     color: var(--light-color);
 }
+
 .module-1::before {
     background: linear-gradient(90deg, #2b5876, #4e4376);
 }
+
 .module-1:hover {
     box-shadow: 0 20px 40px rgba(43, 88, 118, 0.25);
     border-color: rgba(43, 88, 118, 0.6);
@@ -1000,9 +1003,11 @@ a {
     border-color: rgba(200, 107, 30, 0.3);
     color: var(--light-color);
 }
+
 .module-2::before {
     background: linear-gradient(90deg, #f2994a, #f2c94c);
 }
+
 .module-2:hover {
     box-shadow: 0 20px 40px rgba(242, 153, 74, 0.25);
     border-color: rgba(242, 153, 74, 0.6);
@@ -1013,9 +1018,11 @@ a {
     border-color: rgba(30, 120, 80, 0.3);
     color: var(--light-color);
 }
+
 .module-3::before {
     background: linear-gradient(90deg, #11998e, #38ef7d);
 }
+
 .module-3:hover {
     box-shadow: 0 20px 40px rgba(17, 153, 142, 0.25);
     border-color: rgba(17, 153, 142, 0.6);
@@ -1329,7 +1336,8 @@ a {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 20px;
-    transform: translateZ(0); /* Hardware acceleration layer */
+    transform: translateZ(0);
+    /* Hardware acceleration layer */
 }
 
 .games-wrapper {
@@ -1373,7 +1381,8 @@ a {
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    transform: translateZ(0); /* Hardware acceleration */
+    transform: translateZ(0);
+    /* Hardware acceleration */
     will-change: transform;
 }
 
@@ -1417,7 +1426,8 @@ a {
 .game-info {
     height: 30%;
     padding: 15px;
-    background: rgba(60, 70, 90, 0.95); /* Removed heavy backdrop-filter for performance */
+    background: rgba(60, 70, 90, 0.95);
+    /* Removed heavy backdrop-filter for performance */
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -1614,22 +1624,6 @@ footer {
     }
 }
 
-/* Footer Social Media Icons */
-.footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 1rem 0;
-}
-
-.footer-divider {
-    width: 80%;
-    max-width: 300px;
-    height: 1px;
-    background: rgba(245, 245, 240, 0.2);
-    margin: 1rem auto;
-}
-
 .social-icon {
     color: #F5F5F0;
     font-size: 1.5rem;
@@ -1662,10 +1656,6 @@ footer {
 
 /* Update existing footer media query */
 @media (max-width: 640px) {
-    .footer-social {
-        gap: 1.5rem;
-    }
-
     .social-icon {
         font-size: 1.25rem;
     }
