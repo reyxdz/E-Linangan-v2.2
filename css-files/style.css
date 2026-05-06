@@ -1288,6 +1288,7 @@ a {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 20px;
+    transform: translateZ(0); /* Hardware acceleration layer */
 }
 
 .games-wrapper {
@@ -1298,6 +1299,8 @@ a {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #E1D3B6 rgba(255, 255, 255, 0.1);
+    -webkit-overflow-scrolling: touch;
+    will-change: scroll-position;
 }
 
 .games-wrapper::-webkit-scrollbar {
@@ -1329,6 +1332,8 @@ a {
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+    transform: translateZ(0); /* Hardware acceleration */
+    will-change: transform;
 }
 
 .game-card:hover {
@@ -1371,8 +1376,7 @@ a {
 .game-info {
     height: 30%;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(60, 70, 90, 0.95); /* Removed heavy backdrop-filter for performance */
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
