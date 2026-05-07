@@ -164,16 +164,62 @@ const AUTH = {
         return depth > 0 ? '../'.repeat(depth) : '';
     },
 
-    // Build nav auth HTML (login/logout indicator)
-    buildNavAuth() {
-        const user = this.getUser();
-        if (!user) return '';
+    renderNavAuth(containerId = 'authNav') {
+        const authNav = document.getElementById(containerId);
+        if (!authNav) return;
 
-        return `
-            <div class="nav-auth">
-                <span class="nav-user"><i class="fas fa-user"></i> ${user.firstName}</span>
-                <button class="nav-logout-btn" onclick="AUTH.logout()">Logout</button>
-            </div>
+        const prefix = this.getPathPrefix();
+
+        if (this.isLoggedIn()) {
+            const user = this.getUser();
+            authNav.innerHTML = `
+                <div class="profile-trigger" id="profileTrigger" onclick="AUTH.toggleNavProfileDropdown(event)">
+                    <i class="ri-user-line"></i>
+                    <span class="profile-name">${user.firstName}</span>
+                    <i class="ri-arrow-down-s-line profile-arrow"></i>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <button class="dropdown-item logout-item" onclick="AUTH.logout()">
+                            <i class="ri-logout-box-line"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        authNav.innerHTML = `
+            <a href="${prefix}login.html" class="guest-login-link">
+                <i class="ri-login-box-line"></i> Login
+            </a>
         `;
+    },
+
+    toggleNavProfileDropdown(event) {
+        event?.stopPropagation();
+        const trigger = document.getElementById('profileTrigger');
+        const dropdown = document.getElementById('profileDropdown');
+        if (!trigger || !dropdown) return;
+
+        trigger.classList.toggle('active');
+        dropdown.classList.toggle('show');
+    },
+
+    closeNavProfileDropdown() {
+        document.getElementById('profileTrigger')?.classList.remove('active');
+        document.getElementById('profileDropdown')?.classList.remove('show');
     }
 };
+
+document.addEventListener('click', (event) => {
+    const trigger = document.getElementById('profileTrigger');
+    if (trigger && !trigger.contains(event.target)) {
+        AUTH.closeNavProfileDropdown();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const authNav = document.getElementById('authNav');
+    if (authNav && !authNav.innerHTML.trim()) {
+        AUTH.renderNavAuth();
+    }
+});
