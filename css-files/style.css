@@ -133,6 +133,15 @@ a {
 
 /* Navigation for mobile devices */
 @media screen and (max-width: 1150px) {
+    .container {
+        margin-inline: 0.5rem;
+    }
+
+    .nav {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
     .nav_menu {
         position: fixed;
         top: -100%;
@@ -150,6 +159,16 @@ a {
 
     .nav_logo {
         font-size: 15px;
+        margin-right: auto;
+    }
+
+    #authNav {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav_toggle {
+        margin-left: 0.75rem;
     }
 
     .nav_item {
@@ -382,9 +401,13 @@ a {
         margin-left: auto;
     }
 
+    #authNav {
+        margin-left: 3.5rem;
+    }
+
     .profile-trigger,
     .guest-login-link {
-        margin-left: 3.5rem;
+        margin-left: 0;
         margin-right: 0;
     }
 }
@@ -886,6 +909,14 @@ a {
 }
 
 @media (max-width: 480px) {
+    .container {
+        margin-inline: 0.25rem;
+    }
+
+    .nav {
+        padding-inline: 0.1rem;
+    }
+
     .header2 h1 {
         font-size: 2rem;
     }
@@ -904,16 +935,52 @@ a {
     }
 
     .nav_logo {
-        gap: 5px;
+        gap: 4px;
     }
 
     .nav_logo-img {
-        height: 40px;
+        height: 36px;
     }
 
     .nav_logo-text {
-        font-size: 14px;
-        margin-left: -0.4rem;
+        font-size: 13px;
+        margin-left: -0.25rem;
+    }
+
+    .guest-login-link {
+        gap: 4px;
+        padding: 4px 9px;
+        font-size: 0.72rem;
+    }
+
+    .nav_toggle {
+        margin-left: 0.7rem;
+        font-size: 1.35rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        margin-inline: 0.15rem;
+    }
+
+    .nav_logo-img {
+        height: 34px;
+    }
+
+    .nav_logo-text {
+        font-size: 12px;
+    }
+
+    .guest-login-link {
+        padding: 3px 8px;
+        font-size: 0.68rem;
+    }
+
+    .nav_toggle {
+        margin-left: 0.35rem;
+        font-size: 1.25rem;
+        margin-right: 0.5rem;
     }
 }
 
@@ -1961,7 +2028,8 @@ footer {
 
     .profile-trigger,
     .guest-login-link {
-        margin-right: 5px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .profile-trigger .profile-name {
